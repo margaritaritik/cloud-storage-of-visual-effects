@@ -39,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tanstack/react-query": "^4.22.0",
+    "react-router-dom": "^6.6.1",
+    "universal-cookie": "^4.0.4"
   }
 }
