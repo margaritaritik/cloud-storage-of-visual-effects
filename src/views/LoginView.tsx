@@ -20,7 +20,7 @@ const LoginView = () => {
                 cookies.set('token', token, { path: '/' });
                 setResult("Пользователь успешно вошел!");
                 setTimeout(() => {
-                    navigate("/");
+                    navigate("/user");
                 }, 1000);
             } catch (e) {
                 if (e instanceof Error) {

@@ -19,14 +19,11 @@ export default function RegistrationForm({onSubmit}: FormProps) {
 
     const isValid = (): boolean => {
         let result = true;
-
-        // очищаем ошибки
         setLoginError("");
-
-        if (!/^([a-z0-9]{6,20})$/.test(login)) {
-            setLoginError("Логин должен содержать от 6 до 20 символов латинского алфавита и цифры.");
-            result = false;
-        }
+        // if (!/^([a-z0-9]{6,20})$/.test(login)) {
+        //     setLoginError("Логин должен содержать от 6 до 20 символов латинского алфавита и цифры.");
+        //     result = false;
+        // }
 
         if (login.length === 0) {
             setLoginError("Логин не может быть пустым.");
@@ -65,8 +62,7 @@ export default function RegistrationForm({onSubmit}: FormProps) {
                 </div>
                 <div className={styles.form_group}>
                     <input  type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="password"/>
-                    {passwordError && <div className={styles.error}>
-                        {passwordError}
+                    {passwordError && <div className={styles.error}>{passwordError}
                     </div>}
                     <label className={styles.form_label}>password</label>
                 </div>

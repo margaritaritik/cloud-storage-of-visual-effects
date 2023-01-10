@@ -14,10 +14,10 @@ const RegistrationView = () => {
             setError("");
             try {
                 await API.user.register(data);
-                setResult("Пользователь успешно создан!");
+                setResult('Пользователь успешно зарегистрирован!');
                 setTimeout(() => {
-                    navigate("/login");
-                }, 2000);
+                    navigate(`/login`);
+                }, 1000);
             } catch (e) {
                 if (e instanceof Error) {
                     setError(e.message);
