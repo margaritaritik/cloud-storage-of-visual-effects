@@ -13,7 +13,7 @@ function Home() {
             setError("");
             try {
                 const user = await API.user.getCurrentUser();
-                setResult(`Добро пожаловать, ${user.name}`);
+                setResult(`Добро пожаловать, ${user.name}!`);
                 setLogged(true);
             } catch (e) {
                 if (e instanceof Error) {
@@ -24,27 +24,9 @@ function Home() {
         userRequest();
     }, []);
 
-    const handleLogout = () => {
-        const logoutRequest = async () => {
-            try {
-                await API.auth.logout();
-                setLogged(false);
-                setResult("");
-            } catch (e) {
-                if (e instanceof Error) {
-                    setError(e.message);
-                }
-            }
-        };
-        logoutRequest();
-    };
-
     return <>
-        <h3>Home</h3>
-        Home sweet home
         {result && <div>{result}</div>}
         {error && <div>{error}</div>}
-        {isLogged && <button onClick={handleLogout}>Разлогиниться</button>}
     </>;
 }
 

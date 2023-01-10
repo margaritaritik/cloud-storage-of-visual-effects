@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import styles from "../styles/input/stylesloginInput.module.css"
+import stylesView from "../styles/views/stylesViewsLoginRegistration.module.css";
 
 export type RegistrationFormData = {
     login: string;
@@ -54,20 +55,23 @@ export default function RegistrationForm({onSubmit}: FormProps) {
     };
 
     return <>
+        <div className={stylesView.container}>
         <h3>Регистрация</h3>
-        <form onSubmit={handleSubmit}>
-            <div className={styles.form_group}>
-                <input value={login} onChange={e => setLogin(e.target.value)} placeholder="login"/>
-                <label className={styles.form_label}>login</label>
-            </div>
-            <div className={styles.form_group}>
-                <input  type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="password"/>
-                {passwordError && <div className={styles.error}>
-                    {passwordError}
-                </div>}
-                <label className={styles.form_label}>password</label>
-            </div>
-            <button type="submit">Войти</button>
-        </form>
+
+            <form onSubmit={handleSubmit}>
+                <div className={styles.form_group}>
+                    <input value={login} onChange={e => setLogin(e.target.value)} placeholder="login"/>
+                    <label className={styles.form_label}>login</label>
+                </div>
+                <div className={styles.form_group}>
+                    <input  type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="password"/>
+                    {passwordError && <div className={styles.error}>
+                        {passwordError}
+                    </div>}
+                    <label className={styles.form_label}>password</label>
+                </div>
+                <button type="submit">Войти</button>
+            </form>
+        </div>
     </>;
 }
