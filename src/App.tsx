@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     Route,
-    Routes
+    Routes,
+    Navigate
 } from 'react-router-dom';
 
 import './App.css';
@@ -14,10 +15,11 @@ function App() {
   return <>
       <Routes>
           <Route path='/' element={<Layout/>}>
-              <Route index element={<Home />} />
-              <Route path='/login' element={<LoginView/>} />
-              <Route path='/registration' element={<RegistrationView/>} />
-              <Route path='/user' element={<Home/>} />
+          <Route index element={<Home />} />
+          <Route path='/login' element={<LoginView/>} />
+          <Route path='/registration' element={<RegistrationView/>} />
+          <Route path='/user' element={<Home/>} />
+          <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
       </Routes>
   </>;
