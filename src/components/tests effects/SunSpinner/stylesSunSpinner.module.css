@@ -1,0 +1,128 @@
+.container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*background: radial-gradient(#e3a302, rgba(201, 24, 8, 0.62));*/
+    overflow: hidden;
+    justify-content: center;
+    text-align: center;
+}
+
+.suncontainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    max-width: 100px;
+    max-height: 100px;
+    top: 30px;
+    left: 50%;
+    /*transition: all 5s linear 2s;*/
+    /*animation: sunrise_animation 20s;*/
+    /*animation-direction: alternate-reverse;*/
+    /*animation-iteration-count: infinite;*/
+}
+.sunrise{
+    position: absolute;
+    opacity: 1;
+    width: 50%;
+    height: 50%;
+    top: 30%;
+    left: -25%;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 60%;
+    background: radial-gradient(#fc9002, rgb(253, 24, 3));
+    z-index: 10;
+}
+.suncontainer li{
+    position: absolute;
+    display: block;
+    list-style-type: none;
+    border: 10px solid transparent;
+    border-left: 120px solid #fc6203;
+    top: 0;
+    /*margin-right: -25%;*/
+    transition: all 5s linear 2s;
+    animation: rays_animation 6s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+
+
+}
+
+.suncontainer li:nth-child(9){
+    right: 70%;
+    top: -12%;
+    rotate: 240deg;
+}
+.suncontainer li:nth-child(2){
+    right: 10%;
+    top: -14%;
+    rotate: 300deg;
+}
+.suncontainer li:nth-child(3){
+    right: 15%; top: 97%;
+    rotate: 70deg;
+}
+.suncontainer li:nth-child(4){
+    right: 94%; top: 66%;
+    rotate:155deg;
+}
+.suncontainer li:nth-child(5){
+    right: 97%; top: 25%;
+    rotate: 195deg;
+}
+
+.suncontainer li:nth-child(7){
+    right: 60%; top: 97%;
+    rotate:109deg;
+}
+.suncontainer li:nth-child(8){
+    right: -19%; top: 65%;
+    rotate:24deg;
+}
+.suncontainer li:nth-child(6){
+    right: -21%; top: 25%;
+    rotate:-15deg;
+}
+
+
+@keyframes sunrise_animation {
+    0%{
+        top: 113%;
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.7;
+    }
+    70%{
+        opacity: 0.8;
+    }
+    100%{
+        top:20%;
+        opacity: 1;
+    }
+}
+
+@keyframes rays_animation {
+    0%{
+        /*opacity: 0;*/
+        transform: rotate(-20deg);
+    }
+    50%{
+        opacity: 0.1;
+    }
+    53%{
+        opacity: 0.4;
+    }
+    80%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+        transform:  translate(5px, 50%);
+        transform: rotate(180deg);
+    }
+}

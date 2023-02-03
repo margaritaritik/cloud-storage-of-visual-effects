@@ -1,0 +1,135 @@
+.container{
+  position: relative;
+  background-color: rgba(255, 0, 0, 0);
+  width: 100px;
+  height: 100px;
+}
+
+.binder{
+  position: absolute;
+  top: 80%;
+  left: 5%;
+  background-color: #001a91;
+  width:90%;
+  height: 6%;
+  border-radius: 10px;
+
+}
+.binder::after{
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: 45%;
+  width:15%;
+  height: 110%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 110px;
+  clip-path: circle(45%) content-box;
+
+}
+
+.container .page:nth-child(1){
+  position: absolute;
+  top: 74%;
+  left: 3%;
+  width:40%;
+  height: 5px;
+  background-color: #000000;
+  border-width: 20px;
+  box-shadow: black;
+}
+.container .page:nth-child(6){
+  position: absolute;
+  top: 74%;
+  right: 3%;
+  width:35%;
+  height: 5px;
+  background-color: #fffdfd;
+  border-width: 20px;
+  box-shadow: black;
+}
+
+.container .page:nth-child(2){
+    position:absolute;
+    top: 70%;
+    right: 2%;
+    width:40%;
+    height: 5px;
+    transform-origin: left;
+    background-color: #9147ff;
+    animation: bookList 1s linear;
+    transition: all 2s linear 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    border-radius: 50%/5px 5px 0 0;
+  animation-delay: 100ms;
+}
+
+.container .page:nth-child(3){
+  position:absolute;
+  top: 70%;
+  right: 2%;
+  width:40%;
+  height: 5px;
+  transform-origin: left;
+  background-color: #9147ff;
+  animation: bookList 1s linear;
+  transition: all 2s linear 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border-radius: 50%/5px 5px 0 0;
+  animation-delay: 300ms;
+}
+.container .page:nth-child(4){
+  position:absolute;
+  top: 70%;
+  right: 2%;
+  width:40%;
+  height: 5px;
+  transform-origin: left;
+  background-color: #9147ff;
+  animation: bookList 1s linear;
+  transition: all 2s linear 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border-radius: 50%/5px 5px 0 0;
+  animation-delay: 500ms;
+}
+.container .page:nth-child(5){
+  position:absolute;
+  top: 70%;
+  right: 2%;
+  width:40%;
+  height: 5px;
+  transform-origin: left;
+  background-color: #9147ff;
+  animation: bookList 1s linear;
+  transition: all 2s linear 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  border-radius: 50%/5px 5px 0 0;
+  animation-delay: 700ms;
+}
+
+
+@keyframes bookList {
+  0%{
+
+  }
+  10%{
+    /*top:-1px;*/
+  }
+  50%{
+
+  }
+  70%{
+    /*transform: translate(5px,5px);*/
+
+  }
+  100%{
+    transform: translateX(15px);
+    rotate: -180deg;
+
+
+  }
+}

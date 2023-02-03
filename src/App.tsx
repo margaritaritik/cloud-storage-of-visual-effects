@@ -7,6 +7,7 @@ import {
 
 import './App.css';
  import Home from "./views/Home";
+import HomeUser from "./views/HomeUser";
  import Layout from "./views/Layout";
  import LoginView from "./views/LoginView";
  import RegistrationView from "./views/RegistrationView";
@@ -15,11 +16,11 @@ function App() {
   return <>
       <Routes>
           <Route path='/' element={<Layout/>}>
-          <Route index element={<Home/>} />
-          <Route path='/login' element={<LoginView/>} />
-          <Route path='/registration' element={<RegistrationView/>} />
-          <Route path='/user' element={<Home/>} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+              <Route index element={<Home/>} />
+              <Route path='/login' element={<LoginView/>} />
+              <Route path='/registration' element={<RegistrationView/>} />
+              <Route path='/user' element={<HomeUser/>} />
+              <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
       </Routes>
   </>;
