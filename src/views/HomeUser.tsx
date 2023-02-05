@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {API} from "../servises/api";
 import Effect from "../components/Effect/Effect";
+import Header from "../components/Header/Header"
 
 const HomeUser = () => {
     const [result, setResult] = useState("");
@@ -26,6 +27,7 @@ const HomeUser = () => {
     }, []);
 
     return <>
+        <Header></Header>
         {result && <div>{result}</div>}
         {error && <div>{error}</div>}
         <Effect></Effect>
