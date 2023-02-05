@@ -13,11 +13,19 @@ const RegistrationView = () => {
             setResult("");
             setError("");
             try {
-                await API.user.register(data);
-                setResult('Пользователь успешно зарегистрирован!');
-                setTimeout(() => {
-                    navigate(`/login`);
-                }, 1000);
+
+                let massageRegistration=await API.user.register(data);
+               // if(massageRegistration)
+                console.log(massageRegistration.message);
+                if(massageRegistration.message='Пользователь уже есть с таким логином!'){
+                    return setResult(massageRegistration.message);
+                }
+                else{
+                    setResult('Пользователь успешно зарегистрирован!');
+                    setTimeout(() => {
+                        navigate(`/login`);
+                    }, 1000);
+                }
             } catch (e) {
                 if (e instanceof Error) {
                     setError(e.message);

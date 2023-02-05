@@ -15,6 +15,7 @@ export default function RegistrationForm({onSubmit}: FormProps) {
     const [login, setLogin] = useState("");
     const [loginError, setLoginError] = useState("");
     const [password, setPassword] = useState("");
+    const [repeatPassword, setRepeatPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
 
     const isValid = (): boolean => {
@@ -26,14 +27,24 @@ export default function RegistrationForm({onSubmit}: FormProps) {
         // }
 
         if (login.length === 0) {
-            setLoginError("Логин не может быть пустым.");
+            setLoginError("Логин не может быть пустым!");
             result = false;
         }
 
         setPasswordError("");
-
+        setRepeatPassword("");
         if (password.length === 0) {
-            setPasswordError("Пароль не может быть пустым.");
+            setPasswordError("Пароль не может быть пустым!");
+            result = false;
+        }
+
+        if (repeatPassword.length === 0) {
+            setPasswordError("Павторите пароль!");
+            result = false;
+        }
+
+        if(repeatPassword!==password){
+            setPasswordError("Пароль и павтор пароля не одинаковые!");
             result = false;
         }
 
@@ -62,9 +73,13 @@ export default function RegistrationForm({onSubmit}: FormProps) {
                 </div>
                 <div className={styles.form_group}>
                     <input  type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="password"/>
+                    <label className={styles.form_label}>password</label>
+                </div>
+                <div className={styles.form_group}>
+                    <input  type="password" value={repeatPassword} onChange={e => setRepeatPassword(e.target.value)} placeholder="repeat password"/>
                     {passwordError && <div className={styles.error}>{passwordError}
                     </div>}
-                    <label className={styles.form_label}>password</label>
+                    <label className={styles.form_label}>repeat password</label>
                 </div>
                 <button type="submit">Войти</button>
             </form>

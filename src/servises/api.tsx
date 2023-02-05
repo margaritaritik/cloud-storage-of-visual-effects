@@ -50,6 +50,7 @@ export const API = {
                 body: JSON.stringify(data)
             });
             await errorHandler(response);
+            return await response.json();
         },
         getCurrentUser: async () => {
             const cookies = new Cookies();

@@ -35,9 +35,10 @@ class authController {
             connection.query('select * from users where name=(?);', [username], function (err, results, fields) {
                 if (results.length > 0) {
                     console.log("Пользователь уже есть с таким логином!");
+                    return res.json({message:'Пользователь уже есть с таким логином!'});
                 } else {
                     const hashPassword = bcrypt.hashSync(password, 7);
-                    connection.query('insert into users (name,password) values(?,?)', [username, hashPassword], function (err, results, fields) {
+                    connection.query('insert into users (name,password,typeUser) values(?,?,2)', [username, hashPassword], function (err, results, fields) {
                         if (err) console.log(err);
                         else {
                             console.log("Данные добавлены");
