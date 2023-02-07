@@ -1,7 +1,14 @@
+.container_effects{
+    position: relative;
+    left: 0;
+    top: 100px;
+}
+
 .container{
     width: 100%;
     height: 100%;
-
+    max-width: 600px;
+    max-height: 200px;
     text-align: center;
     margin: 5% auto;
 

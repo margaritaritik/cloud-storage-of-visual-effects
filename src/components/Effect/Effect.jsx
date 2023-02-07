@@ -6,31 +6,34 @@ import SunSpinner from "../tests effects/SunSpinner/SunSpinner";
 
 const Effect = () => {
     return <>
-        <div className={styles.container}>
-            <div className={styles.effect}>
-                <HeartBeatSpinner></HeartBeatSpinner>
+        <div className={styles.container_effects}>
+            <div className={styles.container}>
+                <div className={styles.effect}>
+                    <HeartBeatSpinner></HeartBeatSpinner>
+                </div>
+            </div>
+            <div className={styles.container}>
+                <div className={styles.effect}>
+                    <HeartBeatSpinner></HeartBeatSpinner>
+                </div>
+            </div>
+            <div className={styles.container}>
+                <div className={styles.effect}>
+                    <HeartBeatSpinner></HeartBeatSpinner>
+                </div>
+            </div>
+            <div className={styles.container}>
+                <div className={styles.effect}>
+                    <SunSpinner></SunSpinner>
+                </div>
+            </div>
+            <div className={styles.container}>
+                <div className={styles.effect}>
+                    <BookSpinner></BookSpinner>
+                </div>
             </div>
         </div>
-        <div className={styles.container}>
-            <div className={styles.effect}>
-                <HeartBeatSpinner></HeartBeatSpinner>
-            </div>
-        </div>
-        <div className={styles.container}>
-            <div className={styles.effect}>
-                <HeartBeatSpinner></HeartBeatSpinner>
-            </div>
-        </div>
-        <div className={styles.container}>
-            <div className={styles.effect}>
-                <SunSpinner></SunSpinner>
-            </div>
-        </div>
-        <div className={styles.container}>
-            <div className={styles.effect}>
-                <BookSpinner></BookSpinner>
-            </div>
-        </div>
+
     </>
 
 
