@@ -12,6 +12,10 @@ const Header = () => {
             navigate("/");
         // }, 1000);
     }
+    const clickAva=()=>{
+        navigate("/account");
+    }
+
 
     return <>
             <div className={styles.container}>
@@ -19,7 +23,7 @@ const Header = () => {
 
                 </div>
                 <img className={styles.logo} src={logo} alt="" onClick={clickLogo}/>
-                <img className={styles.ava} src={avatarLogo} alt="" />
+                <img className={styles.ava} src={avatarLogo} alt="" onClick={clickAva} />
             </div>
         </>
 };

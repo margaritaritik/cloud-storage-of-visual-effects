@@ -1,5 +1,5 @@
 .container{
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -14,7 +14,7 @@
 
 .logo{
     position: absolute;
-    left: 100px;
+    left: 10px;
     top: 0;
     width: 100%;
     height: 100%;
@@ -24,7 +24,7 @@
 
 .ava{
     position: absolute;
-    left: 0;
+    right: 10px;
     top: 0;
 
     width: 100%;
