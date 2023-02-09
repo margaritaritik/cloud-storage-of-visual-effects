@@ -11,6 +11,7 @@ import HomeUser from "./views/HomeUser";
  import Layout from "./views/Layout";
  import LoginView from "./views/LoginView";
  import RegistrationView from "./views/RegistrationView";
+ import Header from "./components/Header/Header";
 
 function App() {
   return <>
@@ -21,7 +22,8 @@ function App() {
               <Route path='/registration' element={<RegistrationView/>} />
               <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
-          <Route path='/user' element={<HomeUser/>}/>
+          <Route path='/user' element={<HomeUser/>}></Route>
+
       </Routes>
   </>;
 }

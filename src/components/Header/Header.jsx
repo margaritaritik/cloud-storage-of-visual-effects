@@ -6,18 +6,20 @@ import {useNavigate} from "react-router-dom";
 
 const Header = () => {
     const navigate = useNavigate();
+
     const clickLogo=()=>{
-        setTimeout(() => {
+        // setTimeout(() => {
             navigate("/");
-        }, 1000);
+        // }, 1000);
     }
+
     return <>
             <div className={styles.container}>
                 <div className={styles.menu}>
 
                 </div>
-                <img className={styles.logo} src={logo} alt=""/>
-                <img className={styles.ava} src={avatarLogo} alt="" onClick={clickLogo}/>
+                <img className={styles.logo} src={logo} alt="" onClick={clickLogo}/>
+                <img className={styles.ava} src={avatarLogo} alt="" />
             </div>
         </>
 };
