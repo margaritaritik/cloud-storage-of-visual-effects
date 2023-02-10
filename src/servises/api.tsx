@@ -63,5 +63,16 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
+        uploadFile:async (data: RegistrationData) => {
+            const response = await fetch(`${BASE_URL}/uploadPhoto`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
     },
 };

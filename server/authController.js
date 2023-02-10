@@ -94,6 +94,40 @@ class authController {
             console.log(e);
         }
     }
+
+    async uploadPhoto(req, res) {
+        try {
+            let username = req.body.login;
+            let password = req.body.password;
+            if (!username || !password) {
+                res.status(400).json({message: 'Please enter Username and Password!'});
+                return res.end();
+            }
+            connection.query('select * from users where name=(?);', [username], function (err, results, fields){
+                if (results.length > 0) {
+                    const validPassword = bcrypt.compareSync(password, results[0].password);
+                    if (!validPassword) {
+                        console.log("Данные не верны!");
+                        return res.status(400).json({message: 'Не верный пароль!!'});
+                    }
+                    const token = generateAccessToken(results[0].id, results[0].name);
+                    res.cookie(COOKIE_NAME, token, {
+                        maxAge: 24 * 60 * 60 * 1000,
+                        httpOnly: true,
+                        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'none',
+                        secure: process.env.NODE_ENV === 'production'
+                    });
+                    res.status(200).json(token);
+                } else {
+                    console.log("Данные не верны!");
+                    res.status(401).json({message: 'Incorrect Username and/or Password!'});
+                }
+                res.end();
+            });
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }
 
 module.exports = new authController();
