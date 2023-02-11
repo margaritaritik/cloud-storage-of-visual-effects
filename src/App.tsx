@@ -12,7 +12,7 @@ import HomeUser from "./views/HomeUser";
  import LoginView from "./views/LoginView";
  import RegistrationView from "./views/RegistrationView";
  import Header from "./components/Header/Header";
- import AccountUser from "./components/Header/Header"
+ import AccountUser from "./views/AccountUser"
 
 function App() {
   return <>
@@ -24,7 +24,7 @@ function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
           <Route path='/user' element={<HomeUser/>}></Route>
-          <Route path='/account' element={<AccountUser></AccountUser>}></Route>
+          <Route path='/account' element={<AccountUser/>}></Route>
 
       </Routes>
   </>;

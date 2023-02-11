@@ -22,13 +22,18 @@ app.use(cookies());
 app.use(express.json());
 app.use("/auth",authRouter);
 
-const start=()=>{
-    try{
-       app.listen(PORT,()=>console.log(`SERVER WORKING ON PORT ${PORT}`));
-    }catch (e){
-        console.log(e);
-    }
+// const start=()=>{
+//     try{
+//        app.listen(PORT,()=>console.log(`SERVER WORKING ON PORT ${PORT}`));
+//     }catch (e){
+//         console.log(e);
+//     }
+//
+// }
+(async () => {
+    app.listen(PORT, () => {
+        console.log(`Example app listening on port ${PORT}!`)
+    });
+})();
 
-}
-
-start();
+// start();

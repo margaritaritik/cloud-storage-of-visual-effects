@@ -2,22 +2,9 @@ const mysql = require("mysql");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {secret} = require("./config");
+const db=require("./ConnectionDB/db")
 
 const COOKIE_NAME = "token";
-
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    database: "my_web_application",
-    password: "Rita2003/",
-    dialect: "mysql",
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000
-    }
-});
 
 const generateAccessToken = (id, name) => {
     const payload = {
@@ -32,7 +19,7 @@ class authController {
         try {
             let username = req.body.login;
             let password = req.body.password;
-            connection.query('select * from users where name=(?);', [username], function (err, results, fields) {
+            db.query('select * from users where name=(?);', [username], function (err, results, fields) {
                 if (results.length > 0) {
                     console.log("Пользователь уже есть с таким логином!");
                     return res.json({message:'Пользователь уже есть с таким логином!'});
@@ -61,7 +48,7 @@ class authController {
                 res.status(400).json({message: 'Please enter Username and Password!'});
                 return res.end();
             }
-            connection.query('select * from users where name=(?);', [username], function (err, results, fields){
+            db.query('select * from users where name=(?);', [username], function (err, results, fields){
                 if (results.length > 0) {
                     const validPassword = bcrypt.compareSync(password, results[0].password);
                     if (!validPassword) {
@@ -103,7 +90,7 @@ class authController {
                 res.status(400).json({message: 'Please enter Username and Password!'});
                 return res.end();
             }
-            connection.query('select * from users where name=(?);', [username], function (err, results, fields){
+            db.query('select * from users where name=(?);', [username], function (err, results, fields){
                 if (results.length > 0) {
                     const validPassword = bcrypt.compareSync(password, results[0].password);
                     if (!validPassword) {
