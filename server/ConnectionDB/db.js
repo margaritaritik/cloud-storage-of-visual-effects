@@ -1,5 +1,4 @@
 const mysql = require("mysql");
-const { makeDb } = require('mysql-async-simple');
 
 const connection = mysql.createConnection({
     host: "localhost",
