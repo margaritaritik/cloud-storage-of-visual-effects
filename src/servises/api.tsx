@@ -1,4 +1,5 @@
 import Cookies from 'universal-cookie';
+import UploadImage from "../components/UploadFile/UploadImage";
 export const BASE_URL='http://127.0.0.1:9003/auth';
 
 type LoginData = {
@@ -9,6 +10,10 @@ type LoginData = {
 type RegistrationData = {
     login: string;
     password: string;
+};
+
+type UploadImageData={
+    file:object;
 };
 
 const errorHandler = async (response: Response) => {
@@ -63,13 +68,11 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
-        uploadFile:async (data: RegistrationData) => {
+        uploadFile:async (data: FormData) => {
             const response = await fetch(`${BASE_URL}/uploadPhoto`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
+                credentials: "include",
+                body: data
             });
             await errorHandler(response);
             return await response.json();
