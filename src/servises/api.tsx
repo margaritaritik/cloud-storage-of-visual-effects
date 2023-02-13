@@ -69,10 +69,15 @@ export const API = {
             return await response.json();
         },
         uploadFile:async (data: FormData) => {
+            console.log(data);
             const response = await fetch(`${BASE_URL}/uploadPhoto`, {
                 method: "POST",
                 credentials: "include",
-                body: data
+                headers: {
+                    "Content-Type": "application/json",
+
+                },
+               body: data
             });
             await errorHandler(response);
             return await response.json();

@@ -1,29 +1,34 @@
 import React, {useRef, useState} from 'react';
 import styles from "../../styles/stylesAccountUser.module.css";
-import {API} from "../../servises/api";
+import {API, BASE_URL} from "../../servises/api";
+// import FormData from 'form-data';
 
 const UploadImage = () => {
-    const filePicker=useRef(null);
     const [selectedFile,setSelectedFile]=useState(null);
-    const [uploaded,setUploaded]=useState();
-    const [imageFile, setImageFile] = React.useState<File>();
-
+    const formData = new FormData();
     const handleChange=(event:any)=>{
-
-        setSelectedFile(event.target.files[0]);
+        if(event.target && event.target.files[0]){
+            formData.append('file', event.target.files[0]);
+            console.log(event.target.files[0]);
+        }
 
     };
 
-    const handleUpload=async()=>{
-        if(!selectedFile){
-            alert("Please select a file");
-            return;
-        };
-        const formData = new FormData();
-        formData.append("file", selectedFile);
-        const token=await API.user.uploadFile(formData);
-       
-        console.log(token);
+    const handleUpload=async ()=>{
+        try{
+            let response=await fetch(`${BASE_URL}/uploadPhoto`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": 'multipart/form-data'
+                },
+                body:formData
+            });
+
+            const token=await response.json();
+            console.log(token);
+        }catch (e) {
+
+        }
     };
 
     return <>
@@ -31,11 +36,7 @@ const UploadImage = () => {
             <input type="file" onChange={handleChange} accept="image/*,.png,.jpg,.web" />
             <button onClick={handleUpload}>Upload</button>
         </div>
-        {selectedFile && (
-            <ul>
-                {/*<li>{selectedFile}</li>*/}
-            </ul>
-        )}
+
     </>
 
 };
