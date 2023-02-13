@@ -86,6 +86,7 @@ class authController {
     async uploadPhoto(req, res) {
         try {
 
+
            // res.json(req.body);
            //  if(!req.files){
            //      return res.status(400).json({msg:"No file uploaded"});

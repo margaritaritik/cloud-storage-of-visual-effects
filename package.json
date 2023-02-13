@@ -45,6 +45,7 @@
   "devDependencies": {
     "@tanstack/react-query": "^4.22.0",
     "file-loader": "^6.2.0",
+    "react-hook-form": "^7.43.1",
     "react-router-dom": "^6.6.1",
     "universal-cookie": "^4.0.4",
     "url-loader": "^4.1.1"

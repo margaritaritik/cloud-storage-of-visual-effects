@@ -11,8 +11,6 @@ const UploadImage = () => {
             formData.append('file', event.target.files[0]);
             console.log(event.target.files[0]);
         }
-
-
     };
 
     const handleUpload=async ()=>{
@@ -25,8 +23,8 @@ const UploadImage = () => {
                 }
             });
 
-            const token=await response.json();
-            console.log(token);
+            const result=await response.json();
+            console.log(result);
         }catch (e) {
 
         }

@@ -1,3 +1,5 @@
+
+
 const express=require('express');
 
 const authRouter=require('./authRouter');
@@ -15,11 +17,45 @@ app.use(
 );
 
 app.use(cookies());
-
+// app.use(
+//     fileUpload({
+//         createParentPath: true,
+//     }),
+// );
 app.use(bodyParser.urlencoded());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/auth",authRouter);
+
+app.post("auth/upload-file", async (req, res) => {
+    try {
+        console.log(req.body);
+        // if (!req.files) {
+        //     res.send({
+        //         status: "failed",
+        //         message: "No file uploaded",
+        //     });
+        // } else {
+        //     let file = req.files.file;
+        //
+        //     console.log(req.files);
+        //
+        //     file.mv("./uploads/" + file.name);
+        //
+        //     res.send({
+        //         status: "success",
+        //         message: "File is uploaded",
+        //         data: {
+        //             name: file.name,
+        //             mimetype: file.mimetype,
+        //             size: file.size,
+        //         },
+        //     });
+       // }
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
 
 (async () => {
     app.listen(PORT, () => {
