@@ -12,16 +12,17 @@ const UploadImage = () => {
             console.log(event.target.files[0]);
         }
 
+
     };
 
     const handleUpload=async ()=>{
         try{
             let response=await fetch(`${BASE_URL}/uploadPhoto`, {
-                method: "POST",
+                method: 'POST',
+                body: formData,
                 headers: {
-                    "Content-Type": 'multipart/form-data'
-                },
-                body:formData
+                    "Content-Type": "multipart/form-data"
+                }
             });
 
             const token=await response.json();

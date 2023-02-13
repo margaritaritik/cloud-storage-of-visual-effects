@@ -2,7 +2,8 @@ const mysql = require("mysql");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {secret} = require("./config");
-const db=require("./ConnectionDB/db")
+const db=require("./ConnectionDB/db");
+const multer = require("multer");
 
 const COOKIE_NAME = "token";
 
@@ -84,11 +85,12 @@ class authController {
 
     async uploadPhoto(req, res) {
         try {
+
            // res.json(req.body);
-            if(!req.files){
-                return res.status(400).json({msg:"No file uploaded"});
-            }
-            const file=req.files.file;
+           //  if(!req.files){
+           //      return res.status(400).json({msg:"No file uploaded"});
+           //  }
+           //  const file=req.files.file;
            //
            //  if(!file){
            //      return  res.json({error:'Incorrect input name'});
