@@ -3,9 +3,22 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {secret} = require("./config");
 const db=require("./ConnectionDB/db");
-const multer = require("multer");
+
 
 const COOKIE_NAME = "token";
+
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public')
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + '-' +file.originalname)
+    }
+})
+
+const upload = multer({ storage: storage }).single('file')
 
 const generateAccessToken = (id, name) => {
     const payload = {
@@ -86,8 +99,17 @@ class authController {
     async uploadPhoto(req, res) {
         try {
 
-
-           // res.json(req.body);
+            // const newpath = __dirname + "/files/";
+            // const file = req.files.file;
+            // const filename = file.name;
+            //
+            // file.mv(`${newpath}${filename}`, (err) => {
+            //     if (err) {
+            //         res.status(500).send({ message: "File upload failed", code: 200 });
+            //     }
+            //     res.status(200).send({ message: "File Uploaded", code: 200 });
+            // });
+            res.json(req.body);
            //  if(!req.files){
            //      return res.status(400).json({msg:"No file uploaded"});
            //  }
@@ -96,8 +118,14 @@ class authController {
            //  if(!file){
            //      return  res.json({error:'Incorrect input name'});
            //  }
-           //  console.log(req.body);
-             res.json(req.body);
+           //  upload(req, res, (err) => {
+           //      if (err) {
+           //          res.sendStatus(500);
+           //      }
+           //      res.send(req.file);
+           //  });
+             // console.log(req.body);
+             // res.json(req.body);
            // const newFileName=encodeURI(Date.now()+'-'+file.name);
            //  file.mv(`${__dirname}/public/uploads/${file.name}`,err=>{
            //      if(err){

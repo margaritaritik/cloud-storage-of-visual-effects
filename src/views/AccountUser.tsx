@@ -2,7 +2,8 @@ import React, {useState,useRef} from 'react';
 import Header from '../components/Header/Header';
 import styles from '../styles/stylesAccountUser.module.css';
 import UploadImage from '../components/UploadFile/UploadImage';
-import UploadImageTest from '../components/UploadFile/UploadImageTest';
+import UploadFile from '../components/UploadFile/UploadFile';
+import UploadImageTest from '../components/UploadFile/UploadTest';
 
 const AccountUser = () => {
 
@@ -31,9 +32,9 @@ const AccountUser = () => {
 
     return <>
         <Header></Header>
-        <UploadImageTest></UploadImageTest>
-        <UploadImage></UploadImage>
 
+        <UploadImage></UploadImage>
+        <UploadFile></UploadFile>
         {/*<input type="file" onChange={saveFile} />*/}
     </>
 };
