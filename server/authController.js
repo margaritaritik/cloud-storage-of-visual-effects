@@ -98,8 +98,6 @@ class authController {
             }else{
                 res.status(401).json({user:'nothing'});
             }
-            // console.log('tadadadada');
-
         } catch (e) {
             console.log(e);
         }
@@ -107,43 +105,13 @@ class authController {
 
     async uploadPhoto(req, res) {
         try {
-
-            // const newpath = __dirname + "/files/";
-            // const file = req.files.file;
-            // const filename = file.name;
-            //
-            // file.mv(`${newpath}${filename}`, (err) => {
-            //     if (err) {
-            //         res.status(500).send({ message: "File upload failed", code: 200 });
-            //     }
-            //     res.status(200).send({ message: "File Uploaded", code: 200 });
-            // });
-            res.json(req.body);
-           //  if(!req.files){
-           //      return res.status(400).json({msg:"No file uploaded"});
-           //  }
-           //  const file=req.files.file;
-           //
-           //  if(!file){
-           //      return  res.json({error:'Incorrect input name'});
-           //  }
-           //  upload(req, res, (err) => {
-           //      if (err) {
-           //          res.sendStatus(500);
-           //      }
-           //      res.send(req.file);
-           //  });
-             // console.log(req.body);
-             // res.json(req.body);
-           // const newFileName=encodeURI(Date.now()+'-'+file.name);
-           //  file.mv(`${__dirname}/public/uploads/${file.name}`,err=>{
-           //      if(err){
-           //          console.error(err);
-           //          return res.status(500).send(err);
-           //      }
-           //      res.json({fileName:file.name, filePath:`/uploads/${file.name}`});
-           //  });
-
+            const blobData=req.body;
+            const outputfile = "output.jpeg";
+            console.log(req.body);
+            db.query('insert into `account` (description,idUser,img) values("test",22,?);', [blobData], function(err, result) {
+                console.log("BLOB data inserted!");
+                res.status(200).json({message:'Blob data inserted'});
+            });
         } catch (e) {
             console.log(e);
         }

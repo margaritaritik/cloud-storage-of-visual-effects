@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { API } from "../servises/api";
 import LoginForm, { LoginFormData } from "../components/LoginForm/LoginForm";
-import UploadImage from '../components/UploadFile/UploadImage';
-import Cookies from 'universal-cookie';
+
 
 const LoginView = () => {
     const navigate = useNavigate();
@@ -16,9 +15,6 @@ const LoginView = () => {
             setError("");
             try {
                 const token=await API.auth.login(data);
-               // const cookies = new Cookies();
-               // console.log(token);
-             //   cookies.set('token', token, { path: '/' });
                 console.log(token);
                 setResult("Пользователь успешно вошел!");
                 setTimeout(() => {

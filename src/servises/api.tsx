@@ -73,7 +73,7 @@ export const API = {
                 headers: {
                     "Content-Type": "application/json",
                 },
-               body: data
+                body: data
             });
             await errorHandler(response);
             return await response.json();

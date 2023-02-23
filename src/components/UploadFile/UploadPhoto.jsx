@@ -1,41 +1,45 @@
 import React, {useRef, useState} from 'react';
-import {BASE_URL} from "../../servises/api";
 import styles from "../../styles/stylesAccountUser.module.css";
-import axios from 'axios';
 
 
-const UploadFile = () => {
-    const [file, setFile] = useState();
-    const [fileName, setFileName] = useState("");
 
-    const saveFile = (e) => {
-        setFile(e.target.files[0]);
-        setFileName(e.target.files[0].name);
-    };
+const UploadPhoto = () => {
+    const [image, setImage] = useState("");
 
-    const uploadFile = async (e) => {
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("fileName", fileName);
-        try {
-            const res = await axios.post(
-                `${BASE_URL}/uploadPhoto`,
-                formData
-            );
-            console.log(res);
-        } catch (ex) {
-            console.log(ex);
-        }
-    };
+    const sendImage=async(e)=> {
+        e.preventDefault();
+
+        const response=await fetch('http://127.0.0.1:9003/auth/uploadPhoto', {
+            method: "POST",
+            headers: {
+                "Content-Type": "image/jpeg"
+            },
+            body: image
+        }).then(() => {
+            console.log("Image uploaded successfully!")
+        }).catch(error => {
+            console.log(error);
+        });
+        //const buffer = await response.arrayBuffer();
+        // console.log(buffer);
+        // const bytes = new Uint8Array(buffer);
+        // const decoder = new TextDecoder('utf8');
+        const result=await response.json();
+        console.log(result);
+    }
 
     return (
         <>
             <div className={styles.containerTest}>
-                <input type="file" onChange={saveFile} />
-                <button onClick={uploadFile}>Upload</button>
+                <form onSubmit={sendImage}>
+                    <input type="file" name="image" onChange={e => setImage(e.target.files[0])}/>
+
+                    <button type="submit">Send</button>
+
+                </form>
             </div>
         </>
     );
 };
 
-export default UploadFile;
+export default UploadPhoto;
