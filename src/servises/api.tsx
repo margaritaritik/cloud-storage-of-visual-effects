@@ -1,5 +1,3 @@
-import Cookies from 'universal-cookie';
-import UploadImage from "../components/UploadFile/UploadImage";
 export const BASE_URL='http://127.0.0.1:9003/auth';
 
 type LoginData = {
@@ -57,27 +55,16 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
+
         getCurrentUser: async () => {
-            const cookies = new Cookies();
-            console.log(document.cookie.slice(6));
-            // fetch(`${BASE_URL}/users`, {
-            //     credentials: "same-origin"
-            // })
-            //     .then(response => response.json())
-            //     .then(data => console.log(data));
             const response = await fetch(`${BASE_URL}/users`, {
-                // credentials: "same-origin",
                 credentials: "include",
                 method: "GET",
-                // headers: {
-                    // cookie: document.cookie.slice(6),
-                // }
-              // headers: {
-              // }
             });
            await errorHandler(response);
            return await response.json();
         },
+
         uploadFile:async (data: FormData) => {
             console.log(data);
             const response = await fetch(`${BASE_URL}/uploadPhoto`, {
@@ -85,7 +72,6 @@ export const API = {
                 credentials: "include",
                 headers: {
                     "Content-Type": "application/json",
-
                 },
                body: data
             });
