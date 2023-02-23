@@ -70,11 +70,14 @@ class authController {
                         return res.status(400).json({message: 'Не верный пароль!!'});
                     }
                     const token = generateAccessToken(results[0].id, results[0].name);
+
                     res.cookie(COOKIE_NAME, token, {
                         maxAge: 24 * 60 * 60 * 1000,
                         httpOnly: true,
+                        // SameSite:'none',
+                        //Secure:''
                         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'none',
-                        secure: process.env.NODE_ENV === 'production'
+                        secure: true
                     });
                     res.status(200).json(token);
                 } else {
@@ -90,7 +93,13 @@ class authController {
 
     async getUsers(req, res) {
         try {
-             res.json("SERVER WORK get user");
+            if(req.user){
+                res.status(200).json({user:req.user});
+            }else{
+                res.status(401).json({user:'nothing'});
+            }
+            // console.log('tadadadada');
+
         } catch (e) {
             console.log(e);
         }

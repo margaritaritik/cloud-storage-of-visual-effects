@@ -14,8 +14,9 @@ const HomeUser = () => {
             setResult("");
             setError("");
             try {
-                const user = await API.user.getCurrentUser();
-                setResult(`Добро пожаловать, ${user.name}!`);
+                const result=await API.user.getCurrentUser();
+                console.log(result);
+                setResult(`Добро пожаловать,${result.user.name}!`);
                 setLogged(true);
             } catch (e) {
                 if (e instanceof Error) {

@@ -59,14 +59,24 @@ export const API = {
         },
         getCurrentUser: async () => {
             const cookies = new Cookies();
-            console.log(cookies.get('token'));
+            console.log(document.cookie.slice(6));
+            // fetch(`${BASE_URL}/users`, {
+            //     credentials: "same-origin"
+            // })
+            //     .then(response => response.json())
+            //     .then(data => console.log(data));
             const response = await fetch(`${BASE_URL}/users`, {
-                credentials: "same-origin",
+                // credentials: "same-origin",
+                credentials: "include",
                 method: "GET",
-                headers: {token:cookies.get('token')}
+                // headers: {
+                    // cookie: document.cookie.slice(6),
+                // }
+              // headers: {
+              // }
             });
-            await errorHandler(response);
-            return await response.json();
+           await errorHandler(response);
+           return await response.json();
         },
         uploadFile:async (data: FormData) => {
             console.log(data);

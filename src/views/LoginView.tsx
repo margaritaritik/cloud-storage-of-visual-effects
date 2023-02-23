@@ -16,9 +16,10 @@ const LoginView = () => {
             setError("");
             try {
                 const token=await API.auth.login(data);
-                const cookies = new Cookies();
+               // const cookies = new Cookies();
+               // console.log(token);
+             //   cookies.set('token', token, { path: '/' });
                 console.log(token);
-                cookies.set('token', token, { path: '/' });
                 setResult("Пользователь успешно вошел!");
                 setTimeout(() => {
                     navigate("/user");
