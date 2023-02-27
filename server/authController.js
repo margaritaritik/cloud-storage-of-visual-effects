@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {secret} = require("./config");
 const db=require("./ConnectionDB/db");
+const fs = require('fs');
 
 
 const COOKIE_NAME = "token";
@@ -108,8 +109,42 @@ class authController {
             console.log(req.body);
             db.query('insert into `account` (description,idUser,img) values("test",22,?);', [blobData], function(err, result) {
                 console.log("BLOB data inserted!");
-                res.status(200).json({message:'Blob data inserted'});
+                res.status(200).json({message: 'Blob data inserted'});
+                db.query('select img from account,users where users.id=22;', function (err,result) {
+                    fs.writeFile('/uploadImages/1.jpeg', result[0], (err) => {
+                        if (err) {
+                            console.error(err)
+                            return
+                        }
+                        //файл записан успешно
+                    })
+                })
             });
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    async upload(req, res) {
+        try {
+            console.log('upload')
+            if (!req.files) {
+                return res.status(500).send({ msg: "file is not found" })
+            }
+            // accessing the file
+            const myFile = req.files.file;
+            console.log(myFile)
+            //  mv() method places the file inside public directory
+            myFile.mv(`${__dirname}/public/${myFile.name}`, function (err) {
+                if (err) {
+                    console.log(err)
+                    return res.status(500).send({ msg: "Error occured" });
+                }
+                // returing the response with file path and name
+                return res.send({name: myFile.name, path: `/${myFile.name}`});
+            });
+
         } catch (e) {
             console.log(e);
         }
