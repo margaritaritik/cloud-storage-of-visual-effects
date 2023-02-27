@@ -74,8 +74,6 @@ class authController {
                     res.cookie(COOKIE_NAME, token, {
                         maxAge: 24 * 60 * 60 * 1000,
                         httpOnly: true,
-                        // SameSite:'none',
-                        //Secure:''
                         sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'none',
                         secure: true
                     });

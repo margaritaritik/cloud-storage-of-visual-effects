@@ -49,6 +49,7 @@
     "form-data": "^4.0.0",
     "react-hook-form": "^7.43.1",
     "react-router-dom": "^6.6.1",
+    "sass": "^1.58.3",
     "universal-cookie": "^4.0.4",
     "url-loader": "^4.1.1"
   }
