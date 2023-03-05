@@ -116,7 +116,6 @@ class authController {
                             console.error(err)
                             return
                         }
-                        //файл записан успешно
                     })
                 })
             });
@@ -126,25 +125,13 @@ class authController {
         }
     }
 
-    async upload(req, res) {
+    async uploadUserPhoto(req, res) {
         try {
-            console.log('upload')
-            if (!req.files) {
-                return res.status(500).send({ msg: "file is not found" })
-            }
-            // accessing the file
-            const myFile = req.files.file;
-            console.log(myFile)
-            //  mv() method places the file inside public directory
-            myFile.mv(`${__dirname}/public/${myFile.name}`, function (err) {
-                if (err) {
-                    console.log(err)
-                    return res.status(500).send({ msg: "Error occured" });
-                }
-                // returing the response with file path and name
-                return res.send({name: myFile.name, path: `/${myFile.name}`});
-            });
-
+            const newName=req.file.filename+'.jpeg';
+            fs.rename(`./images/${req.file.filename}`,`./images/${newName}`,function () {
+                console.log('image ok');
+                res.send("200");
+            })
         } catch (e) {
             console.log(e);
         }

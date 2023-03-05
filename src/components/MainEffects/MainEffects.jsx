@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../../images/imageMain.png'
+import image from '../../imagesTest/imageMain.png'
 import styles from './stylesMainEffects.module.css'
 
 const MainEffects = () => {

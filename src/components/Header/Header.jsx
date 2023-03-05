@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './stylesHeader.module.css';
-import avatarLogo from '../../images/avatar-lazybones-sloth-svgrepo-com.svg';
-import logo from '../../images/logo.png';
+import avatarLogo from '../../imagesTest/avatar-lazybones-sloth-svgrepo-com.svg';
+import logo from '../../imagesTest/logo.png';
 import {useNavigate} from "react-router-dom";
 
 const Header = () => {

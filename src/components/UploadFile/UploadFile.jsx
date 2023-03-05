@@ -1,65 +1,37 @@
 import React, {useRef, useState} from 'react';
 import styles from './styleUploadFile.module.css'
+import axios from "axios";
 
 const UploadFile = () => {
-    const [file, setFile] = useState(''); // storing the uploaded file
-    // storing the recived file from backend
-    const [data, getFile] = useState({ name: "", path: "" });
-    const [progress, setProgess] = useState(0); // progess bar
-    const el = useRef(); // accesing input element
+    const [file, setFile] = useState()
 
-    const handleChange = (e) => {
-        setProgess(0)
-        const file = e.target.files[0]; // accessing file
-        console.log(file);
-        setFile(file); // storing file
+    function handleChange(event) {
+        setFile(event.target.files[0])
     }
 
-    const uploadFile = async () => {
+    function handleSubmit(event) {
+        event.preventDefault()
+        const url = 'http://localhost:3000/uploadFile';
         const formData = new FormData();
-        formData.append('file', file); // appending file
-        // axios.post('http://127.0.0.1:9003/auth/upload', formData, {
-        //     onUploadProgress: (ProgressEvent) => {
-        //         let progress = Math.round(
-        //             ProgressEvent.loaded / ProgressEvent.total * 100) + '%';
-        //         setProgess(progress);
-        //     }
-        // }).then(res => {
-        //     console.log(res);
-        //     getFile({ name: res.data.name,
-        //         path: 'http://localhost:3000' + res.data.path
-        //     })
-        // }).catch(err => console.log(err))
-        await fetch('http://127.0.0.1:9003/auth/upload', {
-            method: "POST",
+        formData.append('file', file);
+        formData.append('fileName', file.name);
+        const config = {
             headers: {
-                "Content-Type": "image/jpeg"
+                'content-type': 'multipart/form-data',
             },
-        //    body: formData
-        }).then(res => {
-            console.log("Image uploaded successfully!")
-            getFile({ name: res.data.name,
-                path: 'http://localhost:4500' + res.data.path
-            })
-        }).catch(error => {
-            console.log(error);
+        };
+        axios.post('http://127.0.0.1:9003/auth/upload', formData, config).then((response) => {
+            console.log(response.data);
         });
-    }
 
+    }
     return (
         <div className={styles.container}>
-            <div className={styles.fileUpload}>
-                <input type="file" ref={el} onChange={handleChange} />
-                <div className={styles.progessBar} style={{ width: progress }}>
-                    {progress}
-                </div>
-                <button onClick={uploadFile} className={styles.upbutton}>
-                    Upload
-                </button>
-                <hr />
-                {/* displaying received image*/}
-                {data.path && <img src={data.path} alt={data.name} />}
-            </div>
+            <form onSubmit={handleSubmit}>
+                <h1>React File Upload</h1>
+                <input type="file" onChange={handleChange}/>
+                <button type="submit">Upload</button>
+            </form>
         </div>
     );
 };
