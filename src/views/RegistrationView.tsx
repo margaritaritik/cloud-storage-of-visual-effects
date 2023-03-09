@@ -17,7 +17,7 @@ const RegistrationView = () => {
                 let massageRegistration=await API.user.register(data);
                // if(massageRegistration)
                 console.log(massageRegistration.message);
-                if(massageRegistration.message='Пользователь уже есть с таким логином!'){
+                if(massageRegistration.message=='Пользователь уже есть с таким логином!'){
                     return setResult(massageRegistration.message);
                 }
                 else{
@@ -28,7 +28,7 @@ const RegistrationView = () => {
                 }
             } catch (e) {
                 if (e instanceof Error) {
-                    setError(e.message);
+                    setError(`ERROR ${e.message}`);
                 }
             }
         };

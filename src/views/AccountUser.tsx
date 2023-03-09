@@ -4,6 +4,8 @@ import styles from '../styles/stylesAccountUser.module.css';
 import UploadFile from '../components/UploadFile/UploadPhoto';
 
 
+
+
 const AccountUser = () => {
 
 

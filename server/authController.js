@@ -34,21 +34,36 @@ class authController {
         try {
             let username = req.body.login;
             let password = req.body.password;
-            db.query('select * from users where name=(?);', [username], function (err, results, fields) {
+            db.query('select * from user where name=(?);', [username], function (err, results, fields) {
                 if (results.length > 0) {
                     console.log("Пользователь уже есть с таким логином!");
                     return res.json({message:'Пользователь уже есть с таким логином!'});
                 } else {
                     const hashPassword = bcrypt.hashSync(password, 7);
-                    connection.query('insert into users (name,password,typeUser) values(?,?,2)', [username, hashPassword], function (err, results, fields) {
+                    db.query('insert into user (name,password,typeuser_id) values(?,?,1)', [username, hashPassword], function (err, results, fields) {
                         if (err) console.log(err);
                         else {
                             console.log("Данные добавлены");
+                            db.query('SELECT * FROM user ORDER BY id DESC LIMIT 1;', function (err, results, fields) {
+                                if (results.length > 0) {
+                                    console.log(results[0].id);
+                                    db.query('insert into `account` (description,user_id) values(\'Это не баг, это фича\',?);',[results[0].id], function (err, results, fields) {
+                                        console.log("Пользователь создан!");
+                                        //res.status(200).json({message:"Пользователь успешно зарегистрирован!!!"});
 
+                                    });
+                                } else {
+                                   return res.json("no no no")
+                                }
+
+                            });
                         }
+                        // res.end();
+                        return res.json({message:'Пользователь зарегистрирован!'});
+                        res.end();
                     });
                 }
-                res.end();
+
             });
         } catch (e) {
             console.log(e);
@@ -59,11 +74,12 @@ class authController {
         try {
             let username = req.body.login;
             let password = req.body.password;
+            console.log(req.body)
             if (!username || !password) {
                 res.status(400).json({message: 'Please enter Username and Password!'});
                 return res.end();
             }
-            db.query('select * from users where name=(?);', [username], function (err, results, fields){
+            db.query('select * from user where name=(?);', [username], function (err, results, fields){
                 if (results.length > 0) {
                     const validPassword = bcrypt.compareSync(password, results[0].password);
                     if (!validPassword) {
@@ -110,7 +126,7 @@ class authController {
             db.query('insert into `account` (description,idUser,img) values("test",22,?);', [blobData], function(err, result) {
                 console.log("BLOB data inserted!");
                 res.status(200).json({message: 'Blob data inserted'});
-                db.query('select img from account,users where users.id=22;', function (err,result) {
+                db.query('select img from account,user where user.id=22;', function (err,result) {
                     fs.writeFile('/uploadImages/1.jpeg', result[0], (err) => {
                         if (err) {
                             console.error(err)

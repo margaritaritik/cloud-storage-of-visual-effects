@@ -43,10 +43,10 @@ export default function RegistrationForm({onSubmit}: FormProps) {
             result = false;
         }
 
-        if(repeatPassword!==password){
-            setPasswordError("Пароль и павтор пароля не одинаковые!");
-            result = false;
-        }
+        // if(repeatPassword!==password){
+        //     setPasswordError("Пароль и павтор пароля не одинаковые!");
+        //     result = false;
+        // }
 
         return result;
     };

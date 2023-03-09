@@ -2,8 +2,6 @@ import React from 'react';
 import styles from '../styles/repository.module.css'
 
 const RepositoryView = () => {
-    const tabs = ['HTML', 'CSS', 'JS']
-    
 
     return (
         <>
