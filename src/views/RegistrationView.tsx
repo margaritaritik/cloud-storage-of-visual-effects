@@ -8,14 +8,12 @@ const RegistrationView = () => {
     const [result, setResult] = useState("");
     const [error, setError] = useState("");
     const onSubmit = (data: RegistrationFormData) => {
-        // fetch
+
         const registrationRequest = async () => {
             setResult("");
             setError("");
             try {
-
                 let massageRegistration=await API.user.register(data);
-               // if(massageRegistration)
                 console.log(massageRegistration.message);
                 if(massageRegistration.message=='Пользователь уже есть с таким логином!'){
                     return setResult(massageRegistration.message);
