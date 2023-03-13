@@ -4,6 +4,35 @@
     top: 100px;
 }
 
+.effectInfo{
+    position: relative;
+    display: flex;
+    /*width: 100%;*/
+    /*height: 100%;*/
+    width: 600px;
+    height: 60px;
+    background-color: rgba(107, 143, 222, 0.69);
+
+}
+.ava{
+   position: absolute;
+    left: 10px;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    /*max-height: 80px;*/
+    /*max-width: 80px;*/
+}
+
+.nameEffect{
+    position: absolute;
+    left:100px
+}
+
+.like{
+    position: absolute;
+    right: 10px;
+}
 .container{
     width: 100%;
     height: 100%;

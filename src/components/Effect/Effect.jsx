@@ -11,27 +11,13 @@ const Effect = () => {
                 <div className={styles.effect}>
                     <HeartBeatSpinner></HeartBeatSpinner>
                 </div>
-            </div>
-            <div className={styles.container}>
-                <div className={styles.effect}>
-                    <HeartBeatSpinner></HeartBeatSpinner>
+                <div className={styles.effectInfo}>
+                    <img className={styles.ava} src={`http://127.0.0.1:9003/image/ImagesForClient/avatar.svg`} alt="ava" />
+                    <p className={styles.nameEffect}>Визуальный эффект!</p>
+                    <div className={styles.like}>Like</div>
                 </div>
             </div>
-            <div className={styles.container}>
-                <div className={styles.effect}>
-                    <HeartBeatSpinner></HeartBeatSpinner>
-                </div>
-            </div>
-            <div className={styles.container}>
-                <div className={styles.effect}>
-                    <SunSpinner></SunSpinner>
-                </div>
-            </div>
-            <div className={styles.container}>
-                <div className={styles.effect}>
-                    <BookSpinner></BookSpinner>
-                </div>
-            </div>
+
         </div>
 
     </>
