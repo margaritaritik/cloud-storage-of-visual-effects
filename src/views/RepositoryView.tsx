@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from '../styles/repository.module.css'
+import styles from '../styles/stylesAccountUser.module.css'
+import Editor from '../components/CodeEditor/Code'
 
 const RepositoryView = () => {
 
@@ -10,7 +11,7 @@ const RepositoryView = () => {
 
                 </div>
                 <div className={styles.code}>
-
+                    <Editor></Editor>
                 </div>
                 <div className={styles.comments}>
 

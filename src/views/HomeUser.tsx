@@ -39,7 +39,7 @@ const HomeUser = () => {
         <Header avaPath={ava}></Header>
             {result && <div>{result}</div>}
             {error && <div>{error}</div>}
-        <Effect></Effect>
+        <Effect id={1}></Effect>
         {/*<button style={{position:"relative", left:"200px",right:"200px",background:'red',width:"100px",height:"100px"}} >{error}</button>*/}
         <ToastContainer />
     </>;

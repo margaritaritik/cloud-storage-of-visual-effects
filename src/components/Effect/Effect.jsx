@@ -3,10 +3,17 @@ import styles from './styleEffect.module.css';
 import HeartBeatSpinner from "../tests effects/HeartBeatSpinner/HeartBeatSpinner";
 import BookSpinner from "../tests effects/BookSpinner/BookSpinner";
 import SunSpinner from "../tests effects/SunSpinner/SunSpinner";
+import {useNavigate} from "react-router-dom";
 
-const Effect = () => {
+const Effect = ({id}) => {
+    const navigate = useNavigate();
+    const ClickEffect=()=>{
+        setTimeout(() => {
+            navigate(`/repository/${id}`);
+        }, 1000);
+    }
     return <>
-        <div className={styles.container_effects}>
+        <div className={styles.container_effects} onClick={ClickEffect}>
             <div className={styles.container}>
                 <div className={styles.effect}>
                     <HeartBeatSpinner></HeartBeatSpinner>

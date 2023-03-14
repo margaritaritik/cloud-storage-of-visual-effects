@@ -13,6 +13,7 @@ import HomeUser from "./views/HomeUser";
  import RegistrationView from "./views/RegistrationView";
  import Header from "./components/Header/Header";
  import AccountUser from "./views/AccountUser"
+import RepositoryView from './views/RepositoryView'
 
 function App() {
   return <>
@@ -25,6 +26,10 @@ function App() {
           </Route>
           <Route path='/user' element={<HomeUser/>}></Route>
           <Route path='/account' element={<AccountUser/>}></Route>
+          <Route path="/repository/:id" element={<RepositoryView />}>
+              {/*<Route index element={<RepositoryView />} />*/}
+              {/*<Route path=":id" element={<RepositoryView/>} />*/}
+          </Route>
 
       </Routes>
   </>;

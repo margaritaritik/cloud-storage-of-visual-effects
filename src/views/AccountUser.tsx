@@ -11,7 +11,7 @@ const AccountUser = () => {
 
     return <>
         {/*<Header avaPath={}></Header>*/}
-        <UploadFile></UploadFile>
+        <UploadFile ></UploadFile>
         {/*<input type="file" onChange={saveFile} />*/}
     </>
 };
