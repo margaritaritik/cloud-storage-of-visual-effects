@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/stylesAccountUser.module.css'
-import Editor from '../components/CodeEditor/Code'
+import Editor from '../components/CodeEditor/CodeMirrorEditor'
 
 const RepositoryView = () => {
 
