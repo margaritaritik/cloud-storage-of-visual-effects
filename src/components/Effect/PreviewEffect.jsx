@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 
 import styles from "./styleEffect.module.css";
 
-const PreviewEffect = () => {
+const PreviewEffect = ({effects}) => {
     const html='<h1>Hello preview!</h1>';
     const css="h1{color:red;}";
     const js="";

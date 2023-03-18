@@ -6,7 +6,7 @@ import SunSpinner from "../tests effects/SunSpinner/SunSpinner";
 import {useNavigate} from "react-router-dom";
 import PreviewEffect from "./PreviewEffect";
 
-const Effect = ({id}) => {
+const Effect = ({effects}) => {
     const navigate = useNavigate();
     const ClickEffect=()=>{
         setTimeout(() => {

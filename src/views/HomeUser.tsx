@@ -26,6 +26,8 @@ const HomeUser = () => {
                 customToast(`Добро пожаловать,${result.user.name}!`);
                 setAva(`${result.user.srcImg}`);
                 setLogged(true);
+                const effects=await API.user.getEffects();
+                console.log(effects);
             } catch (e) {
                 if (e instanceof Error) {
                     setError(e.message);
@@ -39,7 +41,7 @@ const HomeUser = () => {
         <Header avaPath={ava}></Header>
             {result && <div>{result}</div>}
             {error && <div>{error}</div>}
-        <Effect id={1}></Effect>
+        <Effect effects={1}></Effect>
         {/*<button style={{position:"relative", left:"200px",right:"200px",background:'red',width:"100px",height:"100px"}} >{error}</button>*/}
         <ToastContainer />
     </>;

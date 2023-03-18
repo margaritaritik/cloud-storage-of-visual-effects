@@ -65,6 +65,15 @@ export const API = {
            return await response.json();
         },
 
+        getEffects: async () => {
+            const response = await fetch(`${BASE_URL}/effects`, {
+                credentials: "include",
+                method: "GET",
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
+
         uploadFile:async (data: FormData) => {
             console.log(data);
             const response = await fetch(`${BASE_URL}/uploadPhoto`, {
