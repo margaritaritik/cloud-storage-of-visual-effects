@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styles from './CodeBar.module.css'
 import HtmlEditor from "../Editors/HtmlEditor";
 import CssEditor from "../Editors/CssEditor";
+import JsEditor from "../Editors/JsEditor";
 
 const CodeBar = () => {
     const [activeTab,setActivTab]=useState('html');
@@ -17,8 +18,8 @@ const CodeBar = () => {
             </nav>
             <div className={styles.editor}>
                 {activeTab==='html' ? <HtmlEditor/>:null}
-                {activeTab==='css' ? <CssEditor/>:null}
-                {activeTab==='js' ? <div>JS</div>:null}
+                {/*{activeTab==='css' ? <CssEditor/>:null}*/}
+                {/*{activeTab==='js' ? <JsEditor/>:null}*/}
             </div>
         </div>
     );
