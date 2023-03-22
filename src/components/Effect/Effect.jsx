@@ -10,7 +10,7 @@ const Effect = ({effects}) => {
     const navigate = useNavigate();
     const ClickEffect=()=>{
         setTimeout(() => {
-            navigate(`/repository/${id}`);
+            navigate(`/repository/${effects.id}`);
         }, 1000);
     }
 
@@ -19,7 +19,7 @@ const Effect = ({effects}) => {
             <div className={styles.container}>
                 <div className={styles.effect}>
                     {/*<HeartBeatSpinner></HeartBeatSpinner>*/}
-                    <PreviewEffect></PreviewEffect>
+                    <PreviewEffect effects={effects}></PreviewEffect>
                 </div>
                 <div className={styles.effectInfo}>
                     <img className={styles.ava} src={`http://127.0.0.1:9003/image/ImagesForClient/avatar.svg`} alt="ava" />

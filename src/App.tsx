@@ -14,6 +14,7 @@ import HomeUser from "./views/HomeUser";
  import Header from "./components/Header/Header";
  import AccountUser from "./views/AccountUser"
 import RepositoryView from './views/RepositoryView'
+import CreateRepository from "./views/CreateRepository";
 
 function App() {
   return <>
@@ -26,6 +27,7 @@ function App() {
           </Route>
           <Route path='/user' element={<HomeUser/>}></Route>
           <Route path='/account' element={<AccountUser/>}></Route>
+          <Route path='/createrep' element={<CreateRepository/>}></Route>
           <Route path="/repository/:id" element={<RepositoryView />}>
               {/*<Route index element={<RepositoryView />} />*/}
               {/*<Route path=":id" element={<RepositoryView/>} />*/}

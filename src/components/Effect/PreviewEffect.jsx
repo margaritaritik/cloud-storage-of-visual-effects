@@ -3,9 +3,9 @@ import React, {useMemo} from 'react';
 import styles from "./styleEffect.module.css";
 
 const PreviewEffect = ({effects}) => {
-    const html='<h1>Hello preview!</h1>';
-    const css="h1{color:red;}";
-    const js="";
+    const html=effects.html;
+    const css=effects.css;
+    const js=effects.js;
     const document=useMemo(()=> {
         if(!html && !css && !js) return;
         return`<!doctype html>
