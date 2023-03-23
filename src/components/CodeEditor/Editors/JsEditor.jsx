@@ -5,11 +5,11 @@ import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/snippets/javascript";
 import "ace-builds/src-noconflict/ext-language_tools";
-import {EditorContext} from "../../../context/context";
+import {EditorContext} from "../context/context";
 
 
 const JsEditor = () => {
-    const [js,setJs]=useContext(EditorContext);
+    const {js,setJs}=useContext(EditorContext);
     return (
         <AceEditor
             placeholder='write your JS codes here!'

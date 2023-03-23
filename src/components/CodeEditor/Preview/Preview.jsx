@@ -1,6 +1,6 @@
 import React, {useContext, useMemo} from 'react';
 import styles from './Preview.module.css';
-import {EditorContext} from "../../../context/context";
+import {EditorContext} from "../context/context";
 
 const Preview = () => {
     const {html,css,js}=useContext(EditorContext);

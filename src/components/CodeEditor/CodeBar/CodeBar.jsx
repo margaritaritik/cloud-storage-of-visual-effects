@@ -18,8 +18,8 @@ const CodeBar = () => {
             </nav>
             <div className={styles.editor}>
                 {activeTab==='html' ? <HtmlEditor/>:null}
-                {/*{activeTab==='css' ? <CssEditor/>:null}*/}
-                {/*{activeTab==='js' ? <JsEditor/>:null}*/}
+                {activeTab==='css' ? <CssEditor/>:null}
+                {activeTab==='js' ? <JsEditor/>:null}
             </div>
         </div>
     );

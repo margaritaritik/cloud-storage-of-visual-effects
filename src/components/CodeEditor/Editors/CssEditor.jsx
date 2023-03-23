@@ -6,12 +6,12 @@ import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/snippets/css";
 import "ace-builds/src-noconflict/ext-language_tools";
 
-import {EditorContext} from "../../../context/context";
+import {EditorContext} from "../context/context";
 
 
 const CssEditor = () => {
 
-    const [css,setCss]=useContext(EditorContext);
+    const {css,setCss}=useContext(EditorContext);
     return (
         <AceEditor
             placeholder='write your CSS codes here!'

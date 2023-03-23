@@ -1,15 +1,18 @@
 import React from 'react';
-import {EditorProvider} from "../../context/context";
+import {EditorProvider} from "./context/context";
 import CodeBar from "./CodeBar/CodeBar";
 import styles from './stylesCodeEditor.module.css';
+import Preview from "./Preview/Preview";
 
 const CodeMirrorEditor = () => {
     return (
          <EditorProvider>
-            <CodeBar></CodeBar>
-             <div className={styles.main}>
+             <div className={styles.editorProvider}>
+                 <CodeBar></CodeBar>
 
+                 <Preview></Preview>
              </div>
+
          </EditorProvider>
     );
 };

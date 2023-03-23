@@ -2,3 +2,20 @@
     flex: 1;
     border-left: 2px solid #444141;
 }
+
+.editorProvider{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100%;
+    padding: 0 15px;
+    gap: 15px;
+    border-bottom: 2px solid #524b4b;
+}
