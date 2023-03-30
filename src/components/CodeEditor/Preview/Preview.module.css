@@ -1,9 +1,11 @@
 .content{
 
-    height: calc(100vh);
+    height: calc(103vh);
+    position: absolute;
+    left: 100%;
     width: 100%;
     max-width: 900px;
-    background: #61dafb;
+    background: #d9f2fc;
 }
 
 .preview{

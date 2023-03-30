@@ -22,8 +22,8 @@ const Effect = ({effects}) => {
                     <PreviewEffect effects={effects}></PreviewEffect>
                 </div>
                 <div className={styles.effectInfo}>
-                    <img className={styles.ava} src={`http://127.0.0.1:9003/image/ImagesForClient/avatar.svg`} alt="ava" />
-                    <p className={styles.nameEffect}>Визуальный эффект!</p>
+                    <img className={styles.ava} src={`${effects.srcImg}`} alt="ava" />
+                    <p className={styles.nameEffect}>{effects.name}</p>
                     <div className={styles.like}>Like</div>
                 </div>
             </div>

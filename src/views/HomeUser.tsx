@@ -17,6 +17,7 @@ const HomeUser = () => {
             color: '#ffffff',
         })
     useEffect(() => {
+        console.log("hey")
         const userRequest = async () => {
             setLogged(false);
             setResult("");
@@ -31,9 +32,12 @@ const HomeUser = () => {
 
 
                 const eff=await API.user.getEffects();
-                let effects:{ id: number, name: string ,description:string,html:string,js:string,typeeffect_id:number,css:string}[]= eff;
+                // let effects:{ id: number, name: string ,description:string,html:string,js:string,typeeffect_id:number,css:string}[]= eff;
+                let effects:{id:number,name:string,description:string,typeeffect_id:number,css:string,js:string,html:string,account_id:number,srcImg:string}[]=eff;
+                localStorage.setItem('user',JSON.stringify(result));
+                localStorage.setItem('effects',JSON.stringify(effects));
                 setEffect(effects.map(item => <Effect effects={item}></Effect>));// = effects.map(item => <Effect effects={item}></Effect>)
-                console.log(eff);
+                console.log(`efff ${eff}`);
                 console.log(effects);
             } catch (e) {
                 if (e instanceof Error) {
@@ -43,10 +47,13 @@ const HomeUser = () => {
         };
         userRequest();
     }, []);
+
+
+
     console.log(effect);
 
     return <>
-        <Header avaPath={ava}></Header>
+        <Header></Header>
             {result && <div>{result}</div>}
             {error && <div>{error}</div>}
         <div>

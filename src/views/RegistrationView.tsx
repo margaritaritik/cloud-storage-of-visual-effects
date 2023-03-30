@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import RegistrationForm, { RegistrationFormData } from "../components/RegistrationForm/RegistrationForm";
 import { API } from "../servises/api";
+import Header from '../components/Header/Header';
 
 const RegistrationView = () => {
     const navigate = useNavigate();
@@ -34,11 +35,12 @@ const RegistrationView = () => {
     };
 
     return (
-        <div>
+        <>
+
             <RegistrationForm onSubmit={onSubmit}/>
             {result && <>{result}</>}
             {error && <>{error}</>}
-        </div>
+        </>
     );
 };
 

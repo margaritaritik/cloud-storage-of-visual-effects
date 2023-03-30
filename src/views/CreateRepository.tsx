@@ -1,10 +1,11 @@
 import React from 'react';
+import Header from '../components/Header/Header';
 
 const CreateRepository = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <Header></Header>
+        </>
     );
 };
 

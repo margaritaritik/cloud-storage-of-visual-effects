@@ -1,7 +1,7 @@
 .codebar{
-    width: 800px;
+    width: 750px;
     background: #494848;
-    position: relative;
+    /*position: relative;*/
 }
 
 .tab{
@@ -31,12 +31,13 @@
 }
 
 .activTab{
-    background: #61dafb;
+    background: #05d8ea;
     color: #fffdfd;
 }
 
 .editor{
     /*height: 100% ;*/
+    z-index: -10;
     height: calc(100vh - 70px);
     padding: 10px;
 }

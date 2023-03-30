@@ -9,6 +9,14 @@ import {useNavigate} from "react-router-dom";
 
 const AccountUser = () => {
     const navigate = useNavigate();
+    const getStorageData = (keyName:string, defaultValue:string) =>{
+        const savedItem = localStorage.getItem(keyName);
+        // @ts-ignore
+        const parsedItem = JSON.parse(savedItem);
+        return parsedItem || defaultValue;
+    }
+    const user=getStorageData('user','no').user;
+
     const createRep=()=>{
             setTimeout(() => {
                 navigate(`/createrep`);
@@ -16,8 +24,9 @@ const AccountUser = () => {
     }
 
 
+
     return <>
-        {/*<Header avaPath={}></Header>*/}
+        <Header></Header>
         <UploadFile ></UploadFile>
         {/*<input type="file" onChange={saveFile} />*/}
         <button onClick={createRep}>Создать репозиторий</button>

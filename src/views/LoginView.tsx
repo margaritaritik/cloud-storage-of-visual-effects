@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { API } from "../servises/api";
 import LoginForm, { LoginFormData } from "../components/LoginForm/LoginForm";
+import Header from '../components/Header/Header';
 
 
 const LoginView = () => {
@@ -32,6 +33,7 @@ const LoginView = () => {
     return (
         <div>
             {/*<UploadImage></UploadImage>*/}
+
             <LoginForm onSubmit={onSubmit}/>
             {result && <>{result}</>}
             {error && <>{error}</>}
