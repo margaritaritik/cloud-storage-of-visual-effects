@@ -10,6 +10,7 @@ z-index: 1000;
     height: 100%;
     max-height: 100px;
     background-color: #fffdfd;
+    overflow: hidden;
 }
 
 .menu{
