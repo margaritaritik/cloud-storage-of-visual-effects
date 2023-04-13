@@ -1,4 +1,7 @@
 .codebar{
+    position: relative;
+    /*left: 0;*/
+    /*top: 10px;*/
     width: 750px;
     background: #494848;
     /*position: relative;*/
@@ -37,6 +40,9 @@
 
 .editor{
     /*height: 100% ;*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: -10px;*/
     z-index: -10;
     height: calc(100vh - 70px);
     padding: 10px;
