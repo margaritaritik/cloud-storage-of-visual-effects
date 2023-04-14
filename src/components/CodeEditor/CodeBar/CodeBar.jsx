@@ -4,7 +4,11 @@ import HtmlEditor from "../Editors/HtmlEditor";
 import CssEditor from "../Editors/CssEditor";
 import JsEditor from "../Editors/JsEditor";
 
-const CodeBar = () => {
+import HtmlEditorRedactor from "../../CodeDisplay/EditorsForCode/HtmlEditor";
+import CssEditorRedactor from "../../CodeDisplay/EditorsForCode/CssEditor";
+import JsEditorRedactor from "../../CodeDisplay/EditorsForCode/JsEditor";
+
+const CodeBar = ({redactor}) => {
     const [activeTab,setActivTab]=useState('html');
 
     return (
@@ -16,11 +20,20 @@ const CodeBar = () => {
                 <button className={`${styles.item} ${activeTab==='css' ? styles.activTab:''}`}  onClick={()=>setActivTab('css')}>CSS</button>
                 <button className={`${styles.item} ${activeTab==='js' ? styles.activTab:''}`}  onClick={()=>setActivTab('js')}>JS</button>
             </nav>
-            <div className={styles.editor}>
-                {activeTab==='html' ? <HtmlEditor/>:null}
-                {activeTab==='css' ? <CssEditor/>:null}
-                {activeTab==='js' ? <JsEditor/>:null}
-            </div>
+            {redactor ?
+                (<div className={styles.editor}>
+                    {activeTab==='html' ? <HtmlEditor/>:null}
+                    {activeTab==='css' ? <CssEditor/>:null}
+                    {activeTab==='js' ? <JsEditor/>:null}
+                </div>):(
+                    <div className={styles.editor}>
+                    {activeTab==='html' ? <HtmlEditorRedactor/>:null}
+                    {activeTab==='css' ? <CssEditorRedactor/>:null}
+                    {activeTab==='js' ? <JsEditorRedactor/>:null}
+                </div>
+                )
+            }
+
         </div>
     );
 };

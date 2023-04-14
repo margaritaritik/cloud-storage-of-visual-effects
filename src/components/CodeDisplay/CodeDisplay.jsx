@@ -4,7 +4,7 @@ import CodeBar from '../CodeEditor/CodeBar/CodeBar'
 const CodeDisplay = () => {
     return (
         <>
-            <CodeBar></CodeBar>
+            <CodeBar redactor={false}></CodeBar>
         </>
     );
 };
