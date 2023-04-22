@@ -18,7 +18,7 @@ const JsEditor = () => {
     const effect=getStorageData('selectedEffect','no');
     return (
         <AceEditor
-            placeholder='write your JS codes here!'
+            placeholder='//JS code'
             mode='javascript'
             name='editor_js'
             value={effect.js}

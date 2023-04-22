@@ -1,5 +1,5 @@
 import React, {useCallback, useRef, useState} from 'react';
-import styles from "../../styles/stylesAccountUser.module.css";
+import styles from "./styleUploadFile.module.css";
 import axios from "axios";
 
 import logo from '../../imagesTest/logo.png'

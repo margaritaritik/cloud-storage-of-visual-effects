@@ -27,9 +27,18 @@ const AccountUser = () => {
 
     return <>
         <Header></Header>
-        <UploadFile ></UploadFile>
-        {/*<input type="file" onChange={saveFile} />*/}
-        <button onClick={createRep}>Создать репозиторий</button>
+        {/*<UploadFile ></UploadFile>*/}
+        <div className={styles.container}>
+            <div className={styles.container_user}>
+                <img src={user.srcImg} alt="" className={styles.ava}/>
+                <div className={styles.user_info}>
+                    {user.description}
+                </div>
+            </div>
+            <div className={styles.effects}>
+                <UploadFile></UploadFile>
+            </div>
+        </div>
     </>
 };
 

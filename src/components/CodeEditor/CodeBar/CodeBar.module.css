@@ -44,6 +44,6 @@
     /*left: 0;*/
     /*top: -10px;*/
     z-index: -10;
-    height: calc(100vh - 70px);
+    height: 400px;
     padding: 10px;
 }

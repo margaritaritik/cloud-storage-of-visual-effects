@@ -37,8 +37,7 @@ const HomeUser = () => {
                 localStorage.setItem('user',JSON.stringify(result));
                 localStorage.setItem('effects',JSON.stringify(effects));
                 setEffect(effects.map(item => <Effect effects={item}></Effect>));// = effects.map(item => <Effect effects={item}></Effect>)
-                console.log(`efff ${eff}`);
-                console.log(effects);
+
             } catch (e) {
                 if (e instanceof Error) {
                     setError(e.message);
@@ -49,15 +48,12 @@ const HomeUser = () => {
     }, []);
 
 
-
-    console.log(effect);
-
     return <>
         <Header></Header>
             {result && <div>{result}</div>}
             {error && <div>{error}</div>}
         <div>
-            {effect as ReactNode}
+            {effect  as ReactNode}
         </div>
 
         {/*<button style={{position:"relative", left:"200px",right:"200px",background:'red',width:"100px",height:"100px"}} >{error}</button>*/}

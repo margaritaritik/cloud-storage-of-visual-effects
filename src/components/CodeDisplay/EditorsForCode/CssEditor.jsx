@@ -19,7 +19,7 @@ const CssEditor = () => {
     const effect=getStorageData('selectedEffect','no');
     return (
         <AceEditor
-            placeholder='write your CSS codes here!'
+            placeholder='//CSS code'
             mode='css'
             name='editor_css'
             value={effect.css}

@@ -4,6 +4,7 @@ import {EditorContext} from "../context/context";
 
 const Preview = () => {
     const {html,css,js}=useContext(EditorContext);
+
     const document=useMemo(()=> {
         if(!html && !css && !js) return;
         return`<!doctype html>
@@ -22,7 +23,9 @@ const Preview = () => {
                 </script>
             </body>
         </html>`
-    },[html,css,js])
+    },[html,css,js]);
+
+    console.log(document);
     return (
         <div className={styles.content}>
             {

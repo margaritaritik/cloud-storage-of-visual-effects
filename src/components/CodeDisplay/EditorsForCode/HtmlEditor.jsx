@@ -20,7 +20,7 @@ const HtmlEditor = () => {
 
     return (
         <AceEditor
-        placeholder='write your HTML codes here!'
+        placeholder='//HTML code'
         mode='html'
         name='editor_html'
        value={effect.html}
