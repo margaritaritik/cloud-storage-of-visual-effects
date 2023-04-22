@@ -29,6 +29,7 @@ function App() {
           <Route path='/account' element={<AccountUser/>}></Route>
           <Route path='/createrep' element={<CreateRepository/>}></Route>
           <Route path="/repository/:id" element={<RepositoryView />}>
+
               {/*<Route index element={<RepositoryView />} />*/}
               {/*<Route path=":id" element={<RepositoryView/>} />*/}
           </Route>

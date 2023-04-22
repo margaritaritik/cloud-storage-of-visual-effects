@@ -8,9 +8,13 @@ const CodeMirrorEditor = () => {
     return (
          <EditorProvider>
              <div className={styles.editorProvider}>
-                 <CodeBar redactor={true}></CodeBar>
+                 <div>
+                     <CodeBar redactor={true}></CodeBar>
+                 </div>
+                 <div>
+                     <Preview></Preview>
+                 </div>
 
-                 <Preview></Preview>
              </div>
 
          </EditorProvider>

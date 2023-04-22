@@ -1,0 +1,14 @@
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /*max-width: 1200px;*/
+    /*max-height: 2000px;*/
+    left: 0;
+    top: 100px;
+    /*background: #673e3e;*/
+
+    text-align: center;
+}
+
+

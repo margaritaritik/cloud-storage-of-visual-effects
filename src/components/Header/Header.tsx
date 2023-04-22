@@ -25,12 +25,15 @@ const Header = () => {
     const clickAva=()=>{
         navigate("/account");
     }
+    const clickCreateRep=()=>{
+        navigate("/createrep");
+    }
 
 
     return <>
             <div className={styles.container}>
                 <div className={styles.menu}>
-
+                    <button onClick={clickCreateRep}>Create repository</button>
                 </div>
                 <img className={styles.logo} src={`http://127.0.0.1:9003/image/ImagesForClient/logo.png`} alt="" onClick={clickLogo}/>
                 <img className={styles.ava} src={user.srcImg} alt="" onClick={clickAva} />
