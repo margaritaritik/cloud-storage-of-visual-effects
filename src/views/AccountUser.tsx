@@ -1,8 +1,9 @@
-import React, {useState,useRef} from 'react';
+import React, {useState, useRef, useContext} from 'react';
 import Header from '../components/Header/Header';
 import styles from '../styles/stylesAccountUser.module.css';
 import UploadFile from '../components/UploadFile/UploadPhoto';
 import {useNavigate} from "react-router-dom";
+import {EditorContext} from "../components/CodeEditor/context/context";
 
 
 
@@ -37,6 +38,7 @@ const AccountUser = () => {
             </div>
             <div className={styles.effects}>
                 <UploadFile></UploadFile>
+
             </div>
         </div>
     </>

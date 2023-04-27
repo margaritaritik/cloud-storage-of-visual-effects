@@ -1,8 +1,9 @@
 import React, {useRef, useState} from 'react';
 import styles from './styleUploadFile.module.css'
 import axios from "axios";
-import {useCallback} from "@types/react";
+import {useCallback, useContext} from "@types/react";
 import logo from "../../imagesTest/logo.png";
+import {EditorContext} from "../CodeEditor/context/context";
 
 const UploadFile = () => {
     const [img,setImg]=useState(null);
@@ -20,6 +21,11 @@ const UploadFile = () => {
 
         }
     },[img])
+
+    const {html,css,js}=useContext(EditorContext);
+    const btnClick=()=>{
+       console.log(css);
+    }
     return (
         <>
             <div className={styles.containerTest}>
@@ -33,6 +39,7 @@ const UploadFile = () => {
                 <input type="file" onChange={e=>setImg(e.target.files[0])} name="image"/>
                 <button className={styles.btn} onClick={sendFile}>Загрузить !!!</button>
                 <img src={`${avatar}`} alt="avatar"/>
+
             </div>
         </>
     );

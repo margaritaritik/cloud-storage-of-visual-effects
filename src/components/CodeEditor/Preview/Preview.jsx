@@ -25,7 +25,7 @@ const Preview = () => {
         </html>`
     },[html,css,js]);
 
-    console.log(document);
+
     return (
         <div className={styles.content}>
             {

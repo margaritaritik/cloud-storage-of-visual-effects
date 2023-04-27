@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState} from 'react';
 import styles from '../styles/stylesRepositoryView.module.css';
 import CodeDisplay from '../components/CodeDisplay/CodeDisplay';
 import Header from '../components/Header/Header';
@@ -7,6 +7,7 @@ import {Button} from "@mui/material";
 
 
 const RepositoryView = () => {
+    const [comment,setComment]=useState("");
     const getStorageData = (keyName:string, defaultValue:string) =>{
         const savedItem = localStorage.getItem(keyName);
         // @ts-ignore
@@ -48,6 +49,10 @@ const RepositoryView = () => {
         link.click();
     }
 
+    const CreateComment=()=>{
+
+    }
+
     return (
         <>
             <Header></Header>
@@ -61,7 +66,13 @@ const RepositoryView = () => {
                      <CodeDisplay></CodeDisplay>
                 </div>
                 <div className={styles.comments}>
-
+                    <label>
+                        Коммент:
+                        <input type="text" name="comment"
+                               value={comment}
+                               onChange={event => setComment(event.target.value)}/>
+                    </label>
+                    <button onClick={CreateComment} className={styles.btn_comment}>Написать комментарий</button>
                 </div>
             </div>
         </>

@@ -5,6 +5,7 @@ import styles from './stylesCodeEditor.module.css';
 import Preview from "./Preview/Preview";
 
 const CodeMirrorEditor = () => {
+
     return (
          <EditorProvider>
              <div className={styles.editorProvider}>

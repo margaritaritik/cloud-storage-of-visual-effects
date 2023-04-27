@@ -22,7 +22,7 @@
 }
 
 .btn_download{
-    position: relative;
+    position: absolute;
     left: 74vh;
     top: 28vh;
     background-image: url("http://127.0.0.1:9003/image/DownloadFile/fileDownload.svg");
@@ -42,4 +42,21 @@
 
     /*float:left;*/
 
+}
+
+.comments{
+    position: absolute;
+    left: 30%;
+    top: 120vh;
+    width: 100%;
+    height:100%;
+    max-width: 750px;
+    /*max-height: 100px;*/
+    background: #31719a;
+    z-index: 20;
+}
+
+.btn_comment{
+    background: #61dafb;
+    color: #ffffff;
 }
