@@ -4,6 +4,7 @@ import CodeDisplay from '../components/CodeDisplay/CodeDisplay';
 import Header from '../components/Header/Header';
 import PreviewEffect from "../components/Effect/PreviewEffect";
 import {Button} from "@mui/material";
+import {API} from "../servises/api";
 
 
 const RepositoryView = () => {
@@ -15,6 +16,7 @@ const RepositoryView = () => {
         return parsedItem || defaultValue;
     }
     const effect=getStorageData('selectedEffect','no');
+    const user=getStorageData('user','no').user;
     const documentEffect=`<!doctype html>
         <html lang="en">
           <head>
@@ -49,7 +51,13 @@ const RepositoryView = () => {
         link.click();
     }
 
-    const CreateComment=()=>{
+
+    const CreateComment=async ()=>{
+        try {
+            let massageRegistration=await API.user.comment({name:comment,account_id:user.id,effect_id:effect.id});
+        }catch (e) {
+
+        }
 
     }
 

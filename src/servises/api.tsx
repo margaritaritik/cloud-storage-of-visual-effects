@@ -87,5 +87,17 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
+        comment: async (data:object) => {
+            const response = await fetch(`${BASE_URL}/createComment`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
     },
 };
