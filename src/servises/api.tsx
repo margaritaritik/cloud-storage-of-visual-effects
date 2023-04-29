@@ -73,6 +73,16 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
+        getComments: async (effect_id:number) => {
+            const response = await fetch(`${BASE_URL}/getComments/${effect_id}`, {
+                credentials: "include",
+                method: "GET",
+                // body: JSON.stringify(effect_id)
+                // params:{effect_id},
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
 
         uploadFile:async (data: FormData) => {
             console.log(data);

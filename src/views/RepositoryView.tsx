@@ -1,14 +1,16 @@
-import React, {useMemo, useState} from 'react';
+import React, {ReactNode, useEffect, useMemo, useState} from 'react';
 import styles from '../styles/stylesRepositoryView.module.css';
 import CodeDisplay from '../components/CodeDisplay/CodeDisplay';
 import Header from '../components/Header/Header';
 import PreviewEffect from "../components/Effect/PreviewEffect";
 import {Button} from "@mui/material";
 import {API} from "../servises/api";
+import Comments from "../components/Comments/Comment";
 
 
 const RepositoryView = () => {
     const [comment,setComment]=useState("");
+    const [comments,setComments]=useState<{}[]>();
     const getStorageData = (keyName:string, defaultValue:string) =>{
         const savedItem = localStorage.getItem(keyName);
         // @ts-ignore
@@ -50,6 +52,18 @@ const RepositoryView = () => {
         link.href = url;
         link.click();
     }
+    useEffect(()=>{
+        const PrintComments=async ()=>{
+            const getComments=await API.user.getComments(effect.id);
+            let effect_comments:{id:number,comment_name:string,srcImg:string}[]=getComments;
+            // @ts-ignore
+            setComments(effect_comments.map(item => <Comments comment={item}></Comments>));// = effects.map(item => <Effect effects={item}></Effect>)
+
+            // console.log(token);
+        }
+        PrintComments();
+    },[])
+
 
 
     const CreateComment=async ()=>{
@@ -74,6 +88,8 @@ const RepositoryView = () => {
                      <CodeDisplay></CodeDisplay>
                 </div>
                 <div className={styles.comments}>
+
+
                     <label>
                         Коммент:
                         <input type="text" name="comment"
@@ -81,6 +97,9 @@ const RepositoryView = () => {
                                onChange={event => setComment(event.target.value)}/>
                     </label>
                     <button onClick={CreateComment} className={styles.btn_comment}>Написать комментарий</button>
+                    <div>
+                        {comments as ReactNode}
+                    </div>
                 </div>
             </div>
         </>
