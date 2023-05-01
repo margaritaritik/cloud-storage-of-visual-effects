@@ -52,7 +52,7 @@
 
 .effect{
     position: relative;
-    background-color: #acacac;
+    background-color: rgba(172, 172, 172, 0);
     /*width: 100%;*/
     /*height: 100%;*/
     /*max-width: 600px;*/
@@ -80,8 +80,9 @@
     position: absolute;
     left: 0;
     top: 0;
+    z-index: -10;
 
-    max-width: 900px;
+    /*max-width: 900px;*/
     background: #d9f2fc;
 }
 

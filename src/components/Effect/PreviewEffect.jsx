@@ -1,11 +1,20 @@
 import React, {useMemo} from 'react';
 
 import styles from "./styleEffect.module.css";
+import {useNavigate} from "react-router-dom";
 
 const PreviewEffect = ({effects}) => {
+    const navigate = useNavigate();
     const html=effects.html;
     const css=effects.css;
     const js=effects.js;
+    const ClickEffect=()=>{
+        console.log("dada");
+        localStorage.setItem('selectedEffect',JSON.stringify(effects));
+        setTimeout(() => {
+            navigate(`/repository/${effects.id}`);
+        }, 1000);
+    }
     const document=useMemo(()=> {
         if(!html && !css && !js) return;
         return`<!doctype html>
@@ -26,14 +35,14 @@ const PreviewEffect = ({effects}) => {
         </html>`
     },[html,css,js])
     return (
-        <>
-            <div className={styles.content}>
+        <div>
+            <div className={styles.content} >
                 {
-                    document ? <iframe title="preview" className={styles.preview} srcDoc={document}/>
+                    document ? <iframe title="preview" className={styles.preview} srcDoc={document} onClick={ClickEffect}/>
                         : <div className={styles.loading}>Your code will be displayed here!</div>
                 }
             </div>
-        </>
+        </div>
     );
 };
 

@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './styleComment.module.css';
 
 
-type CommentData = {id:number,comment_name:string,srcImg:string};
 
 
 
-const Comment = (comment:CommentData) => {
+const Comment = ({comment}) => {
+    console.log(comment.id);
     return (
         <>
           <div className={styles.container}>
