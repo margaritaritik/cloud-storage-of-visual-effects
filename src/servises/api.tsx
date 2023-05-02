@@ -109,5 +109,26 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
+        createRepository: async (data:object) => {
+            const response = await fetch(`${BASE_URL}/createRepository`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
+        getAccount: async (account_id:number) => {
+            const response = await fetch(`${BASE_URL}/getAccount/${account_id}`, {
+                credentials: "include",
+                method: "GET",
+
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
     },
 };

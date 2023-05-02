@@ -25,7 +25,7 @@ const Effect = ({effects}) => {
                     <PreviewEffect effects={effects}></PreviewEffect>
                 </div>
                 <div className={styles.effectInfo}>
-                    <Avatar srcImg={effects.srcImg}></Avatar>
+                    <Avatar effect={effects}></Avatar>
                     {/*<img className={styles.ava} src={`${effects.srcImg}`} alt="ava" />*/}
                     <p className={styles.nameEffect}>{effects.name}</p>
                     <div className={styles.like}>Like</div>

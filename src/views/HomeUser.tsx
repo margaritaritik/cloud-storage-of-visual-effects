@@ -24,7 +24,7 @@ const HomeUser = () => {
             setError("");
             try {
                 const result=await API.user.getCurrentUser();
-                console.log(result);
+                // console.log(result);
                 setResult(`Добро пожаловать,${result.user.name}!`);
                 customToast(`Добро пожаловать,${result.user.name}!`);
                 setAva(`${result.user.srcImg}`);

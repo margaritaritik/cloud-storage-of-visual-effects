@@ -7,7 +7,8 @@ import {EditorContext} from "../components/CodeEditor/context/context";
 const CreateRepository = () => {
 
 
-    // const {html,css,js}=useContext(EditorContext);
+     // @ts-ignore
+    const {html,css,js}=useContext(EditorContext);
     // const {html,css,js}=useContext(EditorContext);
     const [effectTitle,setEffectTitle]=useState('');
     const [effectDescription,setEffectDescription]=useState('');
@@ -33,23 +34,23 @@ const CreateRepository = () => {
                 </div>
 
             </div>
-            <div className={styles.container_title}>
-                    <label>
-                        Имя:
-                        <input name="title"
-                               type="text" value={effectTitle}
-                               onChange={event => setEffectTitle(event.target.value)}
-                        />
-                    </label>
+            {/*<div className={styles.container_title}>*/}
+            {/*        <label>*/}
+            {/*            Имя:*/}
+            {/*            <input name="title"*/}
+            {/*                   type="text" value={effectTitle}*/}
+            {/*                   onChange={event => setEffectTitle(event.target.value)}*/}
+            {/*            />*/}
+            {/*        </label>*/}
 
-                    <label>
-                        Описание:
-                        <input type="text" name="description"
-                               value={effectDescription}
-                               onChange={event => setEffectDescription(event.target.value)}/>
-                    </label>
-                    <button className={styles.btn_create} onClick={BtnCreateClick}>Загрузить</button>
-            </div>
+                    {/*<label>*/}
+                    {/*    Описание:*/}
+                    {/*    <input type="text" name="description"*/}
+                    {/*           value={effectDescription}*/}
+                    {/*           onChange={event => setEffectDescription(event.target.value)}/>*/}
+                    {/*</label>*/}
+                    {/*<button className={styles.btn_create} onClick={BtnCreateClick}>Загрузить</button>*/}
+            {/*</div>*/}
             </div>
 
         </>
