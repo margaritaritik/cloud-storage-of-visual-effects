@@ -52,15 +52,25 @@ const RepositoryView = () => {
         link.href = url;
         link.click();
     }
+    const [commentsEffect,setCommentsEffect]=useState();
+    // const getCommentsEffect=async ()=>{
+    //     const getComments=await API.user.getComments(effect.id);
+    // }
+
     useEffect(()=>{
         const PrintComments=async ()=>{
-            const getComments=await API.user.getComments(effect.id);
-            let effect_comments:{id:number,comment_name:string,srcImg:string}[]=getComments;
-            console.log(effect_comments);
-            // @ts-ignore
-            setComments(effect_comments.map(item => <Comments comment={item}></Comments>));// = effects.map(item => <Effect effects={item}></Effect>)
+            try {
 
-            // console.log(token);
+                let effect_comments:{id:number,comment_name:string,srcImg:string}[]=await API.user.getComments(effect.id);
+                // console.log(effect_comments);
+                // @ts-ignore
+                setComments(effect_comments.map(item => <Comments comment={item}></Comments>));// = effects.map(item => <Effect effects={item}></Effect>)
+
+                // console.log(token);
+            }catch (e) {
+
+            }
+
         }
         PrintComments();
     },[comments])
