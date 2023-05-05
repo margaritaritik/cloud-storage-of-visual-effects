@@ -52,6 +52,7 @@ const RepositoryView = () => {
         link.href = url;
         link.click();
     }
+    const [test,setTest]=useState({});
     const [commentsEffect,setCommentsEffect]=useState();
     // const getCommentsEffect=async ()=>{
     //     const getComments=await API.user.getComments(effect.id);
@@ -68,18 +69,25 @@ const RepositoryView = () => {
 
                 // console.log(token);
             }catch (e) {
-
+                if (e instanceof Error) {
+                    console.log(e.message);
+                }
             }
 
         }
         PrintComments();
-    },[comments])
-
+    },[test]);
+    //
+    //
+    // useEffect(()=>{
+    //     console.log('test');
+    //
+    // },[test]);
 
 
     const CreateComment=async ()=>{
         try {
-            let massageRegistration=await API.user.comment({name:comment,account_id:user.id,effect_id:effect.id});
+            setTest(await API.user.comment({name:comment,account_id:user.id,effect_id:effect.id}));
         }catch (e) {
 
         }
@@ -99,8 +107,6 @@ const RepositoryView = () => {
                      <CodeDisplay></CodeDisplay>
                 </div>
                 <div className={styles.comments}>
-
-
                     <label>
                         Коммент:
                         <input type="text" name="comment"
