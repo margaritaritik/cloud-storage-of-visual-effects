@@ -77,13 +77,6 @@ const RepositoryView = () => {
         }
         PrintComments();
     },[test]);
-    //
-    //
-    // useEffect(()=>{
-    //     console.log('test');
-    //
-    // },[test]);
-
 
     const CreateComment=async ()=>{
         try {

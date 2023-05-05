@@ -3,6 +3,9 @@ import styles from './Preview.module.css';
 import Popup from 'reactjs-popup';
 import {EditorContext} from "../context/context";
 import {API} from "../../../servises/api";
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
 
 const Preview = () => {
     const {html,css,js}=useContext(EditorContext);
@@ -50,6 +53,9 @@ const Preview = () => {
     }
     const closeModal = () => setCheck(false);
 
+    const options = ['Monday', 'Tuesday', 'Thursday',
+        'Friday', 'Saturday', 'Sunday'];
+
     return (
         <>
             <div className={styles.content}>
@@ -82,6 +88,16 @@ const Preview = () => {
 
                     </div>
                 </Popup>
+
+                <div style={{marginLeft:'40%', marginTop: '60px'}}>
+                    <h3>Greetings from GeeksforGeeks!</h3>
+                    <Autocomplete
+                        options={options}
+                        style={{ width: 300 }}
+                        renderInput={(params) =>
+                            <TextField {...params} label="Combo box" variant="outlined" />}
+                    />
+                </div>
             </div>
 
         </>
