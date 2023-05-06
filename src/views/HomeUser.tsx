@@ -4,8 +4,10 @@ import Effect from "../components/Effect/Effect";
 import Header from "../components/Header/Header";
 import { ToastContainer, toast } from 'react-toast';
 import PreviewEffect from "../components/Effect/PreviewEffect";
+import Search from '../components/Search/Search';
 
 const HomeUser = () => {
+    const [searchTitleEffect, setSearchTitleEffect] = useState('');
     const [result, setResult] = useState("");
     const [error, setError] = useState("");
     const [isLogged, setLogged] = useState(false);
@@ -47,18 +49,49 @@ const HomeUser = () => {
         userRequest();
     }, []);
 
+    const getStorageData = (keyName:string, defaultValue:string) =>{
+        const savedItem = localStorage.getItem(keyName);
+        // @ts-ignore
+        const parsedItem = JSON.parse(savedItem);
+        return parsedItem || defaultValue;
+    }
+    const effects=getStorageData('effects','no');
 
-    return <>
+    const getFiltered = () => {
+        let filteredList1 = [...effects];
+        if(searchTitleEffect.length>0)
+        {
+            filteredList1= filteredList1.filter(obj => (obj.name).includes(searchTitleEffect));
+            // console.log(searchTitle);
+        }
+        else if(searchTitleEffect.length===0){
+            filteredList1= [...effects];
+        }
+        return filteredList1;
+
+    }
+
+    const searchTitle=(title:string)=>{
+        setSearchTitleEffect(title);
+    }
+
+
+
+    return <div>
         <Header></Header>
             {result && <div>{result}</div>}
             {error && <div>{error}</div>}
+        <Search searchTitle={searchTitle}></Search>
         <div>
-            {effect  as ReactNode}
+            <div className="containerItem">
+                {getFiltered().map(item => <Effect effects={item}></Effect>)}
+            </div>
+            {/*{effect  as ReactNode}*/}
         </div>
 
         {/*<button style={{position:"relative", left:"200px",right:"200px",background:'red',width:"100px",height:"100px"}} >{error}</button>*/}
         <ToastContainer />
-    </>;
+    </div>;
 };
 
 export default HomeUser;

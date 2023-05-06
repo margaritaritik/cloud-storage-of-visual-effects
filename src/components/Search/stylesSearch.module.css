@@ -1,0 +1,27 @@
+
+.container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 0;
+    top: 100px;
+    text-align: center;
+}
+
+.textForWrite{
+    width: 300px;
+    padding:5px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,30%);
+}
+
+.textForWriteSearch{
+    width: 360px;
+    padding:5px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,30%);
+}
+
+.containerInputSearch{
+    width:100%;
+}
