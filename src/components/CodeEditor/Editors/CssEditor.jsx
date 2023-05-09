@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-css";
@@ -9,20 +9,19 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import {EditorContext} from "../context/context";
 
 
-const CssEditor = ({effect}) => {
+const CssEditor = ({effect,checkEffect}) => {
     const {css,setCss}=useContext(EditorContext);
-    // setCss(effect.css);
+    const [check,setCheck]=useState(checkEffect);
     const effectCssCode=(value)=>{
-        // value=>
-
          setCss(value)
     }
+       if (check){
 
-   useEffect(()=>{
-        if(css===""){
-            setCss(effect.css);
-        }
-   },[]);
+           if(css===""){
+               setCss(effect.css);
+               setCheck(!checkEffect);
+           }
+       }
     return (
         <AceEditor
             placeholder='write your CSS codes here!'
@@ -39,22 +38,11 @@ const CssEditor = ({effect}) => {
 
             setOptions={
                 {
-                    enableBasicAutocompletion:true,
-                    enableLiveAutocompletion:true,
-                    enableSnippets:true,
-                    tabSize:2
+                    enableBasicAutocompletion: true,
+                    enableLiveAutocompletion: true,
+                    enableSnippets: true,
+                    tabSize: 2
                 }
-            // showPrintMargin={true}
-            // showGutter={false}
-            // // highlightActiveLine={true}
-            // editorProps={{ $blockScrolling: true }}
-            // setOptions={
-            //     {
-            //         enableBasicAutocompletion:true,
-            //         enableLiveAutocompletion:true,
-            //         enableSnippets:true,
-            //          tabSize:2
-            //     }
             }
         />
     );

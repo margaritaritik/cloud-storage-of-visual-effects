@@ -8,12 +8,15 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import {EditorContext} from "../context/context";
 
 
-const HtmlEditor = ({effect}) => {
+const HtmlEditor = ({effect,checkEffect}) => {
     const {html,setHtml}=useContext(EditorContext);
    useEffect(()=>{
-        if(html===''){
-            setHtml(effect.html);
-        }
+       if(checkEffect){
+           if(html===''){
+               setHtml(effect.html);
+           }
+       }
+
    },[]);
     return (
         <AceEditor

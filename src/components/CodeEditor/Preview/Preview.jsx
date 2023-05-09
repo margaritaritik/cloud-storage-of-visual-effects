@@ -72,8 +72,8 @@ const Preview = ({checkEffect}) => {
             setCheck(true);
         }
         else{
-            console.log("change");
-            // const result=await API.user.createRepository({name:effectTitle,description:effectDescription,html:html,css:css,js:js,typeeffect_id:1,account_id:user.id});
+            const result=await API.user.changeRepository({name:effectTitle,description:effectDescription,html:html,css:css,js:js,typeeffect_id:options.indexOf(combobox)+1,id:effect.id});
+
         }
     }
     const closeModal = () => setCheck(false);

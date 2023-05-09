@@ -8,13 +8,17 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import {EditorContext} from "../context/context";
 
 
-const JsEditor = ({effect}) => {
+const JsEditor = ({effect,checkEffect}) => {
     const {js,setJs}=useContext(EditorContext);
-    useEffect(()=>{
+    // useEffect(()=>{
+    if(checkEffect){
         if(js===""){
             setJs(effect.js);
+            checkEffect=false;
         }
-    },[]);
+    }
+
+    // },[]);
     return (
         <AceEditor
             placeholder='write your JS codes here!'

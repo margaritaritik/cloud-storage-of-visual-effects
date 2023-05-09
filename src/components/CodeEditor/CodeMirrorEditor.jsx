@@ -11,12 +11,13 @@ const CodeMirrorEditor = ({check}) => {
         const parsedItem = JSON.parse(savedItem);
         return parsedItem || defaultValue;
     }
+    console.log(check);
     const effect=getStorageData('selectedEffect','no');
     return (
          <EditorProvider>
              <div className={styles.editorProvider}>
                  <div>
-                     <CodeBar redactor={true} effect={effect}></CodeBar>
+                     <CodeBar redactor={true} effect={effect} checkEffect={check}></CodeBar>
                  </div>
                  <div>
                      <Preview checkEffect={check}></Preview>
