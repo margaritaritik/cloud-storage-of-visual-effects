@@ -17,18 +17,38 @@ const Effect = ({effects}) => {
         }, 1000);
     }
 
+    const ClickChangeEffect=()=>{
+        localStorage.setItem('selectedEffect',JSON.stringify(effects));
+        setTimeout(() => {
+            navigate(`/changerep`);
+        }, 1000);
+    }
+
+    const getStorageData = (keyName, defaultValue) =>{
+        const savedItem = localStorage.getItem(keyName);
+        // @ts-ignore
+        const parsedItem = JSON.parse(savedItem);
+        return parsedItem || defaultValue;
+    }
+    const user=getStorageData('user','no').user;
+
+
+
     return <>
         <div className={styles.container_effects} >
             <div className={styles.container}>
                 <div onClick={ClickEffect} className={styles.effect}>
                     {/*<HeartBeatSpinner></HeartBeatSpinner>*/}
-                    <PreviewEffect effects={effects}></PreviewEffect>
+                    <PreviewEffect effects={effects} check={false}></PreviewEffect>
                 </div>
                 <div className={styles.effectInfo}>
                     <Avatar effect={effects}></Avatar>
                     {/*<img className={styles.ava} src={`${effects.srcImg}`} alt="ava" />*/}
                     <p className={styles.nameEffect}>{effects.name}</p>
-                    <div className={styles.like}>Like</div>
+                    {/*<div className={styles.like}>Like</div>*/}
+                    {effects.account_id===user.id && <button onClick={ClickChangeEffect}>change</button>
+                    }
+
                 </div>
             </div>
 

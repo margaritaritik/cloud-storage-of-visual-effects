@@ -37,8 +37,6 @@ const RepositoryView = () => {
         </html>`;
     const jsonData = JSON.stringify(documentEffect);
 
-
-
     // @ts-ignore
     const handleSaveToPC =() => {
         const fileData = JSON.stringify(jsonData);
@@ -53,21 +51,13 @@ const RepositoryView = () => {
         link.click();
     }
     const [test,setTest]=useState({});
-    const [commentsEffect,setCommentsEffect]=useState();
-    // const getCommentsEffect=async ()=>{
-    //     const getComments=await API.user.getComments(effect.id);
-    // }
-
     useEffect(()=>{
         const PrintComments=async ()=>{
             try {
 
-                let effect_comments:{id:number,comment_name:string,srcImg:string}[]=await API.user.getComments(effect.id);
-                // console.log(effect_comments);
+                let effect_comments:{account_id:number,comment_name:string,srcImg:string}[]=await API.user.getComments(effect.id);
                 // @ts-ignore
-                setComments(effect_comments.map(item => <Comments comment={item}></Comments>));// = effects.map(item => <Effect effects={item}></Effect>)
-
-                // console.log(token);
+                setComments(effect_comments.map(item => <Comments comment={item}></Comments>));
             }catch (e) {
                 if (e instanceof Error) {
                     console.log(e.message);

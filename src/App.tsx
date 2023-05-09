@@ -15,6 +15,7 @@ import HomeUser from "./views/HomeUser";
  import AccountUser from "./views/AccountUser"
 import RepositoryView from './views/RepositoryView'
 import CreateRepository from "./views/CreateRepository";
+ import ChangeRepository from "./views/ChangeRepository";
 
 function App() {
   return <>
@@ -28,6 +29,7 @@ function App() {
           <Route path='/user' element={<HomeUser/>}></Route>
           <Route path='/account' element={<AccountUser/>}></Route>
           <Route path='/createrep' element={<CreateRepository></CreateRepository>}></Route>
+          <Route path='/changerep' element={<ChangeRepository></ChangeRepository>}></Route>
           <Route path="/repository/:id" element={<RepositoryView />}>
 
               {/*<Route index element={<RepositoryView />} />*/}

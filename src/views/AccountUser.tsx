@@ -7,8 +7,6 @@ import {EditorContext} from "../components/CodeEditor/context/context";
 import Typewriter from "typewriter-effect";
 
 
-
-
 const AccountUser = () => {
     const navigate = useNavigate();
     const getStorageData = (keyName:string, defaultValue:string) =>{

@@ -26,7 +26,7 @@ const CreateRepository = () => {
             <div>
             <div className={styles.container}>
                 <div>
-                    <CodeEditor check={false}></CodeEditor>
+                    <CodeEditor check={true}></CodeEditor>
                 </div>
 
             </div>

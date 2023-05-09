@@ -26,20 +26,15 @@ const HomeUser = () => {
             setError("");
             try {
                 const result=await API.user.getCurrentUser();
-                // console.log(result);
                 setResult(`Добро пожаловать,${result.user.name}!`);
                 customToast(`Добро пожаловать,${result.user.name}!`);
                 setAva(`${result.user.srcImg}`);
                 setLogged(true);
-
-
                 const eff=await API.user.getEffects();
-                // let effects:{ id: number, name: string ,description:string,html:string,js:string,typeeffect_id:number,css:string}[]= eff;
                 let effects:{id:number,name:string,description:string,typeeffect_id:number,css:string,js:string,html:string,account_id:number,srcImg:string}[]=eff;
                 localStorage.setItem('user',JSON.stringify(result));
                 localStorage.setItem('effects',JSON.stringify(effects));
-                setEffect(effects.map(item => <Effect effects={item}></Effect>));// = effects.map(item => <Effect effects={item}></Effect>)
-
+                setEffect(effects.map(item => <Effect effects={item}></Effect>));
             } catch (e) {
                 if (e instanceof Error) {
                     setError(e.message);
@@ -57,12 +52,12 @@ const HomeUser = () => {
     }
     const effects=getStorageData('effects','no');
 
+
     const getFiltered = () => {
         let filteredList1 = [...effects];
         if(searchTitleEffect.length>0)
         {
             filteredList1= filteredList1.filter(obj => (obj.name).includes(searchTitleEffect));
-            // console.log(searchTitle);
         }
         else if(searchTitleEffect.length===0){
             filteredList1= [...effects];

@@ -8,7 +8,7 @@ import HtmlEditorRedactor from "../../CodeDisplay/EditorsForCode/HtmlEditor";
 import CssEditorRedactor from "../../CodeDisplay/EditorsForCode/CssEditor";
 import JsEditorRedactor from "../../CodeDisplay/EditorsForCode/JsEditor";
 
-const CodeBar = ({redactor}) => {
+const CodeBar = ({redactor,effect}) => {
     const [activeTab,setActivTab]=useState('html');
 
     return (
@@ -22,9 +22,9 @@ const CodeBar = ({redactor}) => {
             </nav>
             {redactor ?
                 (<div className={styles.editor}>
-                    {activeTab==='html' ? <HtmlEditor/>:null}
-                    {activeTab==='css' ? <CssEditor/>:null}
-                    {activeTab==='js' ? <JsEditor/>:null}
+                    {activeTab==='html' ? <HtmlEditor effect={effect}/>:null}
+                    {activeTab==='css' ? <CssEditor effect={effect}/>:null}
+                    {activeTab==='js' ? <JsEditor effect={effect}/>:null}
                 </div>):(
                     <div className={styles.editor}>
                     {activeTab==='html' ? <HtmlEditorRedactor/>:null}

@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-html";
@@ -8,10 +8,13 @@ import "ace-builds/src-noconflict/ext-language_tools";
 import {EditorContext} from "../context/context";
 
 
-const HtmlEditor = () => {
+const HtmlEditor = ({effect}) => {
     const {html,setHtml}=useContext(EditorContext);
-
-    //const [html,setHtml]=useContext(EditorContext);
+   useEffect(()=>{
+        if(html===''){
+            setHtml(effect.html);
+        }
+   },[]);
     return (
         <AceEditor
         placeholder='write your HTML codes here!'
@@ -27,6 +30,7 @@ const HtmlEditor = () => {
         showPrintMargin={false}
         showGutter={false}
         highlightActiveLine={true}
+
         setOptions={
             {
                 enableBasicAutocompletion:true,

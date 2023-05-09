@@ -7,8 +7,8 @@ const Avatar = ({effect}) => {
     const navigate = useNavigate();
     const AvaClick = async () => {
         // const clickAva=()=>{
-
-             const result=await API.user.getAccount(effect.account_id);
+            console.log(effect);
+            const result=await API.user.getAccount(effect.account_id);
             localStorage.setItem('account',JSON.stringify(result));
             navigate("/account");
         // }
