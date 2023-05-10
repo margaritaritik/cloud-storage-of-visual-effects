@@ -1,4 +1,4 @@
-import React, {useContext, useMemo, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 import styles from './Preview.module.css';
 import Popup from 'reactjs-popup';
 import {EditorContext} from "../context/context";
@@ -10,9 +10,9 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 const Preview = ({checkEffect}) => {
 
     const {html,css,js}=useContext(EditorContext);
-    const [combobox,setCombobox]=useState();
-    // const {css,setCss}=useContext(EditorContext);
-    // const {html,setHtml}=useContext(EditorContext);
+    const options = ['прелоадер', 'трехмерный эффект', 'типографика',
+        'природный эффект'];
+
     const getStorageData = (keyName, defaultValue) =>{
         const savedItem = localStorage.getItem(keyName);
         // @ts-ignore
@@ -21,12 +21,7 @@ const Preview = ({checkEffect}) => {
     }
     const user=getStorageData('user','no').user;
     const effect=getStorageData('selectedEffect','no');
-    if(checkEffect){
-        // console.log(effect.name);
-        // html=effect.html;
-        // setCss(effect.css);
-        // setHtml(effect.html);
-    }
+    const [combobox,setCombobox]=useState(effect.typeeffect_id+1);
 
     const [effectTitle,setEffectTitle]=useState("");
     const [effectDescription,setEffectDescription]=useState("");
@@ -51,8 +46,17 @@ const Preview = ({checkEffect}) => {
         </html>`
     },[html,css,js]);
 
-    const options = ['прелоадер', 'трехмерный эффект', 'типографика',
-        'природный эффект'];
+
+    // if(checkEffect){
+    //     setEffectTitle(effect.name);
+    //     setEffectDescription(effect.description);
+    // }
+    useEffect(()=>{
+        setEffectTitle(effect.name);
+        setEffectDescription(effect.description);
+         setCombobox(effect.typeeffect_id-1);
+         console.log(combobox);
+    },[]);
 
 
 
@@ -77,14 +81,10 @@ const Preview = ({checkEffect}) => {
         }
     }
     const closeModal = () => setCheck(false);
-    const Combobox=()=>{
-        console.log()
-    }
-
-
 
     return (
         <>
+            {console.log(options[combobox])}
             <div className={styles.content}>
                 {
                     document ? <iframe title="preview" className={styles.preview} srcDoc={document}/>
@@ -92,12 +92,14 @@ const Preview = ({checkEffect}) => {
                 }
             </div>
             <div className={styles.container_title}>
+
                     <TextField name="title"
-                               type="text" value={effectTitle}
-                               onChange={event => setEffectTitle(event.target.value)} label="Название" variant="outlined"/>
+                    type="text" value={effectTitle}
+                    onChange={event => setEffectTitle(event.target.value)} label="Название" variant="outlined"/>
                     <TextField type="text" name="description"
-                               value={effectDescription}
-                               onChange={event => setEffectDescription(event.target.value)} label="Описание" variant="outlined"  />
+                    value={effectDescription}
+                    onChange={event => setEffectDescription(event.target.value)} label="Описание" variant="outlined"  />
+
                 { checkEffect===false ? (<button className={styles.btn_create} onClick={BtnCreateClick}>Загрузить</button>):
                     (<button className={styles.btn_create} onClick={BtnChangeClick}>Изменить</button>)
                 }
@@ -106,22 +108,34 @@ const Preview = ({checkEffect}) => {
                         <a className={styles.close} onClick={closeModal}>
                             &times;
                         </a>
-                        <div>Укажите название!!!</div>
 
                     </div>
                 </Popup>
 
                 <div>
-                    <Autocomplete
+                    { checkEffect ?
+                        (<Autocomplete
 
-                        options={options}
-                        onChange={(event, newValue) => {
-                            setCombobox(newValue);
-                        }}
-                        style={{ width: 230 }}
-                        renderInput={(params) =>
-                            <TextField {...params} label="Тип эффекта" variant="outlined" />}
-                    />
+                            options={options}
+                            value={options[combobox]}
+                            onChange={(event, newValue) => {
+                                setCombobox(newValue);
+                            }}
+                            style={{ width: 230 }}
+                            renderInput={(params) =>
+                                <TextField {...params} label="Типg эффекта" variant="outlined" />}
+                        />):(<Autocomplete
+
+                            options={options}
+                            onChange={(event, newValue) => {
+                                setCombobox(newValue);
+                            }}
+                            style={{ width: 230 }}
+                            renderInput={(params) =>
+                                <TextField {...params} label="Тип эффекта" variant="outlined" />}
+                        />)
+                    }
+
                 </div>
             </div>
 

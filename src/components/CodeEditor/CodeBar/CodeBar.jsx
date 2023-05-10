@@ -20,6 +20,9 @@ const CodeBar = ({redactor,effect,checkEffect}) => {
                 <button className={`${styles.item} ${activeTab==='css' ? styles.activTab:''}`}  onClick={()=>setActivTab('css')}>CSS</button>
                 <button className={`${styles.item} ${activeTab==='js' ? styles.activTab:''}`}  onClick={()=>setActivTab('js')}>JS</button>
             </nav>
+            <CssEditor effect={effect} checkEffect={checkEffect}/>
+            <JsEditor effect={effect} checkEffect={checkEffect}/>
+
             {redactor ?
                 (<div className={styles.editor}>
                     {activeTab==='html' ? <HtmlEditor effect={effect} checkEffect={checkEffect}/>:null}

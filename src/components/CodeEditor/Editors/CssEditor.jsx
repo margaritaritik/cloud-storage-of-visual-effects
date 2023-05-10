@@ -15,13 +15,16 @@ const CssEditor = ({effect,checkEffect}) => {
     const effectCssCode=(value)=>{
          setCss(value)
     }
-       if (check){
+    useEffect(()=>{
+        if (check){
 
-           if(css===""){
-               setCss(effect.css);
-               setCheck(!checkEffect);
-           }
-       }
+            if(css===""){
+                setCss(effect.css);
+                setCheck(!checkEffect);
+            }
+        }
+    },[])
+
     return (
         <AceEditor
             placeholder='write your CSS codes here!'
