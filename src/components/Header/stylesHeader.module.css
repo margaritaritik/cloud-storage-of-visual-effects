@@ -47,11 +47,14 @@ z-index: 1000;
     max-width: 80px;
     border-radius: 50%;
     object-fit: cover;
-    background: #dfdfdf;
+    background: rgba(223, 223, 223, 0);
+    padding-left: 10px;
+    padding-bottom: 10px;
 
 
 }
 
-img{
-    padding: 10px 5px 5px 5px;
-}
+
+/*img{*/
+/*    padding: 10px 5px 5px 5px;*/
+/*}*/

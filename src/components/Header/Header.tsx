@@ -3,6 +3,7 @@ import styles from './stylesHeader.module.css';
 // import avatarLogo from '../../imagesTest/avatar-lazybones-sloth-svgrepo-com.svg';
 // import logo from '../../imagesTest/logo.png';
 import {useNavigate} from "react-router-dom";
+import Avatar from "../Avatar/Avatar";
 
 
 
@@ -36,7 +37,11 @@ const Header = () => {
                     <button onClick={clickCreateRep}>Create repository</button>
                 </div>
                 <img className={styles.logo} src={`http://127.0.0.1:9003/image/ImagesForClient/logo.png`} alt="" onClick={clickLogo}/>
-                <img className={styles.ava} src={user.srcImg} alt="" onClick={clickAva} />
+                {/*<img className={styles.ava} src={user.srcImg} alt="" onClick={clickAva} />*/}
+                <div className={styles.ava} >
+                    <Avatar  effect={user} user={true}></Avatar>
+                </div>
+
             </div>
         </>
 };

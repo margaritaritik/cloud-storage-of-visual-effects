@@ -5,6 +5,7 @@ import UploadFile from '../components/UploadFile/UploadPhoto';
 import {useNavigate} from "react-router-dom";
 import {EditorContext} from "../components/CodeEditor/context/context";
 import Typewriter from "typewriter-effect";
+import Effect from "../components/Effect/Effect";
 
 
 const AccountUser = () => {
@@ -16,7 +17,8 @@ const AccountUser = () => {
         return parsedItem || defaultValue;
     }
     const user=getStorageData('account','no');
-    const login=getStorageData('user','no');
+    const login=getStorageData('user','no').user;
+    const effects=getStorageData('effects','no');
 
 
     const createRep=()=>{
@@ -25,7 +27,12 @@ const AccountUser = () => {
             }, 1000);
     }
 
+    const getFiltered = () => {
+        let filteredList1 = [...effects];
 
+        return filteredList1;
+
+    }
 
     return <>
         <Header></Header>
@@ -48,7 +55,13 @@ const AccountUser = () => {
                 </div>
             </div>
             <div className={styles.effects}>
-                <UploadFile></UploadFile>
+                {/*<UploadFile></UploadFile>*/}
+                {/*{effects.account_id===user.id && getFiltered().map(item => }*/}
+
+                {getFiltered().filter(item => item.account_id === user.id).map(filtered => (
+                    <Effect effects={filtered}></Effect>)
+                )}
+
 
             </div>
         </div>

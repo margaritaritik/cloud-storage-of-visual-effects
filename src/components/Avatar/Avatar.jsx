@@ -2,21 +2,30 @@ import React from 'react';
 import styles from './stylesAvatar.module.css';
 import {useNavigate} from "react-router-dom";
 import {API} from "../../servises/api";
+import {width} from "@mui/system";
 
-const Avatar = ({effect}) => {
+const Avatar = ({effect,user}) => {
     const navigate = useNavigate();
     const AvaClick = async () => {
-        // const clickAva=()=>{
-            console.log(effect);
+       if(user){
+            const result=await API.user.getAccount(effect.id);
+            localStorage.setItem('account',JSON.stringify(result));
+
+        }
+        else{
             const result=await API.user.getAccount(effect.account_id);
             localStorage.setItem('account',JSON.stringify(result));
+
+        }
             navigate("/account");
-        // }
+
     }
 
     return (
         <div className={styles.container}>
-            <img onClick={AvaClick} className={styles.ava} src={`${effect.srcImg}`} alt="ava" />
+            {user ? (<img style={{width:'80px'}} onClick={AvaClick} className={styles.ava} src={`${effect.srcImg}`} alt="ava" />)
+                :(<img style={{width:'50px',height:'50px'}} onClick={AvaClick} className={styles.ava} src={`${effect.srcImg}`} alt="ava" />)}
+
         </div>
     );
 };
