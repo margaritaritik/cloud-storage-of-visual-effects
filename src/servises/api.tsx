@@ -142,5 +142,21 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
+        logout: async () => {
+            const response = await fetch(`${BASE_URL}/`, {
+                method: "DELETE",
+                credentials: "include",
+            });
+            await errorHandler(response);
+        },
+        deleteRepository: async (data:number) => {
+            const response = await fetch(`${BASE_URL}/deleteRepository/${data}`, {
+                method: "DELETE",
+                credentials: "include",
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
+
     },
 };

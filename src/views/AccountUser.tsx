@@ -1,4 +1,4 @@
-import React, {useState, useRef, useContext} from 'react';
+import React, {useState, useRef, useContext, useEffect} from 'react';
 import Header from '../components/Header/Header';
 import styles from '../styles/stylesAccountUser.module.css';
 import UploadFile from '../components/UploadFile/UploadPhoto';
@@ -10,6 +10,9 @@ import Effect from "../components/Effect/Effect";
 
 const AccountUser = () => {
     const navigate = useNavigate();
+    const [description,setDescription]=useState("");
+    const [name,setName]=useState("");
+    const [test,setTest]=useState(true);
     const getStorageData = (keyName:string, defaultValue:string) =>{
         const savedItem = localStorage.getItem(keyName);
         // @ts-ignore
@@ -19,6 +22,11 @@ const AccountUser = () => {
     const user=getStorageData('account','no');
     const login=getStorageData('user','no').user;
     const effects=getStorageData('effects','no');
+    if(user.id===login.id){
+        localStorage.setItem('account',JSON.stringify(login));
+        // window.location.reload();
+    }
+
 
 
     const createRep=()=>{
@@ -29,10 +37,23 @@ const AccountUser = () => {
 
     const getFiltered = () => {
         let filteredList1 = [...effects];
-
         return filteredList1;
-
     }
+
+    // useEffect(()=>{
+    //     setDescription(user.description);
+    //      setName(user.name);
+    //     // console.log(user.name);
+    //
+    // },[]);
+    useEffect(()=>{
+        setDescription(user.description);
+        setName(user.name);
+         console.log(user.name);
+        // window.location.reload();
+        // return;
+
+    },[user]);
 
     return <>
         <Header></Header>
@@ -40,18 +61,35 @@ const AccountUser = () => {
         <div className={styles.container}>
             <div className={styles.container_user}>
                 <img src={user.srcImg} alt="" className={styles.ava}/>
-                <div className={styles.user_info}>
-                    {/*{user.description}*/}
-                    <Typewriter
-                        onInit={(typewriter)=> {
-                            typewriter
-                                .typeString("Welcomes You")
-                                .pauseFor(1000)
-                                .deleteAll()
-                                .typeString(`${user.description}`)
-                                .start();
-                        }}
-                    />
+                {test &&
+                    <div className={styles.user_info}>
+                        {/*{user.description}*/}
+                        <Typewriter
+                            onInit={(typewriter)=> {
+                                typewriter
+                                    .typeString("Welcomes You")
+                                    .pauseFor(1000)
+                                    .deleteAll()
+                                    .typeString(`${name}`)
+                                    .start();
+                            }}
+                        />
+                    </div>
+                }
+
+                <div className={styles.account_info}>
+                    <div className={styles.description}>
+                        <Typewriter
+                            onInit={(typewriter)=> {
+                                typewriter
+                                    .typeString("Description")
+                                    .pauseFor(1000)
+                                    .deleteAll()
+                                    .typeString(`${description}`)
+                                    .start();
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
             <div className={styles.effects}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './stylesAvatar.module.css';
 import {useNavigate} from "react-router-dom";
 import {API} from "../../servises/api";
@@ -6,10 +6,12 @@ import {width} from "@mui/system";
 
 const Avatar = ({effect,user}) => {
     const navigate = useNavigate();
+    const [test,setTest]=useState();
     const AvaClick = async () => {
        if(user){
             const result=await API.user.getAccount(effect.id);
             localStorage.setItem('account',JSON.stringify(result));
+
 
         }
         else{
@@ -17,6 +19,7 @@ const Avatar = ({effect,user}) => {
             localStorage.setItem('account',JSON.stringify(result));
 
         }
+        setTest("dadadad");
             navigate("/account");
 
     }

@@ -4,7 +4,6 @@ import {
     Routes,
     Navigate
 } from 'react-router-dom';
-
 import './App.css';
  import Home from "./views/Home";
 import HomeUser from "./views/HomeUser";
@@ -16,7 +15,6 @@ import HomeUser from "./views/HomeUser";
 import RepositoryView from './views/RepositoryView'
 import CreateRepository from "./views/CreateRepository";
  import ChangeRepository from "./views/ChangeRepository";
-
 function App() {
   return <>
       <Routes>
@@ -30,12 +28,7 @@ function App() {
           <Route path='/account' element={<AccountUser/>}></Route>
           <Route path='/createrep' element={<CreateRepository></CreateRepository>}></Route>
           <Route path='/changerep' element={<ChangeRepository></ChangeRepository>}></Route>
-          <Route path="/repository/:id" element={<RepositoryView />}>
-
-              {/*<Route index element={<RepositoryView />} />*/}
-              {/*<Route path=":id" element={<RepositoryView/>} />*/}
-          </Route>
-
+          <Route path="/repository/:id" element={<RepositoryView />}></Route>
       </Routes>
   </>;
 }

@@ -11,8 +11,9 @@ const CodeMirrorEditor = ({check}) => {
         const parsedItem = JSON.parse(savedItem);
         return parsedItem || defaultValue;
     }
-    console.log(check);
+
     const effect=getStorageData('selectedEffect','no');
+
     return (
          <EditorProvider>
              <div className={styles.editorProvider}>

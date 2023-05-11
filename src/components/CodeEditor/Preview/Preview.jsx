@@ -5,10 +5,11 @@ import {EditorContext} from "../context/context";
 import {API} from "../../../servises/api";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import {useNavigate} from "react-router-dom";
 
 
 const Preview = ({checkEffect}) => {
-
+    const navigate = useNavigate();
     const {html,css,js}=useContext(EditorContext);
     const options = ['прелоадер', 'трехмерный эффект', 'типографика',
         'природный эффект'];
@@ -81,6 +82,12 @@ const Preview = ({checkEffect}) => {
         }
     }
     const closeModal = () => setCheck(false);
+    const deleteRep=async ()=>{
+        const deleteRep=await API.user.deleteRepository(effect.id);
+        setTimeout(() => {
+            navigate("/user");
+        }, 1000);
+    }
 
     return (
         <>
@@ -135,6 +142,7 @@ const Preview = ({checkEffect}) => {
                                 <TextField {...params} label="Тип эффекта" variant="outlined" />}
                         />)
                     }
+                    <button style={{width:'80px'}} onClick={deleteRep}>delete</button>
 
                 </div>
             </div>
