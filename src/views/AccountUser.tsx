@@ -6,6 +6,7 @@ import {useNavigate} from "react-router-dom";
 import {EditorContext} from "../components/CodeEditor/context/context";
 import Typewriter from "typewriter-effect";
 import Effect from "../components/Effect/Effect";
+import ChangeUser from "../components/ChangeUser/ChangeUser";
 
 
 const AccountUser = () => {
@@ -13,6 +14,7 @@ const AccountUser = () => {
     const [description,setDescription]=useState("");
     const [name,setName]=useState("");
     const [test,setTest]=useState(true);
+    const [show,setShow]=useState(false);
     const getStorageData = (keyName:string, defaultValue:string) =>{
         const savedItem = localStorage.getItem(keyName);
         // @ts-ignore
@@ -55,6 +57,10 @@ const AccountUser = () => {
 
     },[user]);
 
+    const ChangeClick=()=>{
+        setShow(true);
+    }
+
     return <>
         <Header></Header>
         {/*<UploadFile ></UploadFile>*/}
@@ -91,6 +97,8 @@ const AccountUser = () => {
                         />
                     </div>
                 </div>
+                <ChangeUser active={show} setActive={setShow}/>
+                <button onClick={ChangeClick}>change</button>
             </div>
             <div className={styles.effects}>
                 {/*<UploadFile></UploadFile>*/}
