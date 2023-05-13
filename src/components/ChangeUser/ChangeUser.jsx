@@ -6,19 +6,15 @@ const ChangeUser = ({active,setActive}) => {
     const [login,setLogin]=useState("");
     const [closeOrShow,setCloseOrShow]=useState();
 
-    const Close=()=>{
-        setCloseOrShow(false)
-    }
-
-    return (
+   return (
         <>
-            {/*<div className={active ? ("styles.modal styles.active"):("styles.modal")} onClick={()=>{setActive(false)}}>*/}
-            <div style={active && {transform: 'scale(1)'}} className={styles.modal} onClick={()=>{setActive(false)}}>
+
+            <div className={active ? (styles.modal):(styles.active)} onClick={()=>{setActive(false)}}>
                 <div className={styles.modal_content} onClick={e=>{e.stopPropagation()}}>
                     <TextField name="title"
                                type="text" value={login}
                                onChange={event => setLogin(event.target.value)} label="Login" variant="outlined"/>
-                    <button onClick={Close}>X</button>
+
                 </div>
 
 

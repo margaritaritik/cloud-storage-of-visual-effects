@@ -7,14 +7,18 @@ import {EditorContext} from "../components/CodeEditor/context/context";
 import Typewriter from "typewriter-effect";
 import Effect from "../components/Effect/Effect";
 import ChangeUser from "../components/ChangeUser/ChangeUser";
+import Popup from 'reactjs-popup';
+import TextField from "@material-ui/core/TextField";
 
 
 const AccountUser = () => {
     const navigate = useNavigate();
+    const [loginUser,setLoginUser]=useState("");
     const [description,setDescription]=useState("");
     const [name,setName]=useState("");
     const [test,setTest]=useState(true);
     const [show,setShow]=useState(false);
+    const [check,setCheck]=useState(false);
     const getStorageData = (keyName:string, defaultValue:string) =>{
         const savedItem = localStorage.getItem(keyName);
         // @ts-ignore
@@ -26,10 +30,10 @@ const AccountUser = () => {
     const effects=getStorageData('effects','no');
     if(user.id===login.id){
         localStorage.setItem('account',JSON.stringify(login));
-        // window.location.reload();
     }
-
-
+    useEffect(()=>{
+       setLoginUser(login.name);
+    },[])
 
     const createRep=()=>{
             setTimeout(() => {
@@ -42,26 +46,18 @@ const AccountUser = () => {
         return filteredList1;
     }
 
-    // useEffect(()=>{
-    //     setDescription(user.description);
-    //      setName(user.name);
-    //     // console.log(user.name);
-    //
-    // },[]);
     useEffect(()=>{
         setDescription(user.description);
         setName(user.name);
          console.log(user.name);
-        // window.location.reload();
-        // return;
-
     },[user]);
 
     const ChangeClick=()=>{
-        setShow(true);
+        setCheck(true);
     }
+    const closeModal = () => setCheck(false);
 
-    return <>
+    return <div className={check && styles.container_all}>
         <Header></Header>
         {/*<UploadFile ></UploadFile>*/}
         <div className={styles.container}>
@@ -97,7 +93,28 @@ const AccountUser = () => {
                         />
                     </div>
                 </div>
-                <ChangeUser active={show} setActive={setShow}/>
+                {/*{show && <ChangeUser active={show} setActive={setShow}/>}*/}
+
+                <Popup open={check} closeOnDocumentClick onClose={closeModal}>
+                    <div className={styles.modal}>
+                        <a className={styles.close} onClick={closeModal}>
+                            &times;
+                        </a>
+                        <div className={styles.input}>
+                            <TextField fullWidth name="title"
+                                       type="text" value={loginUser}
+                                       onChange={event => setLoginUser(event.target.value)} label="Login" variant="outlined"/>
+                        </div>
+                        <div className={styles.input}>
+                            <TextField fullWidth name="description"
+                                       type="text" value={description}
+                                       onChange={event => setDescription(event.target.value)} label="Description" variant="outlined"/>
+                        </div>
+
+
+
+                    </div>
+                </Popup>
                 <button onClick={ChangeClick}>change</button>
             </div>
             <div className={styles.effects}>
@@ -111,7 +128,7 @@ const AccountUser = () => {
 
             </div>
         </div>
-    </>
+    </div>
 };
 
 export default AccountUser;
