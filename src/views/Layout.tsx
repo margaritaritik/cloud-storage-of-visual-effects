@@ -18,7 +18,7 @@ const Layout = () => {
                     <Link to="/login">Login</Link>
                 </li>
             </ul>
-            <img src="http://127.0.0.1:9003/image/ImagesForClient/logo2.png" alt=""/>
+            <img style={{width:"170px"}} src="http://127.0.0.1:9003/image/ImagesForClient/logo.png" alt=""/>
         </nav>
         <Outlet />
     </div>;

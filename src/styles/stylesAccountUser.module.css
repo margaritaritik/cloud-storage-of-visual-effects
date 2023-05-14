@@ -132,11 +132,13 @@
 
 }
 .modal{
+    position: relative;
+    top: 50px;
     padding: 20px;
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
     width: 500px;
-    height: 500px;
+    height: 600px;
     /*transform: scale(0);*/
     /*box-shadow: 4px 3px 5px #98ffe7;*/
     box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.53);
@@ -145,15 +147,79 @@
     justify-content: center;
 }
 
-.modal .input{
+.modal .input_title{
+    /*margin-top: 20px;*/
+    position: absolute;
+    left: 0;
+    top: 35%;
     padding: 20px;
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     text-align: center;
     justify-content: center;
     /*background-color: red;*/
     /*max-width: 400px;*/
 }
+
+.modal .input_desc{
+    /*margin-top: 20px;*/
+    position: absolute;
+    left: 0;
+    top: 45%;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    justify-content: center;
+    /*background-color: red;*/
+    /*max-width: 400px;*/
+}
+
+
+.modal .input_pass{
+    /*margin-top: 20px;*/
+    position: absolute;
+    left: 0;
+    top: 65%;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    justify-content: center;
+    /*background-color: red;*/
+    /*max-width: 400px;*/
+}
+
+.modal .input_pass_two{
+    /*margin-top: 20px;*/
+    position: absolute;
+    left: 0;
+    top: 75%;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    justify-content: center;
+    /*background-color: red;*/
+    /*max-width: 400px;*/
+}
+
+.textField{
+    color: red;
+}
+
+.modal .upload{
+    width: 100%;
+    height: 100%;
+
+
+    position: absolute;
+    left: 15%;
+    top: -20%;
+    text-align: center;
+    justify-content: center;
+}
+
 
 
 
@@ -169,14 +235,14 @@
     }
     50%{
       width: 100px;
-    height: 600px;
+    height: 500px;
 
     }
     100% {
         transform: scale(1);
         box-shadow: 5px 2px 5px rgba(0, 255, 255, 0.53);
         width: 500px;
-       height: 500px;
+       height: 600px;
     }
 }
 

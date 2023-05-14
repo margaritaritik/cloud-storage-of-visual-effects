@@ -22,10 +22,7 @@ const UploadFile = () => {
         }
     },[img])
 
-    const {html,css,js}=useContext(EditorContext);
-    const btnClick=()=>{
-       console.log(css);
-    }
+
     return (
         <>
             <div className={styles.containerTest}>

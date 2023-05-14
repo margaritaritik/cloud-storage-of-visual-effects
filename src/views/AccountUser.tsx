@@ -9,12 +9,16 @@ import Effect from "../components/Effect/Effect";
 import ChangeUser from "../components/ChangeUser/ChangeUser";
 import Popup from 'reactjs-popup';
 import TextField from "@material-ui/core/TextField";
+import UploadPhoto from "../components/UploadFile/UploadPhoto";
 
 
 const AccountUser = () => {
     const navigate = useNavigate();
     const [loginUser,setLoginUser]=useState("");
     const [description,setDescription]=useState("");
+    const [pass,setPass]=useState("");
+    const [passTwo,setPassTwo]=useState("");
+
     const [name,setName]=useState("");
     const [test,setTest]=useState(true);
     const [show,setShow]=useState(false);
@@ -33,6 +37,7 @@ const AccountUser = () => {
     }
     useEffect(()=>{
        setLoginUser(login.name);
+        setDescription(login.description);
     },[])
 
     const createRep=()=>{
@@ -47,7 +52,7 @@ const AccountUser = () => {
     }
 
     useEffect(()=>{
-        setDescription(user.description);
+        // setDescription(user.description);
         setName(user.name);
          console.log(user.name);
     },[user]);
@@ -100,16 +105,34 @@ const AccountUser = () => {
                         <a className={styles.close} onClick={closeModal}>
                             &times;
                         </a>
-                        <div className={styles.input}>
-                            <TextField fullWidth name="title"
+                        <div className={styles.upload}>
+                            <UploadPhoto></UploadPhoto>
+                        </div>
+                        <div className={styles.input_title}>
+                            <TextField fullWidth name="title" inputProps={{className:styles.textField}}
                                        type="text" value={loginUser}
                                        onChange={event => setLoginUser(event.target.value)} label="Login" variant="outlined"/>
                         </div>
-                        <div className={styles.input}>
-                            <TextField fullWidth name="description"
+                        <div className={styles.input_desc}>
+                            <TextField fullWidth name="description" multiline rows={4}
                                        type="text" value={description}
                                        onChange={event => setDescription(event.target.value)} label="Description" variant="outlined"/>
                         </div>
+                        <div className={styles.input_pass}>
+                            <TextField fullWidth name="pass"
+                                        value={pass}
+                                       type="password"
+                                       autoComplete="current-password"
+                                       onChange={event => setPass(event.target.value)} label="Password" variant="outlined"/>
+                        </div>
+                        <div className={styles.input_pass_two}>
+                            <TextField fullWidth name="passtwo"
+                                       type="password"
+                                       autoComplete="current-password"
+                                       value={passTwo}
+                                       onChange={event => setPassTwo(event.target.value)} label="Password two" variant="outlined"/>
+                        </div>
+
 
 
 
