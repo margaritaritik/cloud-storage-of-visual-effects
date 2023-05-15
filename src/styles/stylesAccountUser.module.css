@@ -229,13 +229,12 @@
         box-shadow: 4px 3px 5px #98ffe7;
         background-color: rgba(0, 140, 255, 0.67);
         transform: scale(0);
-     width: 200px;
+        width: 200px;
         height: 50px;
-
     }
     50%{
-      width: 100px;
-    height: 500px;
+        width: 100px;
+        height: 500px;
 
     }
     100% {

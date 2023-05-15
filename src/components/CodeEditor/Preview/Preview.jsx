@@ -22,7 +22,7 @@ const Preview = ({checkEffect}) => {
     }
     const user=getStorageData('user','no').user;
     const effect=getStorageData('selectedEffect','no');
-    const [combobox,setCombobox]=useState(effect.typeeffect_id+1);
+    const [combobox,setCombobox]=useState("");
 
     const [effectTitle,setEffectTitle]=useState("");
     const [effectDescription,setEffectDescription]=useState("");
@@ -53,10 +53,12 @@ const Preview = ({checkEffect}) => {
     //     setEffectDescription(effect.description);
     // }
     useEffect(()=>{
-        setEffectTitle(effect.name);
-        setEffectDescription(effect.description);
-         setCombobox(effect.typeeffect_id-1);
-         console.log(combobox);
+        if(checkEffect){
+            setEffectTitle(effect.name);
+            setEffectDescription(effect.description);
+            setCombobox(options[effect.typeeffect_id-1]);
+        }
+
     },[]);
 
 
@@ -78,7 +80,7 @@ const Preview = ({checkEffect}) => {
         }
         else{
             const result=await API.user.changeRepository({name:effectTitle,description:effectDescription,html:html,css:css,js:js,typeeffect_id:options.indexOf(combobox)+1,id:effect.id});
-
+            console.log(options.indexOf(combobox)+1);
         }
     }
     const closeModal = () => setCheck(false);
@@ -91,7 +93,7 @@ const Preview = ({checkEffect}) => {
 
     return (
         <>
-            {console.log(options[combobox])}
+            {/*{console.log(options[combobox])}*/}
             <div className={styles.content}>
                 {
                     document ? <iframe title="preview" className={styles.preview} srcDoc={document}/>
@@ -99,17 +101,48 @@ const Preview = ({checkEffect}) => {
                 }
             </div>
             <div className={styles.container_title}>
+                <div className={styles.container_block}>
+                    <div className={styles.container_name}>
+                        <TextField name="title"
+                                   type="text" value={effectTitle}
+                                   onChange={event => setEffectTitle(event.target.value)} label="Название" variant="outlined"/>
+                    </div>
+                    <div className={styles.container_name}>
+                        <TextField type="text" name="description" multiline rows={4}
+                                   value={effectDescription}
+                                   onChange={event => setEffectDescription(event.target.value)} label="Описание" variant="outlined"  />
+                    </div>
+                </div>
+                <div className={styles.combobox}>
+                    { checkEffect ?
+                        (<div><Autocomplete
 
-                    <TextField name="title"
-                    type="text" value={effectTitle}
-                    onChange={event => setEffectTitle(event.target.value)} label="Название" variant="outlined"/>
-                    <TextField type="text" name="description"
-                    value={effectDescription}
-                    onChange={event => setEffectDescription(event.target.value)} label="Описание" variant="outlined"  />
+                            options={options}
+                            value={combobox}
+                            onChange={(event, newValue) => {
+                                setCombobox(newValue);
+                            }}
+                            style={{ width: 230 }}
+                            renderInput={(params) =>
+                                <TextField {...params} label="Тип эффекта" variant="outlined" />}
+                        /></div>):(<div><Autocomplete
 
+                            options={options}
+                            onChange={(event, newValue) => {
+                                setCombobox(newValue);
+                            }}
+                            style={{ width: 230 }}
+                            renderInput={(params) =>
+                                <TextField {...params} label="Тип эффекта 2" variant="outlined" />}
+                        /></div>)
+                    }
+                </div>
                 { checkEffect===false ? (<button className={styles.btn_create} onClick={BtnCreateClick}>Загрузить</button>):
                     (<button className={styles.btn_create} onClick={BtnChangeClick}>Изменить</button>)
                 }
+                {checkEffect && <button style={{width:'80px'}} onClick={deleteRep}>delete</button>
+                }
+
                 <Popup open={check} closeOnDocumentClick onClose={closeModal}>
                     <div className={styles.modal}>
                         <a className={styles.close} onClick={closeModal}>
@@ -119,32 +152,7 @@ const Preview = ({checkEffect}) => {
                     </div>
                 </Popup>
 
-                <div>
-                    { checkEffect ?
-                        (<Autocomplete
 
-                            options={options}
-                            value={options[combobox]}
-                            onChange={(event, newValue) => {
-                                setCombobox(newValue);
-                            }}
-                            style={{ width: 230 }}
-                            renderInput={(params) =>
-                                <TextField {...params} label="Типg эффекта" variant="outlined" />}
-                        />):(<Autocomplete
-
-                            options={options}
-                            onChange={(event, newValue) => {
-                                setCombobox(newValue);
-                            }}
-                            style={{ width: 230 }}
-                            renderInput={(params) =>
-                                <TextField {...params} label="Тип эффекта" variant="outlined" />}
-                        />)
-                    }
-                    <button style={{width:'80px'}} onClick={deleteRep}>delete</button>
-
-                </div>
             </div>
 
         </>
