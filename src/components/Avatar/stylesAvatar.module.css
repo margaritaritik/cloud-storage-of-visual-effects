@@ -6,25 +6,10 @@
 
 .ava{
     position: absolute;
-    left: 10px;
-    top: 0;
-    /*width: 100%;*/
-    /*height: 100%;*/
+    left: 20px;
+    top: 2.6vh;
     height: 100%;
     width: 100%;
-    /*object-fit: cover;*/
     border-radius: 50%; /* Радиус скругления */
-    /*box-shadow: 0 0 0 3px green, 0 0 13px #333; !* Параметры теней *!*/
-    /*border-radius: 50%;  !* Скругление углов изображения *!*/
-    /*border: 5px solid #fff; !* Цвет и ширину рамки *!*/
-    /*box-shadow: 2px 1px 5px #999999;*/
-    /*border-radius: 50%;*/
-    /*!*border: 1px solid black;*!*/
-    /*object-fit: cover;*/
 
-
-    /*background: #dfdfdf;*/
-    /*max-height: 80px;*/
-
-    /*max-width: 80px;*/
 }

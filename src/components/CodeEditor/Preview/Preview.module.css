@@ -5,7 +5,7 @@
     /*left: 100%;*/
     width: 100%;
     max-width: 700px;
-    background: #ecc2c2;
+    background: rgba(236, 194, 194, 0);
 }
 .container{
     position: absolute;

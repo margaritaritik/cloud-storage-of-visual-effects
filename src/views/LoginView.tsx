@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { API } from "../servises/api";
 import LoginForm, { LoginFormData } from "../components/LoginForm/LoginForm";
 import Header from '../components/Header/Header';
+import styles from '../components/styles/views/stylesViewsLoginRegistration.module.css'
+import Back from '../components/StyleBack/back'
 
 
 const LoginView = () => {
@@ -31,9 +33,9 @@ const LoginView = () => {
     };
 
     return (
-        <div>
+        <div className={styles.container_login}>
             {/*<UploadImage></UploadImage>*/}
-
+            <Back></Back>
             <LoginForm onSubmit={onSubmit}/>
             {result && <>{result}</>}
             {error && <>{error}</>}

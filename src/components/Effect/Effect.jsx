@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './styleEffect.module.css';
 import HeartBeatSpinner from "../tests effects/HeartBeatSpinner/HeartBeatSpinner";
 import BookSpinner from "../tests effects/BookSpinner/BookSpinner";
@@ -8,8 +8,9 @@ import PreviewEffect from "./PreviewEffect";
 import {useParams} from 'react-router-dom';
 import Avatar from '../Avatar/Avatar';
 
-const Effect = ({effects}) => {
+const Effect = ({effects,check}) => {
     const navigate = useNavigate();
+    const [favorite,setFavorite]=useState(false);
     const ClickEffect=()=>{
         localStorage.setItem('selectedEffect',JSON.stringify(effects));
         setTimeout(() => {
@@ -22,6 +23,11 @@ const Effect = ({effects}) => {
         setTimeout(() => {
             navigate(`/changerep`);
         }, 1000);
+    }
+
+    const ClickFavorite=()=>{
+        localStorage.setItem('favorite',JSON.stringify(effects));
+        setFavorite(!favorite);
     }
 
     const getStorageData = (keyName, defaultValue) =>{
@@ -39,15 +45,19 @@ const Effect = ({effects}) => {
             <div className={styles.container}>
                 <div onClick={ClickEffect} className={styles.effect}>
                     {/*<HeartBeatSpinner></HeartBeatSpinner>*/}
-                    <PreviewEffect effects={effects} check={false}></PreviewEffect>
+                    <PreviewEffect effects={effects} check={check}></PreviewEffect>
                 </div>
                 <div className={styles.effectInfo}>
                     <Avatar effect={effects}></Avatar>
-                    {/*<img className={styles.ava} src={`${effects.srcImg}`} alt="ava" />*/}
                     <p className={styles.nameEffect}>{effects.name}</p>
                     {/*<div className={styles.like}>Like</div>*/}
-                    {effects.account_id===user.id && <button onClick={ClickChangeEffect}>change</button>
+                    {effects.account_id===user.id && <button className={styles.edit} onClick={ClickChangeEffect}>
+                        <img src="http://127.0.0.1:9003/image/svg/edit.svg"/>
+                    </button>
                     }
+                    <button  className={favorite ? styles.edit:styles.editFavorite} onClick={ClickFavorite}>
+                        <img src="http://127.0.0.1:9003/image/svg/favorite.svg"/>
+                    </button>
 
                 </div>
             </div>

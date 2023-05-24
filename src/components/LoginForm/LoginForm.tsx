@@ -56,7 +56,7 @@ export default function LoginForm({onSubmit}: FormProps) {
 
     return <>
         <div className={stylesView.container}>
-            <h3>Логин</h3>
+            <h3>Авторизация</h3>
             <form onSubmit={handleSubmit}>
                 <div className={styles.form_group}>
                     <input defaultValue="login" value={login} onChange={e => setLogin(e.target.value)} placeholder="login" autoComplete="off"/>

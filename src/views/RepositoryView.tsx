@@ -83,7 +83,7 @@ const RepositoryView = () => {
             <div className={styles.container}>
 
                 <div className={styles.effect}>
-                    <PreviewEffect effects={effect}></PreviewEffect>
+                    <PreviewEffect effects={effect} check={false}></PreviewEffect>
                     <button className={styles.btn_download} onClick={handleSaveToPC}></button>
                 </div>
                 <div className={styles.code}>

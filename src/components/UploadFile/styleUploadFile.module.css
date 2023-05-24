@@ -65,9 +65,9 @@
     font:bold 16px arial;
     text-align: center;
     text-decoration: none;
-    background: linear-gradient(to bottom, rgba(152, 255, 231, 0.01), rgba(0, 140, 255, 0.67)) repeat scroll 0 0 / 100% 200% rgba(26, 169, 231, 0.62);
+    background: linear-gradient(to bottom, rgba(152, 255, 231, 0.01), rgba(77, 204, 193, 0.67)) repeat scroll 0 0 / 100% 200% rgba(26, 169, 231, 0.62);
     border-radius: 30px;
-    animation: 10s linear 0s  alternate open-btn;
+    animation: 2s linear 0s  alternate open-btn;
 }
 .btn:hover,.btn:focus{
     background-position: 0 -102%;
@@ -78,7 +78,7 @@
     /*padding: 2px;*/
     /*transform: scale(1);*/
     opacity: 1;
-    animation: 5s ease-in 0s  alternate open-btn;
+    animation:2s linear 0s  alternate open-btn;
 
 }
 input[type='file'] {
@@ -92,7 +92,7 @@ input[type=file]::file-selector-button{
     font:bold 16px arial;
     text-align: center;
     text-decoration: none;
-    background: linear-gradient(to bottom, rgba(152, 255, 231, 0.01), rgba(0, 140, 255, 0.67)) repeat scroll 0 0 / 100% 200% rgba(26, 169, 231, 0.62);
+    background: linear-gradient(to bottom, rgba(152, 255, 231, 0.01), rgb(79, 245, 255)) repeat scroll 0 0 / 100% 200% rgba(26, 169, 231, 0.62);
     border-radius: 30px;
 
 }

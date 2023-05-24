@@ -23,6 +23,7 @@ const AccountUser = () => {
     const [test,setTest]=useState(true);
     const [show,setShow]=useState(false);
     const [check,setCheck]=useState(false);
+    const [changePass,setChangePass]=useState(false);
     const getStorageData = (keyName:string, defaultValue:string) =>{
         const savedItem = localStorage.getItem(keyName);
         // @ts-ignore
@@ -61,6 +62,15 @@ const AccountUser = () => {
         setCheck(true);
     }
     const closeModal = () => setCheck(false);
+    const close = () => setCheck(false);
+useEffect(()=>{
+    console.log(changePass);
+},[changePass])
+    const ChangePassBtn = () => {
+          setChangePass(true);
+
+
+    }
 
     return <div className={check && styles.container_all}>
         <Header></Header>
@@ -118,21 +128,27 @@ const AccountUser = () => {
                                        type="text" value={description}
                                        onChange={event => setDescription(event.target.value)} label="Description" variant="outlined"/>
                         </div>
-                        <div className={styles.input_pass}>
-                            <TextField fullWidth name="pass"
-                                        value={pass}
-                                       type="password"
-                                       autoComplete="current-password"
-                                       onChange={event => setPass(event.target.value)} label="Password" variant="outlined"/>
-                        </div>
-                        <div className={styles.input_pass_two}>
+                        {changePass &&
+                            <button className={styles.input_pass}  onClick={ChangePassBtn}>Изменить пароль</button>}
+                        {!changePass && <>
+                            <div className={styles.input_pass}>
+                                <TextField fullWidth name="pass"
+                                           value={pass}
+                                           type="password"
+                                           autoComplete="current-password"
+                                           onChange={event => setPass(event.target.value)} label="Password" variant="outlined"/>
+                            </div>
+                            <div className={styles.input_pass_two}>
                             <TextField fullWidth name="passtwo"
-                                       type="password"
-                                       autoComplete="current-password"
-                                       value={passTwo}
-                                       onChange={event => setPassTwo(event.target.value)} label="Password two" variant="outlined"/>
-                        </div>
+                            type="password"
+                            autoComplete="current-password"
+                            value={passTwo}
+                            onChange={event => setPassTwo(event.target.value)} label="Password two" variant="outlined"/>
+                            </div>
+                            </>
 
+
+                        }
 
 
 
@@ -145,7 +161,7 @@ const AccountUser = () => {
                 {/*{effects.account_id===user.id && getFiltered().map(item => }*/}
 
                 {getFiltered().filter(item => item.account_id === user.id).map(filtered => (
-                    <Effect effects={filtered}></Effect>)
+                    <Effect effects={filtered} check={true}></Effect>)
                 )}
 
 

@@ -5,6 +5,8 @@ import Header from "../components/Header/Header";
 import { ToastContainer, toast } from 'react-toast';
 import PreviewEffect from "../components/Effect/PreviewEffect";
 import Search from '../components/Search/Search';
+import Menu from "../components/Menu/Menu";
+import styles from '../styles/stylesHomeEffects.module.css';
 
 const HomeUser = () => {
     const [searchTitleEffect, setSearchTitleEffect] = useState('');
@@ -34,7 +36,7 @@ const HomeUser = () => {
                 let effects:{id:number,name:string,description:string,typeeffect_id:number,css:string,js:string,html:string,account_id:number,srcImg:string}[]=eff;
                 localStorage.setItem('user',JSON.stringify(result));
                 localStorage.setItem('effects',JSON.stringify(effects));
-                setEffect(effects.map(item => <Effect effects={item}></Effect>));
+                setEffect(effects.map(item => <Effect effects={item} check={true}></Effect>));
             } catch (e) {
                 if (e instanceof Error) {
                     setError(e.message);
@@ -78,10 +80,10 @@ const HomeUser = () => {
             {error && <div>{error}</div>}
         <Search searchTitle={searchTitle}></Search>
         <div>
-            <div className="containerItem">
-                {getFiltered().map(item => <Effect effects={item}></Effect>)}
+            <div className={styles.effects}>
+                {getFiltered().map(item => <Effect effects={item} check={true}></Effect>)}
+
             </div>
-            {/*{effect  as ReactNode}*/}
         </div>
 
         {/*<button style={{position:"relative", left:"200px",right:"200px",background:'red',width:"100px",height:"100px"}} >{error}</button>*/}

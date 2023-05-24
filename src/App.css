@@ -2,8 +2,41 @@
   list-style-type: none;
   text-decoration: none;
   margin: 0;
-  background-color: rgba(0, 0, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
 }
+
+/*a {*/
+/*  font-weight: bold;*/
+/*  padding: 0.3em 0.6em ;*/
+/*  border: 3px solid transparent;*/
+/*  border-image: linear-gradient(135deg, #12BCB0 20%, #041b80 70%);*/
+/*  border-image-slice: 1;*/
+/*  background: linear-gradient(*/
+/*          to right,*/
+/*          #53cdc3 20%,*/
+/*          #00affa 30%,*/
+/*          #0104cd 70%,*/
+/*          #b6da4a 80%*/
+/*  );*/
+/*  -webkit-background-clip: text;*/
+/*  -webkit-background-clip: text;*/
+/*  -webkit-text-fill-color: transparent;*/
+/*  text-fill-color: transparent;*/
+/*  background-size: 500% auto;*/
+
+/*}*/
+/*a:hover{*/
+/*  animation: textShine 2s ease-in-out infinite alternate;*/
+/*}*/
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
 
 li{
   display: inline-block;
@@ -11,15 +44,18 @@ li{
   margin-left: auto;
 }
 .header{
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 110%;
+
   background-color: rgba(252, 253, 255, 0.55);
+  box-shadow: 10px 0px 10px rgba(0, 217, 255, 0.49);
 }
 
 .header img{
   position: absolute;
-  left: 10px;
-  top: 0;
+  /*left: 10px;*/
+  /*top: 0;*/
   width: 100%;
   height: 100%;
   max-width: 300px;
@@ -33,3 +69,4 @@ li{
 .App {
   text-align: center;
 }
+

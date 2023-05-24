@@ -3,7 +3,7 @@ import React, {useMemo} from 'react';
 import styles from "./styleEffect.module.css";
 import {useNavigate} from "react-router-dom";
 
-const PreviewEffect = ({effects}) => {
+const PreviewEffect = ({effects,check}) => {
     const navigate = useNavigate();
     const html=effects.html;
     const css=effects.css;
@@ -36,7 +36,7 @@ const PreviewEffect = ({effects}) => {
     },[html,css,js])
     return (
         <div>
-            <div className={styles.content} >
+            <div className={check ? styles.content:styles.content_check} >
                 {
                     document ? <iframe title="preview" className={styles.preview} srcDoc={document} onClick={ClickEffect}/>
                         : <div className={styles.loading}>Your code will be displayed here!</div>
