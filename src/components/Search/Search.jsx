@@ -19,7 +19,6 @@ const Search = ({searchTitle}) => {
                 type="text" value={title}
                 label="🔍" variant="outlined" onChange={search}/>
                 <div className={styles.filter}>
-                    {/*<img src="http://127.0.0.1:9003/image/svg/filter.svg"/>*/}
                     <Menu></Menu>
                 </div>
 

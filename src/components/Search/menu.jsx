@@ -1,28 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './stylesMenu.module.css';
+import UploadPhoto from "../UploadFile/UploadPhoto";
+import TextField from "@material-ui/core/TextField";
+import Popup from "reactjs-popup";
+
 
 const Menu = () => {
+    const [check,setCheck]=useState(false);
+    const MenuClick=()=>{
+        setCheck(true);
+    }
+    const options = ['прелоадер', 'трехмерный эффект', 'типографика',
+        'природный эффект'];
+    const closeModal = () => setCheck(false);
     return (
-        <>
-            <div className={styles.menu_wrap}>
-                <input type="checkbox" className={styles.toggler}/>
-                    <div className={styles.hamburger}>
-                        <div></div>
+        <div className={styles.container}>
+            <button className={styles.menu_btn} onClick={MenuClick}>
+                {<div> </div>}
+            </button>
+            <div className={styles.container_modal}>
+                <Popup open={check} closeOnDocumentClick onClose={closeModal}>
+                    <div className={check ? styles.modal:styles.close}>
+                        <a onClick={closeModal}>
+                            &times;
+                        </a>
+                        <ul className="menu">
+                            <li>прелоадер</li>
+                            <li>трехмерный эффект</li>
+                            <li>типографика</li>
+                            <li>природный эффект</li>
+                        </ul>
                     </div>
-                    <div className={styles.menu}>
-                        <div>
-                            <div>
-                                <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                </Popup>
             </div>
-        </>
+
+        </div>
     );
 };
 

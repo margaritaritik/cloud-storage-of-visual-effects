@@ -38,7 +38,7 @@ const PreviewEffect = ({effects,check}) => {
         <div>
             <div className={check ? styles.content:styles.content_check} >
                 {
-                    document ? <iframe title="preview" className={styles.preview} srcDoc={document} onClick={ClickEffect}/>
+                    document ? <iframe title="preview" className={styles.preview} srcDoc={document} onClick={ClickEffect} scrolling="no" />
                         : <div className={styles.loading}>Your code will be displayed here!</div>
                 }
             </div>

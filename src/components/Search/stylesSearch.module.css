@@ -12,9 +12,7 @@
 
 .filter img{
     width: 2.5vw;
-
     filter: hue-rotate(24deg);
-
 }
 
 .filter{
@@ -22,10 +20,7 @@
 
 
 .textForWrite input{
-    width: 40vw;
-    /*padding:5px;*/
-    /*border:0;*/
-    /*box-shadow:0 0 15px 4px rgba(0,0,0,30%);*/
+    width: 35vw;
 }
 
 .textForWrite {
