@@ -21,7 +21,7 @@ const HomeUser = () => {
             color: '#ffffff',
         })
     useEffect(() => {
-        console.log("hey")
+        window.scrollTo(0, 0);
         const userRequest = async () => {
             setLogged(false);
             setResult("");

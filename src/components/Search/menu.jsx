@@ -21,9 +21,9 @@ const Menu = () => {
             <div className={styles.container_modal}>
                 <Popup open={check} closeOnDocumentClick onClose={closeModal}>
                     <div className={check ? styles.modal:styles.close}>
-                        <a onClick={closeModal}>
-                            &times;
-                        </a>
+                        {/*<a onClick={closeModal}>*/}
+                        {/*    &times;*/}
+                        {/*</a>*/}
                         <ul className="menu">
                             <li>прелоадер</li>
                             <li>трехмерный эффект</li>

@@ -12,19 +12,20 @@ Popup .popup-overlay{
 }
 .modal{
     position: absolute;
-    left: 10vw;
+    left: 20vw;
     top: -20vh;
 
     width:20vw;
     height: 40vh;
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
     animation: 600ms linear 0s  alternate modal-effect;
     transform-origin: left;
 }
 
 .close{
+    display: none;
     position: absolute;
     left: 10vw;
     top: -20vh;
@@ -33,7 +34,7 @@ Popup .popup-overlay{
     height: 40vh;
     border-radius: 20px;
     background-color: rgb(238, 0, 0);
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
     animation: 600ms linear 0s  alternate modal-effect;
     animation-direction: reverse;
 }

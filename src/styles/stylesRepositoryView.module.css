@@ -60,3 +60,11 @@
     background: #61dafb;
     color: #ffffff;
 }
+
+.comment>div{
+    margin-bottom: 25px;
+}
+
+.comment>div:first-child{
+    margin-top: 40px;
+}

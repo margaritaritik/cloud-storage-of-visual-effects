@@ -63,14 +63,15 @@ const AccountUser = () => {
     }
     const closeModal = () => setCheck(false);
     const close = () => setCheck(false);
-useEffect(()=>{
-    console.log(changePass);
-},[changePass])
+
     const ChangePassBtn = () => {
           setChangePass(true);
 
 
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return <div className={check && styles.container_all}>
         <Header></Header>

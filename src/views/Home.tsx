@@ -5,7 +5,9 @@ import MainEffects from "../components/MainEffects/MainEffects";
 
 
 function Home() {
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
     return <>
         <MainEffects></MainEffects>
     </>;

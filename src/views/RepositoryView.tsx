@@ -76,6 +76,9 @@ const RepositoryView = () => {
         }
 
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <>
@@ -97,7 +100,7 @@ const RepositoryView = () => {
                                onChange={event => setComment(event.target.value)}/>
                     </label>
                     <button onClick={CreateComment} className={styles.btn_comment}>Написать комментарий</button>
-                    <div>
+                    <div className={styles.comment}>
                         {comments as ReactNode}
                     </div>
                 </div>

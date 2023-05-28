@@ -1,4 +1,4 @@
-import React, {useContext, useMemo, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 import Header from '../components/Header/Header';
 import CodeEditor from "../components/CodeEditor/CodeMirrorEditor";
 import styles from "../styles/stylesRepositoryCreate.module.css";
@@ -20,6 +20,9 @@ const CreateRepository = () => {
          // setEffectInfo({name:effectTitle, description:effectDescription,html:,css:,js:,typeeffect_id:3});
       }
     }
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <>
