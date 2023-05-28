@@ -94,7 +94,7 @@ const Preview = ({checkEffect}) => {
     return (
         <>
             {/*{console.log(options[combobox])}*/}
-            <div className={styles.content}>
+            <div className={checkEffect ?styles.content:styles.content_rep}>
                 {
                     document ? <iframe title="preview" className={styles.preview} srcDoc={document}/>
                         : <div className={styles.loading}>Your code will be displayed here!</div>

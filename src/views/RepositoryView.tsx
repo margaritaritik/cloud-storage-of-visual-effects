@@ -90,7 +90,7 @@ const RepositoryView = () => {
                     <button className={styles.btn_download} onClick={handleSaveToPC}></button>
                 </div>
                 <div className={styles.code}>
-                     <CodeDisplay></CodeDisplay>
+                     <CodeDisplay rep={true}></CodeDisplay>
                 </div>
                 <div className={styles.comments}>
                     <label>

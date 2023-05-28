@@ -1,30 +1,60 @@
 .codebar{
-    position: relative;
+    /*position: relative;*/
     /*left: 0;*/
     /*top: 10px;*/
-    width: 750px;
-    background: #494848;
+    position: absolute;
+    left: -10vw;
+    top: 25vh;
+    width: 60vw;
+
+    background: #ffffff;
     /*position: relative;*/
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(18, 40, 45, 0.44);
+}
+.codebar_rep{
+    /*position: relative;*/
+    /*left: 0;*/
+    /*top: 10px;*/
+    position: absolute;
+    left: 1vw;
+    top: 4vh;
+    width: 50vw;
+
+    background: #ffffff;
+    /*position: relative;*/
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(18, 40, 45, 0.44);
 }
 
 .tab{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*margin-left: 10px;*/
     height: 70px;
     padding: 0 15px;
     gap: 15px;
-    border-bottom: 2px solid #524b4b;
+    border-bottom: 2px solid rgba(94, 231, 231, 0.7);
 }
+
+.tab .item:first-child{
+    margin-left: 25px;
+}
+
+
 
 .item{
     display: flex;
-    height: 50px;
-    flex: 1 1 auto;
+    height: 5vh;
+    width: 4vw;
+    /*flex: 1 1 auto;*/
     justify-content: center;
     align-items: center;
-    border-radius: 4px;
-    background: #342f2f;
+    /*border-radius: 4px;*/
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: rgba(124, 159, 149, 0.42);
     color: #fffdfd;
     cursor: pointer;
     font-size: 15px;

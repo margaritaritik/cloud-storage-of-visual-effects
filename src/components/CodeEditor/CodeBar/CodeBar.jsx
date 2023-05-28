@@ -8,11 +8,11 @@ import HtmlEditorRedactor from "../../CodeDisplay/EditorsForCode/HtmlEditor";
 import CssEditorRedactor from "../../CodeDisplay/EditorsForCode/CssEditor";
 import JsEditorRedactor from "../../CodeDisplay/EditorsForCode/JsEditor";
 
-const CodeBar = ({redactor,effect,checkEffect}) => {
+const CodeBar = ({redactor,effect,checkEffect,rep}) => {
     const [activeTab,setActivTab]=useState('html');
 
     return (
-        <div className={styles.codebar}>
+        <div className={rep ? styles.codebar:styles.codebar_rep}>
             <nav className={styles.tab}>
                 <button
                     className={`${styles.item} ${activeTab==='html' ? styles.activTab:''}`}

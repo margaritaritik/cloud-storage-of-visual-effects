@@ -1,10 +1,10 @@
 import React from 'react';
 import CodeBar from '../CodeEditor/CodeBar/CodeBar'
 
-const CodeDisplay = () => {
+const CodeDisplay = ({rep}) => {
     return (
         <>
-            <CodeBar redactor={false}></CodeBar>
+            <CodeBar rep={rep} redactor={false}></CodeBar>
         </>
     );
 };
