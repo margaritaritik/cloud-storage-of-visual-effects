@@ -3,6 +3,7 @@ import styles from './stylesMenu.module.css';
 import UploadPhoto from "../UploadFile/UploadPhoto";
 import TextField from "@material-ui/core/TextField";
 import Popup from "reactjs-popup";
+import {Button, Checkbox} from "@mui/material";
 
 
 const Menu = () => {
@@ -25,10 +26,43 @@ const Menu = () => {
                         {/*    &times;*/}
                         {/*</a>*/}
                         <ul className="menu">
-                            <li>прелоадер</li>
-                            <li>трехмерный эффект</li>
-                            <li>типографика</li>
-                            <li>природный эффект</li>
+                            <div className={styles.check}>
+                                <label>
+                                    <Checkbox
+                                        // value={"ghbjj"}
+                                        // onChange={handleChangeTwo}
+                                    />
+                                    прелоадер
+                                </label>
+                            </div>
+                            <div className={styles.check}>
+                                <label>
+                                    <Checkbox
+                                        // value={"ghbjj"}
+                                        // onChange={handleChangeTwo}
+                                    />
+                                    трехмерный эффект
+                                </label>
+                            </div>
+                            <div className={styles.check}>
+                                <label>
+                                    <Checkbox
+                                        // value={"ghbjj"}
+                                        // onChange={handleChangeTwo}
+                                    />
+                                    типографика
+                                </label>
+                            </div>
+                            <div className={styles.check}>
+                                <label>
+                                    <Checkbox
+                                        // value={"ghbjj"}
+                                        // onChange={handleChangeTwo}
+                                    />
+                                    природный эффект
+                                </label>
+                            </div>
+                            <Button>применить фильтр</Button>
                         </ul>
                     </div>
                 </Popup>
