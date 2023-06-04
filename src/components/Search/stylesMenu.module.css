@@ -60,6 +60,7 @@ Popup .popup-overlay{
     height: 0.6vh;
     background: linear-gradient(90deg, rgba(17,218,221,1) 0%, rgba(68,163,232,1) 95%);
     border-radius: 20px;
+
 }
 
 .menu_btn::after{

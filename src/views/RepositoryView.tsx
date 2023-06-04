@@ -6,11 +6,15 @@ import PreviewEffect from "../components/Effect/PreviewEffect";
 import {Button} from "@mui/material";
 import {API} from "../servises/api";
 import Comments from "../components/Comments/Comment";
+import Avatar from "../components/Avatar/Avatar";
+import TextField from "@material-ui/core/TextField";
 
 
 const RepositoryView = () => {
     const [comment,setComment]=useState("");
     const [comments,setComments]=useState<{}[]>();
+    const [btn,setBtn]=useState(false);
+    const [visible,setVisible]=useState(false);
     const getStorageData = (keyName:string, defaultValue:string) =>{
         const savedItem = localStorage.getItem(keyName);
         // @ts-ignore
@@ -70,7 +74,14 @@ const RepositoryView = () => {
 
     const CreateComment=async ()=>{
         try {
-            setTest(await API.user.comment({name:comment,account_id:user.id,effect_id:effect.id}));
+            if(comment!=""){
+                setTest(await API.user.comment({name:comment,account_id:user.id,effect_id:effect.id}));
+                setComment("");
+            }
+            else{
+                setBtn(true);
+            }
+
         }catch (e) {
 
         }
@@ -87,19 +98,28 @@ const RepositoryView = () => {
 
                 <div className={styles.effect}>
                     <PreviewEffect effects={effect} check={false}></PreviewEffect>
-                    <button className={styles.btn_download} onClick={handleSaveToPC}></button>
+                    {visible && <p className={styles.download}>Скачать</p>}
+                    <button className={styles.btn_download} onClick={handleSaveToPC} onMouseOut={()=>setVisible(false)}  onMouseOver={()=>setVisible(true)}>
+                         ↓
+                    </button>
                 </div>
-                <div className={styles.code}>
+                <div className={styles.info}>
+                    <Avatar user={false} effect={effect}></Avatar>
+                </div>
+                <div className={styles.code} onClick={()=>window.scrollTo(0, 500)}>
                      <CodeDisplay rep={true}></CodeDisplay>
                 </div>
                 <div className={styles.comments}>
-                    <label>
-                        Коммент:
-                        <input type="text" name="comment"
-                               value={comment}
-                               onChange={event => setComment(event.target.value)}/>
-                    </label>
-                    <button onClick={CreateComment} className={styles.btn_comment}>Написать комментарий</button>
+                    <div className={styles.comment_title}>
+                        <TextField name="comment"
+                                   type="text" value={comment}
+                                   label="ваш комментарий" variant="outlined" onChange={event => setComment(event.target.value)}>
+
+                        </TextField>
+
+                        <Button onClick={CreateComment} className={styles.btn_comment}>отправить</Button>
+                    </div>
+
                     <div className={styles.comment}>
                         {comments as ReactNode}
                     </div>

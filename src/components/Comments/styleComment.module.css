@@ -1,9 +1,33 @@
+
 .container{
     position: relative;
     width: 49vw;
-    height: 3vh;
-    padding: 30px;
+    height: 100%;
+    max-height: 1100vh;
+    padding: 20px;
 
-   border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
     box-shadow: 0px 5px 15px 0px rgba(34, 54, 75, 0.4);
+}
+
+.container img{
+    top: 5px;
+}
+.container comment{
+
+}
+
+.comment{
+    /*width: max-content;*/
+    /*min-width: calc(38% - 18px);*/
+    position: relative;
+    left: 5vw;
+    width: 100%;
+    max-width: 40vw;
+    display: block;
+}
+.comment_name{
+    width: 100px;
 }

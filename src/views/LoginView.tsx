@@ -34,6 +34,7 @@ const LoginView = () => {
 
     return (
         <div className={styles.container_login}>
+
             {/*<UploadImage></UploadImage>*/}
             <Back></Back>
             <LoginForm onSubmit={onSubmit}/>

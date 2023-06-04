@@ -20,8 +20,10 @@ const HomeUser = () => {
             backgroundColor: '#8329C5',
             color: '#ffffff',
         })
+
     useEffect(() => {
-        window.scrollTo(0, 0);
+         window.scrollTo(0, 0);
+        console.log("effect");
         const userRequest = async () => {
             setLogged(false);
             setResult("");
@@ -76,7 +78,7 @@ const HomeUser = () => {
 
     return <div>
         <Header></Header>
-            {result && <div>{result}</div>}
+       {result && <div>{result}</div>}
             {error && <div>{error}</div>}
         <Search searchTitle={searchTitle}></Search>
         <div>
@@ -86,7 +88,7 @@ const HomeUser = () => {
             </div>
         </div>
 
-        {/*<button style={{position:"relative", left:"200px",right:"200px",background:'red',width:"100px",height:"100px"}} >{error}</button>*/}
+        <button style={{position:"relative", left:"200px",right:"200px",background:'red',width:"100px",height:"100px"}} >{error}</button>
         <ToastContainer />
     </div>;
 };

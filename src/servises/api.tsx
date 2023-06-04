@@ -57,6 +57,7 @@ export const API = {
         },
 
         getCurrentUser: async () => {
+            console.log("user");
             const response = await fetch(`${BASE_URL}/users`, {
                 credentials: "include",
                 method: "GET",
