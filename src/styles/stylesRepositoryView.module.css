@@ -12,6 +12,10 @@
 }
 
 .info{
+    font-family: "Courier New";
+    color: rgba(46, 71, 80, 0.56);
+    font-weight: bolder;
+    font-size: 24px;
     position: absolute;
     left: 24vw;
     top: 53vh;
@@ -93,11 +97,15 @@
     z-index: 20;
 }
 .comment_title{
-    
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -4vw;
+    top: 10vh;
 }
 .comments TextField{
     position: absolute;
-    left: 10vw;
+    /*left: 8vw;*/
 }
 .comments input{
     width: 40vw;
@@ -107,12 +115,22 @@
 .btn_comment{
     /*background: #61dafb;*/
     position: absolute;
-    left: 45vw;
+    left: 48vw;
     top: 1vh;
     border-width: 1px;
     color: #31719a;
 
 
+}
+.name{
+    position: absolute;
+    top: 5vh;
+    left: 9vw;
+}
+.description{
+    position: absolute;
+    top: 10vh;
+    left: 9vw;
 }
 
 .btn_comment span{
@@ -126,5 +144,5 @@
 }
 
 .comment>div:first-child{
-    margin-top: 40px;
+    margin-top: 20vh;
 }

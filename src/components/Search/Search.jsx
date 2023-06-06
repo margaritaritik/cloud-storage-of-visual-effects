@@ -6,11 +6,18 @@ import Menu from './menu';
 const Search = ({searchTitle}) => {
 
     const [title, setTitle] = useState('');
+    const [filtered, setFiltered] = useState(false);
     const search=(event)=>{
         setTitle(event.target.value)
     }
+    const filter =(flag)=>{
+        setFiltered(flag);
+        console.log("filterrrrrrrrrrrrr")
+    }
 
-    useEffect(() => { searchTitle(title)}, [title]);
+
+    useEffect(() => { searchTitle(title,filtered)}, [title]);
+    useEffect(() => { searchTitle(title,filtered)}, [filtered]);
 
     return (
         <div className={styles.container}>
@@ -19,7 +26,7 @@ const Search = ({searchTitle}) => {
                 type="text" value={title}
                 label="🔍" variant="outlined" onChange={search}/>
                 <div className={styles.filter}>
-                    <Menu></Menu>
+                    <Menu SearchFilter={filter}></Menu>
                 </div>
 
             </div>

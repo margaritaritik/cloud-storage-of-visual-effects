@@ -15,15 +15,25 @@ const HomeUser = () => {
     const [isLogged, setLogged] = useState(false);
     const [effect,setEffect]=useState<{}[]>();
     const [ava,setAva]=useState("http://127.0.0.1:9003/image/avatar.svg");
+    const [filtered,setFiltered]=useState(false);
     const customToast = (mass:string) =>
         toast(mass, {
             backgroundColor: '#8329C5',
             color: '#ffffff',
         })
+    const getStorageData = (keyName:string, defaultValue:string) =>{
+        const savedItem = localStorage.getItem(keyName);
+        // @ts-ignore
+        const parsedItem = JSON.parse(savedItem);
+        return parsedItem || defaultValue;
+    }
+    const effects=getStorageData('effects','no');
+    const filterEffects=getStorageData('filter','no');
+
 
     useEffect(() => {
          window.scrollTo(0, 0);
-        console.log("effect");
+        localStorage.setItem('filter',JSON.stringify({filter1:false, filter2:false, filter3:false, filter4:false}));
         const userRequest = async () => {
             setLogged(false);
             setResult("");
@@ -46,15 +56,9 @@ const HomeUser = () => {
             }
         };
         userRequest();
+
     }, []);
 
-    const getStorageData = (keyName:string, defaultValue:string) =>{
-        const savedItem = localStorage.getItem(keyName);
-        // @ts-ignore
-        const parsedItem = JSON.parse(savedItem);
-        return parsedItem || defaultValue;
-    }
-    const effects=getStorageData('effects','no');
 
 
     const getFiltered = () => {
@@ -66,12 +70,46 @@ const HomeUser = () => {
         else if(searchTitleEffect.length===0){
             filteredList1= [...effects];
         }
+        if(filterEffects.filter1){
+            console.log("filter1");
+            filteredList1= filteredList1.filter(employee => {
+                return employee.typeeffect_id === 1;
+            });
+            console.log(filteredList1);
+        }
+        else if(filterEffects.filter2){
+            console.log("filter2");
+            filteredList1= filteredList1.filter(employee => {
+                return employee.typeeffect_id === 2;
+            });
+            console.log(filteredList1);
+        }
+        else if(filterEffects.filter3){
+            console.log("filter3");
+            filteredList1= filteredList1.filter(employee => {
+                return employee.typeeffect_id === 3;
+            });
+            console.log(filteredList1);
+        }
+        else if(filterEffects.filter4){
+            console.log("filter4");
+            filteredList1= filteredList1.filter(employee => {
+                return employee.typeeffect_id === 4;
+            });
+            console.log(filteredList1);
+        }
+        else if(!filterEffects.filter1 && !filterEffects.filter2 && !filterEffects.filter3 && !filterEffects.filter4){
+            filteredList1= [...effects];
+            console.log("noooo");
+        }
+        console.log("noooo filtered");
         return filteredList1;
 
     }
 
-    const searchTitle=(title:string)=>{
+    const searchTitle=(title:string,filter:boolean)=>{
         setSearchTitleEffect(title);
+        setFiltered(filter);
     }
 
 
@@ -88,7 +126,7 @@ const HomeUser = () => {
             </div>
         </div>
 
-        <button style={{position:"relative", left:"200px",right:"200px",background:'red',width:"100px",height:"100px"}} >{error}</button>
+        {/*<button style={{position:"relative", left:"200px",right:"200px",background:'red',width:"100px",height:"100px"}} >{error}</button>*/}
         <ToastContainer />
     </div>;
 };

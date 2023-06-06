@@ -105,6 +105,8 @@ const RepositoryView = () => {
                 </div>
                 <div className={styles.info}>
                     <Avatar user={false} effect={effect}></Avatar>
+                    <div className={styles.name}>{effect.name}</div>
+                    <div className={styles.description}>{effect.description}</div>
                 </div>
                 <div className={styles.code} onClick={()=>window.scrollTo(0, 500)}>
                      <CodeDisplay rep={true}></CodeDisplay>

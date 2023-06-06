@@ -57,6 +57,7 @@ const Preview = ({checkEffect}) => {
             setEffectTitle(effect.name);
             setEffectDescription(effect.description);
             setCombobox(options[effect.typeeffect_id-1]);
+            console.log(combobox);
         }
 
     },[]);
@@ -69,7 +70,7 @@ const Preview = ({checkEffect}) => {
         }
         else{
 
-            // const matches = (options.filter(s => s.includes(combobox)));
+
              const result=await API.user.createRepository({name:effectTitle,description:effectDescription,html:html,css:css,js:js,typeeffect_id:options.indexOf(combobox)+1,account_id:user.id});
         }
     }
