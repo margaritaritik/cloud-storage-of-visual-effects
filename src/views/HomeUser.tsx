@@ -15,7 +15,7 @@ const HomeUser = () => {
     const [isLogged, setLogged] = useState(false);
     const [effect,setEffect]=useState<{}[]>();
     const [ava,setAva]=useState("http://127.0.0.1:9003/image/avatar.svg");
-    const [filtered,setFiltered]=useState(false);
+    const [filtered,setFiltered]=useState({});
     const customToast = (mass:string) =>
         toast(mass, {
             backgroundColor: '#8329C5',
@@ -63,8 +63,10 @@ const HomeUser = () => {
 
     const getFiltered = () => {
         let filteredList1 = [...effects];
+
         if(searchTitleEffect.length>0)
         {
+            console.log("search");
             filteredList1= filteredList1.filter(obj => (obj.name).includes(searchTitleEffect));
         }
         else if(searchTitleEffect.length===0){
@@ -98,16 +100,13 @@ const HomeUser = () => {
             });
             console.log(filteredList1);
         }
-        else if(!filterEffects.filter1 && !filterEffects.filter2 && !filterEffects.filter3 && !filterEffects.filter4){
-            filteredList1= [...effects];
-            console.log("noooo");
-        }
-        console.log("noooo filtered");
+
+        // console.log("noooo filtered");
         return filteredList1;
 
     }
 
-    const searchTitle=(title:string,filter:boolean)=>{
+    const searchTitle=(title:string,filter:object)=>{
         setSearchTitleEffect(title);
         setFiltered(filter);
     }

@@ -18,7 +18,7 @@ const Menu = ({SearchFilter}) => {
     const FilterClick=()=>{
         console.log(`filt ${options}`);
         localStorage.setItem('filter',JSON.stringify(options));
-        SearchFilter(true);
+        SearchFilter(options);
         setCheck(false);
     }
 

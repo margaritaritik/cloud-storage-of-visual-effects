@@ -6,7 +6,7 @@ import Menu from './menu';
 const Search = ({searchTitle}) => {
 
     const [title, setTitle] = useState('');
-    const [filtered, setFiltered] = useState(false);
+    const [filtered, setFiltered] = useState({});
     const search=(event)=>{
         setTitle(event.target.value)
     }
