@@ -1,6 +1,8 @@
-import { FormEvent, useState } from "react";
-import styles from "../styles/input/stylesloginInput.module.css";
+import React, { FormEvent, useState } from "react";
+import styles from "./LoginForm.module.css";
 import stylesView from "../styles/views/stylesViewsLoginRegistration.module.css";
+import TextField from "@material-ui/core/TextField";
+import {Button} from "@mui/material";
 
 export type LoginFormData = {
     login: string;
@@ -56,24 +58,32 @@ export default function LoginForm({onSubmit}: FormProps) {
 
     return <>
         <div className={stylesView.container}>
-            <h3>Авторизация</h3>
-            <form onSubmit={handleSubmit}>
-                <div className={styles.form_group}>
-                    <input defaultValue="login" value={login} onChange={e => setLogin(e.target.value)} placeholder="login" autoComplete="off"/>
+            <div className={styles.container}>
+            <h3>АВТОРИЗАЦИЯ</h3>
+            <form  onSubmit={handleSubmit}>
+                <div className={styles.textField}>
+                    <TextField name="title"
+                               type="text" value={login}
+                               label="логин" variant="outlined" onChange={e => setLogin(e.target.value)}/>
+                    {/*<input defaultValue="login" value={login} onChange={e => setLogin(e.target.value)} placeholder="login" autoComplete="off"/>*/}
                     {loginError && <div className={styles.error}> {loginError}
                     </div>}
-                    <label className={styles.form_label}>login</label>
+
                 </div>
-                <div className={styles.form_group}>
-                    <input defaultValue="password" type="password" value={password}
-                           onChange={e => setPassword(e.target.value)} placeholder="password" autoComplete="off"/>
+                <div className={styles.textField}>
+                    <TextField name="title"
+                               type="password" value={password}
+                               label="пароль" variant="outlined" onChange={e => setPassword(e.target.value)}/>
+                    {/*<input defaultValue="password" type="password" value={password}*/}
+                    {/*       onChange={e => setPassword(e.target.value)} placeholder="password" autoComplete="off"/>*/}
                         {passwordError && <div className={styles.error}>
                         {passwordError}
                     </div>}
-                    <label className={styles.form_label}>password</label>
+                    {/*<label className={styles.form_label}>password</label>*/}
                 </div>
-                <button type="submit">Войти</button>
+                <Button type="submit">Войти</Button>
             </form>
+            </div>
         </div>
     </>;
 }

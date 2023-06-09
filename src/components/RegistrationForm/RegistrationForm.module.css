@@ -1,0 +1,20 @@
+.error {
+    color: red;
+}
+
+.textField input{
+    padding: 15px 10px 15px 10px;
+}
+form .textField{
+    padding:10px ;
+}
+.container{
+    color: rgba(49, 113, 154, 0.66);
+}
+
+Button span{
+    background-color: rgba(168, 199, 194, 0.11);
+
+}
+
+

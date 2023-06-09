@@ -10,6 +10,7 @@ import ChangeUser from "../components/ChangeUser/ChangeUser";
 import Popup from 'reactjs-popup';
 import TextField from "@material-ui/core/TextField";
 import UploadPhoto from "../components/UploadFile/UploadPhoto";
+import {Button} from "@mui/material";
 
 
 const AccountUser = () => {
@@ -21,7 +22,7 @@ const AccountUser = () => {
 
     const [name,setName]=useState("");
     const [test,setTest]=useState(true);
-    const [show,setShow]=useState(false);
+    const [account,setAccount]=useState(false);
     const [check,setCheck]=useState(false);
     const [changePass,setChangePass]=useState(false);
     const getStorageData = (keyName:string, defaultValue:string) =>{
@@ -33,12 +34,14 @@ const AccountUser = () => {
     const user=getStorageData('account','no');
     const login=getStorageData('user','no').user;
     const effects=getStorageData('effects','no');
-    if(user.id===login.id){
-        localStorage.setItem('account',JSON.stringify(login));
-    }
+
     useEffect(()=>{
        setLoginUser(login.name);
         setDescription(login.description);
+        if(user.id===login.id){
+            localStorage.setItem('account',JSON.stringify(login));
+            setAccount(true);
+        }
     },[])
 
     const createRep=()=>{
@@ -66,6 +69,11 @@ const AccountUser = () => {
 
     const ChangePassBtn = () => {
           setChangePass(true);
+
+
+    }
+    const ChangeUser = () => {
+        setChangePass(true);
 
 
     }
@@ -150,12 +158,14 @@ const AccountUser = () => {
 
 
                         }
+                        <Button onClick={ChangeUser}>Изменить</Button>
 
 
 
                     </div>
                 </Popup>
-                <button onClick={ChangeClick}>change</button>
+                {account && <button onClick={ChangeClick}>change</button>}
+
             </div>
             <div className={styles.effects}>
                 {/*<UploadFile></UploadFile>*/}

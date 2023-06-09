@@ -7,7 +7,7 @@ import Avatar from "../Avatar/Avatar";
 
 
 const Comment = ({comment}) => {
-    console.log(comment.id);
+    // console.log(comment.id);
     return (
         <>
           <div className={styles.container}>

@@ -57,7 +57,7 @@
 
     position: absolute;
     left: 0;
-    top: 620px;
+    top: 75vh;
     width: 100%;
     max-width: 700px;
     display: block;
@@ -84,11 +84,13 @@
 }
 
 .combobox{
-    margin-left: 20%;
+    margin-left: 21%;
     width: 500px;
+    position: absolute;
+    top: 10vh;
+    left: 2px;
 }
 .combobox div{
-
     width: 500px;
 }
 
@@ -102,8 +104,13 @@
 }
 
 
-.btn_create{
-
+.btn_create span{
+    color: #00ffea;
+    background-color: rgba(206, 253, 253, 0.32);
+}
+.btn_create {
+    color: #a600cb;
+    /*background-color: rgba(206, 253, 253, 0.32);*/
 }
 
 .modal{

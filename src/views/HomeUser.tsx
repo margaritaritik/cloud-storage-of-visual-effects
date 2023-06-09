@@ -32,7 +32,7 @@ const HomeUser = () => {
 
 
     useEffect(() => {
-         window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
         localStorage.setItem('filter',JSON.stringify({filter1:false, filter2:false, filter3:false, filter4:false}));
         const userRequest = async () => {
             setLogged(false);
@@ -66,46 +66,33 @@ const HomeUser = () => {
 
         if(searchTitleEffect.length>0)
         {
-            console.log("search");
             filteredList1= filteredList1.filter(obj => (obj.name).includes(searchTitleEffect));
         }
         else if(searchTitleEffect.length===0){
             filteredList1= [...effects];
         }
         if(filterEffects.filter1){
-            console.log("filter1");
             filteredList1= filteredList1.filter(employee => {
                 return employee.typeeffect_id === 1;
             });
-            console.log(filteredList1);
         }
         else if(filterEffects.filter2){
-            console.log("filter2");
             filteredList1= filteredList1.filter(employee => {
                 return employee.typeeffect_id === 2;
             });
-            console.log(filteredList1);
         }
         else if(filterEffects.filter3){
-            console.log("filter3");
             filteredList1= filteredList1.filter(employee => {
                 return employee.typeeffect_id === 3;
             });
-            console.log(filteredList1);
         }
         else if(filterEffects.filter4){
-            console.log("filter4");
             filteredList1= filteredList1.filter(employee => {
                 return employee.typeeffect_id === 4;
             });
-            console.log(filteredList1);
         }
-
-        // console.log("noooo filtered");
         return filteredList1;
-
     }
-
     const searchTitle=(title:string,filter:object)=>{
         setSearchTitleEffect(title);
         setFiltered(filter);
@@ -121,7 +108,6 @@ const HomeUser = () => {
         <div>
             <div className={styles.effects}>
                 {getFiltered().map(item => <Effect effects={item} check={true}></Effect>)}
-
             </div>
         </div>
 

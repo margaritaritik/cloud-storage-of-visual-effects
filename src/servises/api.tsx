@@ -74,6 +74,14 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
+        getLikeRep: async () => {
+            const response = await fetch(`${BASE_URL}/getLikeRep`, {
+                credentials: "include",
+                method: "GET",
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
         getComments: async (effect_id:number) => {
             const response = await fetch(`${BASE_URL}/getComments/${effect_id}`, {
                 credentials: "include",

@@ -14,6 +14,7 @@ const RepositoryView = () => {
     const [comment,setComment]=useState("");
     const [comments,setComments]=useState<{}[]>();
     const [btn,setBtn]=useState(false);
+    const [error,setError]=useState("");
     const [visible,setVisible]=useState(false);
     const getStorageData = (keyName:string, defaultValue:string) =>{
         const savedItem = localStorage.getItem(keyName);
@@ -77,9 +78,12 @@ const RepositoryView = () => {
             if(comment!=""){
                 setTest(await API.user.comment({name:comment,account_id:user.id,effect_id:effect.id}));
                 setComment("");
+                setError("");
             }
             else{
+                setError("Введите комментарий!");
                 setBtn(true);
+
             }
 
         }catch (e) {
@@ -120,6 +124,9 @@ const RepositoryView = () => {
                         </TextField>
 
                         <Button onClick={CreateComment} className={styles.btn_comment}>отправить</Button>
+                        {error && <div className={styles.error}>
+                            {error}
+                        </div>}
                     </div>
 
                     <div className={styles.comment}>

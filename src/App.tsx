@@ -15,6 +15,7 @@ import HomeUser from "./views/HomeUser";
 import RepositoryView from './views/RepositoryView'
 import CreateRepository from "./views/CreateRepository";
  import ChangeRepository from "./views/ChangeRepository";
+import LikeRepositories from "./views/LikeRepositories";
 function App() {
   return <>
       <Routes>
@@ -28,6 +29,7 @@ function App() {
           <Route path='/account' element={<AccountUser/>}></Route>
           <Route path='/createrep' element={<CreateRepository></CreateRepository>}></Route>
           <Route path='/changerep' element={<ChangeRepository></ChangeRepository>}></Route>
+          <Route path='/like' element={<LikeRepositories></LikeRepositories>}></Route>
           <Route path="/repository/:id" element={<RepositoryView />}></Route>
       </Routes>
   </>;

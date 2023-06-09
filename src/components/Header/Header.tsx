@@ -4,7 +4,7 @@ import styles from './stylesHeader.module.css';
 // import logo from '../../imagesTest/logo.png';
 import {useNavigate} from "react-router-dom";
 import Avatar from "../Avatar/Avatar";
-import Menu from "../Menu/Menu";
+import Menu from "./menu";
 import {API} from "../../servises/api";
 
 
@@ -41,24 +41,21 @@ const Header = () => {
 
     return <>
             <div className={styles.container}>
-                <div className={styles.menu}>
-                    <button onClick={clickCreateRep}>Create repository</button>
-                </div>
+
                 <img className={styles.logo} src={`http://127.0.0.1:9003/image/ImagesForClient/logo.png`} alt="" onClick={clickLogo}/>
-                {/*<img className={styles.ava} src={user.srcImg} alt="" onClick={clickAva} />*/}
                 <div className={styles.ava} >
                     <div className={styles.menu_container}>
+                        <div className={styles.menu}>
+                        {/*<button onClick={clickCreateRep}>Create repository</button>*/}
+                        <Menu ></Menu>
+                        </div>
                         <button className={styles.menu_trigger} onMouseLeave={()=>{setHover(!hover)}}>
-                            {hover && <span>{user.name}</span>}
+                            {/*{hover && <span>{user.name}</span>}*/}
                             <img onClick={AvaClick} src={`${user.srcImg}`} alt="ava" />
                         </button>
+
                     </div>
-
-
-                    {/*<Avatar  effect={user} user={true}></Avatar>*/}
                 </div>
-
-
             </div>
         </>
 };

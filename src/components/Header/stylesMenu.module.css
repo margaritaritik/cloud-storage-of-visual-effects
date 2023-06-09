@@ -1,0 +1,129 @@
+.container{
+    position: relative;
+    left: 0;
+
+}
+.container_modal{
+    position: absolute;
+
+}
+Popup .popup-overlay{
+    position: absolute;
+}
+.modal{
+    position: absolute;
+    left: 25vw;
+    top: -35vh;
+
+    width:15vw;
+    height: 30vh;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+    animation: 400ms linear 0s  alternate modal-effect;
+    transform-origin:right;
+    z-index: 10000;
+
+}
+
+.modal ul{
+    padding-left: 5px;
+}
+
+.close{
+    display: none;
+    position: absolute;
+    left: 10vw;
+    top: -20vh;
+
+    width:20vw;
+    height: 40vh;
+    border-radius: 20px;
+    background-color: rgb(238, 0, 0);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.5);
+    animation: 600ms linear 0s  alternate modal-effect;
+    animation-direction: reverse;
+}
+.menu_btn{
+    position: absolute;
+    top: 0.8vh;
+    left: 1.7vw ;
+    width: 4vw;
+    height: 5vh;
+   border: none;
+
+
+}
+.menu_btn div{
+    content: "";
+    display: block;
+
+    width: 3vw;
+    margin: 5px 0 5px 0;
+    height: 0.6vh;
+    background: linear-gradient(90deg, rgba(17,218,221,1) 0%, rgba(68,163,232,1) 95%);
+    border-radius: 20px;
+
+}
+
+.menu_btn::after{
+    content: "";
+    display: block;
+    position: relative;
+    left: 1vw;
+    width: 2vw;
+    height: 0.6vh;
+    background: linear-gradient(90deg, rgba(17,218,221,1) 0%, rgba(68,163,232,1) 95%);
+    border-radius: 20px;
+}
+
+.menu_btn::before{
+    content: "";
+    display: block;
+    position: relative;
+    left: 1vw;
+    width: 2vw;
+    height: 0.6vh;
+    background: linear-gradient(90deg, rgba(17,218,221,1) 0%, rgba(68,163,232,1) 95%);
+    border-radius: 20px;
+}
+
+.menu {
+    width: 100%;
+    /*display: block;*/
+    color: black;
+    position: absolute;
+    text-align: center;
+
+}
+
+@keyframes modal-effect {
+    0% {
+        transform: scale(0);
+
+    }
+    50%{
+
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.menu button{
+
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+.check svg{
+   fill: #4cb2e5;
+}
+
+.check{
+    width: 50vw;
+    position: relative;
+    left: 1vw;
+    padding: 10px;
+
+}

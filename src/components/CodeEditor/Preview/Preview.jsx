@@ -6,6 +6,7 @@ import {API} from "../../../servises/api";
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {useNavigate} from "react-router-dom";
+import {Button} from "@mui/material";
 
 
 const Preview = ({checkEffect}) => {
@@ -139,9 +140,9 @@ const Preview = ({checkEffect}) => {
                     }
                 </div>
                 { checkEffect===false ? (<button className={styles.btn_create} onClick={BtnCreateClick}>Загрузить</button>):
-                    (<button className={styles.btn_create} onClick={BtnChangeClick}>Изменить</button>)
+                    (<Button className={styles.btn_create} onClick={BtnChangeClick}>Изменить</Button>)
                 }
-                {checkEffect && <button style={{width:'80px'}} onClick={deleteRep}>delete</button>
+                {checkEffect && <Button style={{width:'80px'}} onClick={deleteRep}>delete</Button>
                 }
 
                 <Popup open={check} closeOnDocumentClick onClose={closeModal}>

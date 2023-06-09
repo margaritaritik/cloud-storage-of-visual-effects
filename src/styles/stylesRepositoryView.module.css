@@ -85,6 +85,10 @@
 
 }
 
+.error{
+    color:red;
+}
+
 .comments{
     position: absolute;
     left: 23vw;
@@ -99,9 +103,11 @@
 .comment_title{
     width: 100%;
     height: 100%;
+    text-align: center;
     position: absolute;
-    left: -4vw;
-    top: 10vh;
+    /*left: -20vw;*/
+    top: 5vh;
+    padding-bottom: 100px;
 }
 .comments TextField{
     position: absolute;
@@ -115,7 +121,7 @@
 .btn_comment{
     /*background: #61dafb;*/
     position: absolute;
-    left: 48vw;
+    left: 2vw;
     top: 1vh;
     border-width: 1px;
     color: #31719a;
