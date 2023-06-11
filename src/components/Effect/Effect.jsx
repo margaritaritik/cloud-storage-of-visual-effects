@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styleEffect.module.css';
 import HeartBeatSpinner from "../tests effects/HeartBeatSpinner/HeartBeatSpinner";
 import BookSpinner from "../tests effects/BookSpinner/BookSpinner";
@@ -11,6 +11,14 @@ import Avatar from '../Avatar/Avatar';
 const Effect = ({effects,check}) => {
     const navigate = useNavigate();
     const [favorite,setFavorite]=useState(false);
+    const getStorageData = (keyName, defaultValue) =>{
+        const savedItem = localStorage.getItem(keyName);
+        // @ts-ignore
+        const parsedItem = JSON.parse(savedItem);
+        return parsedItem || defaultValue;
+    }
+    const user=getStorageData('user','no').user;
+    const favoriteRep=getStorageData('like','no')
     const ClickEffect=()=>{
         localStorage.setItem('selectedEffect',JSON.stringify(effects));
         setTimeout(() => {
@@ -26,18 +34,20 @@ const Effect = ({effects,check}) => {
     }
 
     const ClickFavorite=()=>{
-        localStorage.setItem('favorite',JSON.stringify(effects));
+
+        let arrFavorite=[...favoriteRep];
+
+        arrFavorite=arrFavorite.filter(employee => {
+            return employee.id !== effects.id;
+        })
+        console.log(arrFavorite);
+        localStorage.setItem('like',JSON.stringify(arrFavorite));
         setFavorite(!favorite);
-    }
 
-    const getStorageData = (keyName, defaultValue) =>{
-        const savedItem = localStorage.getItem(keyName);
-        // @ts-ignore
-        const parsedItem = JSON.parse(savedItem);
-        return parsedItem || defaultValue;
     }
-    const user=getStorageData('user','no').user;
+    useEffect(()=>{
 
+    },[])
 
 
     return <>

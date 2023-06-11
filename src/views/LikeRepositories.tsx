@@ -26,18 +26,16 @@ const LikeRepositories = () => {
                 <Typewriter
                 onInit={(typewriter)=> {
                     typewriter
-                        // .typeString("Welcomes You")
                         .typeString(`НЕТ ЭФФЕКТОВ!!!`)
                         .start();
                 }}
             /></div>;
-            // console.log("no");
+
         }
         return arrEffect;
     }
     useEffect(()=>{
-        // @ts-ignore
-        // setEffect(effects.map(item => <Effect effects={item} check={true}></Effect>));
+
     },[])
     // @ts-ignore
     return (
@@ -46,11 +44,6 @@ const LikeRepositories = () => {
             <div className={styles.container}>
                 {getEffects()}
             </div>
-
-            {/*{getFiltered().filter(item => item.id === user.id).map(filtered => (*/}
-            {/*    <Effect effects={filtered} check={true}></Effect>)*/}
-            {/*)}*/}
-            {/*{effect}*/}
         </div>
     );
 };
