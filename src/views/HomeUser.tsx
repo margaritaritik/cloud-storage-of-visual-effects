@@ -56,7 +56,7 @@ const HomeUser = () => {
                     for(let j=0;j<effects.length;j++) {
                         if (effects[j].id === result_like[i]) {
                             effectTest.push(effects[j])
-                             console.log(effects[j]);
+                             // console.log(effects[j]);
                         }
                      }
                      }

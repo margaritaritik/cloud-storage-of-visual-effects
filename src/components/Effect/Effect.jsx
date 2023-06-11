@@ -26,6 +26,10 @@ const Effect = ({effects,check}) => {
         }, 1000);
     }
 
+
+    // if(arrFavorite.length!==0){
+    //     console.log(effects);
+    // }
     const ClickChangeEffect=()=>{
         localStorage.setItem('selectedEffect',JSON.stringify(effects));
         setTimeout(() => {
@@ -40,11 +44,25 @@ const Effect = ({effects,check}) => {
         arrFavorite=arrFavorite.filter(employee => {
             return employee.id !== effects.id;
         })
-        console.log(arrFavorite);
+        // console.log(arrFavorite);
         localStorage.setItem('like',JSON.stringify(arrFavorite));
         setFavorite(!favorite);
 
     }
+    const FavoriteLike=()=>{
+        const result=false;
+        let arrFavorite=[...favoriteRep];
+        arrFavorite=arrFavorite.filter(employee => {
+            return employee.id === effects.id;
+
+        })
+        if (arrFavorite.length!==0){
+            return true;
+        }
+        return result;
+    }
+
+
     useEffect(()=>{
 
     },[])
@@ -60,14 +78,16 @@ const Effect = ({effects,check}) => {
                 <div className={styles.effectInfo}>
                     <Avatar effect={effects}></Avatar>
                     <p className={styles.nameEffect}>{effects.name}</p>
-                    {/*<div className={styles.like}>Like</div>*/}
                     {effects.account_id===user.id && <button className={styles.edit} onClick={ClickChangeEffect}>
                         <img src="http://127.0.0.1:9003/image/svg/edit.svg"/>
                     </button>
                     }
-                    <button  className={favorite ? styles.edit:styles.editFavorite} onClick={ClickFavorite}>
+                    {FavoriteLike() ? <button  className={ styles.editFavorite} onClick={ClickFavorite}>
                         <img src="http://127.0.0.1:9003/image/svg/favorite.svg"/>
-                    </button>
+                    </button>:
+                    <button  className={styles.edit} onClick={ClickFavorite}>
+                        <img src="http://127.0.0.1:9003/image/svg/favorite.svg"/>
+                    </button>}
 
                 </div>
             </div>
