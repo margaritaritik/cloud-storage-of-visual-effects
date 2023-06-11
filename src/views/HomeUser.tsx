@@ -14,6 +14,7 @@ const HomeUser = () => {
     const [error, setError] = useState("");
     const [isLogged, setLogged] = useState(false);
     const [effect,setEffect]=useState<{}[]>();
+    const [effectLike,setEffectLike]=useState<{}[]>();
     const [ava,setAva]=useState("http://127.0.0.1:9003/image/avatar.svg");
     const [filtered,setFiltered]=useState({});
     const customToast = (mass:string) =>
@@ -40,6 +41,8 @@ const HomeUser = () => {
             setError("");
             try {
                 const result=await API.user.getCurrentUser();
+                const result_like=await API.user.getLikeRep(result.user.id);
+                // console.log(result_like);
                 setResult(`Добро пожаловать,${result.user.name}!`);
                 customToast(`Добро пожаловать,${result.user.name}!`);
                 setAva(`${result.user.srcImg}`);
@@ -48,6 +51,17 @@ const HomeUser = () => {
                 let effects:{id:number,name:string,description:string,typeeffect_id:number,css:string,js:string,html:string,account_id:number,srcImg:string}[]=eff;
                 localStorage.setItem('user',JSON.stringify(result));
                 localStorage.setItem('effects',JSON.stringify(effects));
+                const effectTest = [];
+                 for(let i=0;i<result_like.length;i++){
+                    for(let j=0;j<effects.length;j++) {
+                        if (effects[j].id === result_like[i]) {
+                            effectTest.push(effects[j])
+                             console.log(effects[j]);
+                        }
+                     }
+                     }
+
+                localStorage.setItem('like',JSON.stringify(effectTest));
                 setEffect(effects.map(item => <Effect effects={item} check={true}></Effect>));
             } catch (e) {
                 if (e instanceof Error) {

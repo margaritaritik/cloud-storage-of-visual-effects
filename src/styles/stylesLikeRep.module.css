@@ -1,0 +1,15 @@
+.noEffect{
+    position: absolute;
+    color: rgba(28, 79, 98, 0.42);
+    font-size: 40px;
+
+    /*height: 100%;*/
+
+    top: 50vh;
+    left: 41vw;
+
+}
+
+.container{
+
+}

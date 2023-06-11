@@ -74,8 +74,8 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
-        getLikeRep: async () => {
-            const response = await fetch(`${BASE_URL}/getLikeRep`, {
+        getLikeRep: async (account_id:number) => {
+            const response = await fetch(`${BASE_URL}/likeRep/${account_id}`, {
                 credentials: "include",
                 method: "GET",
             });
