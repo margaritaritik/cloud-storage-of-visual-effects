@@ -35,12 +35,13 @@ const LikeRepositories = () => {
         return arrEffect;
     }
     useEffect(()=>{
-
+        window.scrollTo(0, 0);
     },[])
     // @ts-ignore
     return (
         <div>
             <Header></Header>
+            <div className={styles.title}>ИЗБРАННОЕ</div>
             <div className={styles.container}>
                 {getEffects()}
             </div>

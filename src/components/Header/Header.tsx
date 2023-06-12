@@ -22,7 +22,7 @@ const Header = () => {
 
     const clickLogo=()=>{
         // setTimeout(() => {
-            navigate("/");
+            navigate("/user");
         // }, 1000);
     }
     const clickAva=()=>{

@@ -13,3 +13,11 @@
 .container{
 
 }
+
+.title{
+    font-size: 35px;
+    position: absolute;
+    left: 44%;
+    color: rgba(76, 145, 175, 0.73);
+    top: 15vh;
+}
