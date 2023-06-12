@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import PreviewEffect from "./PreviewEffect";
 import {useParams} from 'react-router-dom';
 import Avatar from '../Avatar/Avatar';
+import {API} from "../../servises/api";
 
 const Effect = ({effects,check}) => {
     const navigate = useNavigate();
@@ -37,17 +38,25 @@ const Effect = ({effects,check}) => {
         }, 1000);
     }
 
-    const ClickFavorite=()=>{
+    const ClickFavorite=async ()=>{
 
         let arrFavorite=[...favoriteRep];
-
+        const result=await API.user.favoriteDelete(user.id,effects.id);
         arrFavorite=arrFavorite.filter(employee => {
             return employee.id !== effects.id;
         })
-        // console.log(arrFavorite);
+        console.log(arrFavorite);
         localStorage.setItem('like',JSON.stringify(arrFavorite));
         setFavorite(!favorite);
 
+    }
+    const ClickFavoriteTrue=async ()=>{
+        let arrFavorite=[...favoriteRep];
+        arrFavorite.push(effects);
+        const result=await API.user.favorite(user.id,effects.id);
+        // console.log(arrFavorite);
+        localStorage.setItem('like',JSON.stringify(arrFavorite));
+        setFavorite(!favorite);
     }
     const FavoriteLike=()=>{
         const result=false;
@@ -85,7 +94,7 @@ const Effect = ({effects,check}) => {
                     {FavoriteLike() ? <button  className={ styles.editFavorite} onClick={ClickFavorite}>
                         <img src="http://127.0.0.1:9003/image/svg/favorite.svg"/>
                     </button>:
-                    <button  className={styles.edit} onClick={ClickFavorite}>
+                    <button  className={styles.edit} onClick={ClickFavoriteTrue}>
                         <img src="http://127.0.0.1:9003/image/svg/favorite.svg"/>
                     </button>}
 

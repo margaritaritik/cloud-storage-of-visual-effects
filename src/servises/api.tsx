@@ -92,6 +92,33 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
+        favorite: async (account_id:number,effect_id:number) => {
+            const data={id_account:account_id,id_rep:effect_id};
+            console.log("likeRep");
+            const response = await fetch(`${BASE_URL}/like`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
+        favoriteDelete: async (account_id:number,effect_id:number) => {
+            const data={id_account:account_id,id_rep:effect_id};
+            const response = await fetch(`${BASE_URL}/favoriteDelete`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
 
         uploadFile:async (data: FormData) => {
             console.log(data);
