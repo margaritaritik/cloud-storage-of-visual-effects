@@ -34,7 +34,7 @@ const UploadFile = () => {
                 </div>
 
                 <input type="file" onChange={e=>setImg(e.target.files[0])} name="image"/>
-                <button className={styles.btn} onClick={sendFile}>Загрузить !!!</button>
+                <Button className={styles.btn} onClick={sendFile}>Загрузить !!!</Button>
                 <img src={`${avatar}`} alt="avatar"/>
 
             </div>

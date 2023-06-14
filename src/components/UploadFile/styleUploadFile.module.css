@@ -65,8 +65,8 @@
     font:bold 16px arial;
     text-align: center;
     text-decoration: none;
-    background: linear-gradient(to bottom, rgba(152, 255, 231, 0.01), rgba(77, 204, 193, 0.67)) repeat scroll 0 0 / 100% 200% rgba(26, 169, 231, 0.62);
-    border-radius: 30px;
+    /*background: linear-gradient(to bottom, rgba(152, 255, 231, 0.01), rgba(77, 204, 193, 0.67)) repeat scroll 0 0 / 100% 200% rgba(26, 169, 231, 0.62);*/
+    border-radius: 20px;
     animation: 2s linear 0s  alternate open-btn;
 }
 .btn:hover,.btn:focus{
@@ -85,15 +85,16 @@ input[type='file'] {
     color: transparent;
 }
 input[type=file]::file-selector-button{
-    padding: 7px;
+    padding: 10px;
     transform: scale(1);
-    color: #FFFFFF;
+    color: #1976d2;
     border-width: 0;
-    font:bold 16px arial;
+    font:16px arial;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
     text-align: center;
     text-decoration: none;
-    background: linear-gradient(to bottom, rgba(152, 255, 231, 0.01), rgb(79, 245, 255)) repeat scroll 0 0 / 100% 200% rgba(26, 169, 231, 0.62);
-    border-radius: 30px;
+    background: linear-gradient(to bottom, rgba(152, 255, 231, 0.01), rgba(175, 236, 255, 0.16)) repeat scroll 0 0 / 100% 200% rgba(176, 232, 232, 0.09);
+    border-radius: 5px;
 
 }
 

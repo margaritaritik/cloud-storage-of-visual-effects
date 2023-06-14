@@ -4,6 +4,8 @@ import axios from "axios";
 
 import logo from '../../imagesTest/logo.png'
 import {BASE_URL} from "../../servises/api";
+import {Button} from "@mui/material";
+import {Input} from "@material-ui/core";
 
 
 const UploadPhoto = () => {
@@ -45,7 +47,7 @@ const UploadPhoto = () => {
                 </div>
 
                 <input className={styles.inputUpload} title="" type="file" onChange={e=>setImg(e.target.files[0])} name="image"/>
-                <button className={styles.btn} onClick={sendFile}> Загрузить avatar!!!</button>
+                <Button className={styles.btn} onClick={sendFile}> Загрузить avatar!!!</Button>
             </div>
         </>
     );

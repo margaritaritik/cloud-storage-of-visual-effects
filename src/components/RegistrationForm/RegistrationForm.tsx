@@ -23,10 +23,10 @@ export default function RegistrationForm({onSubmit}: FormProps) {
     const isValid = (): boolean => {
         let result = true;
         setLoginError("");
-        // if (!/^([a-z0-9]{6,20})$/.test(login)) {
-        //     setLoginError("Логин должен содержать от 6 до 20 символов латинского алфавита и цифры.");
-        //     result = false;
-        // }
+        if (!/^([a-z0-9]{6,20})$/.test(login)) {
+            setLoginError("Логин должен содержать от 6 до 20 символов латинского алфавита и цифры.");
+            result = false;
+        }
 
         if (login.length === 0) {
             setLoginError("Логин не может быть пустым!");
@@ -103,6 +103,9 @@ export default function RegistrationForm({onSubmit}: FormProps) {
                 </div>
                 <Button type="submit">Войти</Button>
             </form>
+                <div className={styles.animation}>
+                    <img className={styles.ava} src={``} alt="ava" />
+                </div>
         </div>
         </div>
     </>;

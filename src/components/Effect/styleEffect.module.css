@@ -75,25 +75,6 @@
     margin: 10vw auto;
 
 }
-
-.effect{
-    position: relative;
-    display: flex;
-    background-color: rgba(172, 172, 172, 0);
-
-    width: 40vw;
-    height: 20vh;
-    /*margin: auto;*/
-    /*text-align: center;*/
-  border-radius: 40%;
-
-}
-
-
-
-.panel{
-
-}
 .effectInfo{
     position: absolute;
     width: 42vw;
@@ -112,6 +93,26 @@
 
 
 }
+
+.effect{
+    position: relative;
+    /*display: flex;*/
+    background-color: rgba(172, 172, 172, 0);
+    left:calc(0vw);
+    width: 42vw;
+    height: 20vh;
+    margin: auto;
+    text-align: center;
+  border-radius: 40%;
+
+}
+
+
+
+.panel{
+
+}
+
 .content{
     position: absolute;
     width: calc(42vw - 1px);

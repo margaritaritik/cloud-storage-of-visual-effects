@@ -164,7 +164,7 @@ const AccountUser = () => {
 
                     </div>
                 </Popup>
-                {account && <button onClick={ChangeClick}>change</button>}
+                {/*{account && <button onClick={ChangeClick}>change</button>}*/}
 
             </div>
             <div className={styles.effects}>

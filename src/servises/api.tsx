@@ -55,6 +55,42 @@ export const API = {
             await errorHandler(response);
             return await response.json();
         },
+        changeDescription: async (data: object) => {
+            const response = await fetch(`${BASE_URL}/changeDescription`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
+        changeLogin: async (data: object) => {
+            const response = await fetch(`${BASE_URL}/changeLogin`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
+        changePass: async (data: object) => {
+            const response = await fetch(`${BASE_URL}/changePass`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            await errorHandler(response);
+            return await response.json();
+        },
 
         getCurrentUser: async () => {
             console.log("user");

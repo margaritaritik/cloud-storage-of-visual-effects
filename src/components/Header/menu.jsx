@@ -10,6 +10,7 @@ import {useNavigate} from "react-router-dom";
 const Menu = () => {
     const navigate = useNavigate();
     const [check,setCheck]=useState(false);
+    const [changeInfo,setChangeInfo]=useState(false);
     const MenuClick=()=>{
         setCheck(true);
     }
@@ -21,7 +22,7 @@ const Menu = () => {
         navigate("/createrep");
     }
     const clickChange=()=>{
-        navigate("/like");
+        navigate("/changeInfo");
     }
     const clickLike=()=>{
         navigate("/like");

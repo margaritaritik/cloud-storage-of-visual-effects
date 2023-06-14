@@ -13,7 +13,7 @@ const Preview = ({checkEffect}) => {
     const navigate = useNavigate();
     const {html,css,js}=useContext(EditorContext);
     const options = ['прелоадер', 'трехмерный эффект', 'типографика',
-        'природный эффект'];
+        'природный эффект','другое'];
 
     const getStorageData = (keyName, defaultValue) =>{
         const savedItem = localStorage.getItem(keyName);
@@ -48,11 +48,6 @@ const Preview = ({checkEffect}) => {
         </html>`
     },[html,css,js]);
 
-
-    // if(checkEffect){
-    //     setEffectTitle(effect.name);
-    //     setEffectDescription(effect.description);
-    // }
     useEffect(()=>{
         if(checkEffect){
             setEffectTitle(effect.name);
@@ -70,9 +65,8 @@ const Preview = ({checkEffect}) => {
             setCheck(true);
         }
         else{
-
-
              const result=await API.user.createRepository({name:effectTitle,description:effectDescription,html:html,css:css,js:js,typeeffect_id:options.indexOf(combobox)+1,account_id:user.id});
+            navigate("/user");
         }
     }
 
@@ -82,7 +76,7 @@ const Preview = ({checkEffect}) => {
         }
         else{
             const result=await API.user.changeRepository({name:effectTitle,description:effectDescription,html:html,css:css,js:js,typeeffect_id:options.indexOf(combobox)+1,id:effect.id});
-            console.log(options.indexOf(combobox)+1);
+            navigate("/user");
         }
     }
     const closeModal = () => setCheck(false);
@@ -135,21 +129,22 @@ const Preview = ({checkEffect}) => {
                             }}
                             style={{ width: 230 }}
                             renderInput={(params) =>
-                                <TextField {...params} label="Тип эффекта 2" variant="outlined" />}
+                                <TextField {...params} label="Тип эффекта" variant="outlined" />}
                         /></div>)
                     }
                 </div>
-                { checkEffect===false ? (<button className={styles.btn_create} onClick={BtnCreateClick}>Загрузить</button>):
-                    (<Button className={styles.btn_create} onClick={BtnChangeClick}>Изменить</Button>)
+                { checkEffect===false ? (<Button className={styles.btn_create} onClick={BtnCreateClick}>Загрузить</Button>):
+                    (<Button className={styles.btn_change} onClick={BtnChangeClick}>Изменить</Button>)
                 }
-                {checkEffect && <Button style={{width:'80px'}} onClick={deleteRep}>delete</Button>
+                {checkEffect && <Button style={{width:'100px'}} className={styles.btn_delete} onClick={deleteRep}>УДАЛИТЬ ЭФФЕКТ</Button>
                 }
 
                 <Popup open={check} closeOnDocumentClick onClose={closeModal}>
                     <div className={styles.modal}>
-                        <a className={styles.close} onClick={closeModal}>
-                            &times;
-                        </a>
+                        {/*<a className={styles.close} onClick={closeModal}>*/}
+                        {/*    &times;*/}
+                        {/*</a>*/}
+                        <div className={styles.title_modal}>ПОЛЯ НЕ ЗАПОЛНЕНЫ !!!</div>
 
                     </div>
                 </Popup>

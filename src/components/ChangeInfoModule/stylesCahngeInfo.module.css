@@ -1,19 +1,12 @@
 .container{
     position: absolute;
     width: 100%;
-    /*height: 100%;*/
+    height: 100%;
 
     left: 0;
     top: 100px;
     /*background-color: #ffffff;*/
 
-}
-
-.account_info{
-    font-size: 35px;
-}
-.user_info{
-    font-size: 35px;
 }
 
 .container_all{
@@ -48,8 +41,8 @@
 .ava{
     width: 100%;
     height: 100%;
-    max-height: 450px;
-    max-width: 450px;
+    max-height: 300px;
+    max-width: 300px;
     /*border-radius: 40%;*/
     border-bottom-left-radius: 50%;
     border-top-left-radius: 30%;
@@ -140,12 +133,12 @@
 }
 .modal{
     position: relative;
-    top: 50px;
+    top: 5px;
     padding: 20px;
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
-    width: 500px;
-    height: 600px;
+    width: 700px;
+    height: 650px;
     /*transform: scale(0);*/
     /*box-shadow: 4px 3px 5px #98ffe7;*/
     box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.53);
@@ -153,15 +146,12 @@
     text-align: center;
     justify-content: center;
 }
-.effects{
-    /*position: relative;*/
-}
 
 .modal .input_title{
     /*margin-top: 20px;*/
     position: absolute;
     left: 0;
-    top: 35%;
+    top: 30%;
     padding: 20px;
     width: 100%;
     max-width: 500px;
@@ -169,13 +159,25 @@
     justify-content: center;
     /*background-color: red;*/
     /*max-width: 400px;*/
+}
+.input_title Button{
+   position: absolute;
+}
+.input_desc Button{
+    position: absolute;
+    margin-left: 50px;
+}
+.input_pass_two Button{
+    position: absolute;
+
+    margin-left: 50px;
 }
 
 .modal .input_desc{
     /*margin-top: 20px;*/
     position: absolute;
     left: 0;
-    top: 45%;
+    top: 40%;
     padding: 20px;
     width: 100%;
     max-width: 500px;
@@ -185,12 +187,11 @@
     /*max-width: 400px;*/
 }
 
-
-.modal .input_pass{
+.modal .input_old_pass{
     /*margin-top: 20px;*/
     position: absolute;
     left: 0;
-    top: 65%;
+    top: 60%;
     padding: 20px;
     width: 100%;
     max-width: 500px;
@@ -198,13 +199,48 @@
     justify-content: center;
     /*background-color: red;*/
     /*max-width: 400px;*/
+}
+.modal .input_pass{
+    /*margin-top: 20px;*/
+    position: absolute;
+    left: 0;
+    top: 70%;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    justify-content: center;
+    /*background-color: red;*/
+    /*max-width: 400px;*/
+}
+.error{
+    position: absolute;
+    top:92%;
+    color: red;
+}
+.input_pass_change{
+    position: absolute;
+    left: 20px;
+    top: 60%;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    justify-content: center;
+}
+.input_title Button{
+    margin-left: 50px;
+}
+
+.change Button{
+
 }
 
 .modal .input_pass_two{
     /*margin-top: 20px;*/
     position: absolute;
     left: 0;
-    top: 75%;
+    top: 80%;
     padding: 20px;
     width: 100%;
     max-width: 500px;
@@ -215,7 +251,7 @@
 }
 
 .textField{
-    color: red;
+    /*color: red;*/
 }
 
 .modal .upload{
@@ -251,7 +287,7 @@
         transform: scale(1);
         box-shadow: 5px 2px 5px rgba(0, 255, 255, 0.53);
         width: 500px;
-       height: 600px;
+        height: 600px;
     }
 }
 

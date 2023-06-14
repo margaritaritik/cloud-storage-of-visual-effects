@@ -105,19 +105,37 @@
 
 
 .btn_create span{
-    color: #00ffea;
-    background-color: rgba(206, 253, 253, 0.32);
+    /*color: #00ffea;*/
+    /*background-color: rgba(206, 253, 253, 0.32);*/
 }
 .btn_create {
-    color: #a600cb;
+    color: #0029cb;
+    position: absolute;
+    left: 61vw;
     /*background-color: rgba(206, 253, 253, 0.32);*/
+}
+.btn_delete{
+    position: absolute;
+    left: 58vw;
+    padding-bottom: 20px;
+}
+.btn_change{
+    position: absolute;
+    left: 51vw;
+    padding-bottom: 20px;
+}
+.title_modal{
+
 }
 
 .modal{
     /*width: 100px;*/
     /*height: 50px;*/
-    background: #61dafb;
+    background: rgba(15, 70, 87, 0.37);
     padding: 20px;
+    color: #0037ff;
+    border-radius: 20px;
+    box-shadow: 0px 5px 15px rgba(18, 40, 45, 0.44);
 }
 
 .close{
